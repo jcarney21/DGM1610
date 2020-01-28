@@ -27,7 +27,7 @@ public class Variables : MonoBehaviour
 
     private void Cookies (float amount, float money, float cost)
     {
-
+       
 
     }
     
