@@ -30,7 +30,7 @@ public class SpaceshipController : MonoBehaviour
         jumpInput = Input.GetAxis("Jump");
         turningInputY = Input.GetAxis("Mouse Y");
 
-        transform.Translate(Vector3.back * speed * Time.deltaTime * forwardInput);//Equal 2 (0, 0, .1f)
+        transform.Translate(Vector3.back * (speed/10f) * Time.deltaTime * (forwardInput + 2f));//Equal 2 (0, 0, .1f)
         transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime * spinInput);
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * turningInputX);
         transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime * jumpInput);
