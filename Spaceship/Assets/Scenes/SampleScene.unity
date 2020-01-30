@@ -126,10 +126,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   turnSpeed: 100
-  verticalSpeed: 10
-  verticalInput: 0
-  horizontalInput: 0
-  rightInput: 0
+  spinSpeed: 100
+  jumpSpeed: 5
+  forwardInput: 0
+  spinInput: 0
+  turningInputX: 0
+  turningInputY: 0
+  jumpInput: 0
 --- !u!54 &1058769860
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2678,10 +2681,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   turnSpeed: 100
-  verticalSpeed: 0
-  verticalInput: 0
-  horizontalInput: 0
-  rightInput: 0
+  spinSpeed: 0
+  jumpSpeed: 0
+  forwardInput: 0
+  spinInput: 0
+  turningInputX: 0
+  turningInputY: 0
+  jumpInput: 0
 --- !u!1 &7919007422867062421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,10 +2809,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   turnSpeed: 0
-  verticalSpeed: 0
-  verticalInput: 0
-  horizontalInput: 0
-  rightInput: 0
+  spinSpeed: 0
+  jumpSpeed: 0
+  forwardInput: 0
+  spinInput: 0
+  turningInputX: 0
+  turningInputY: 0
+  jumpInput: 0
 --- !u!1 &7919007422867062431
 GameObject:
   m_ObjectHideFlags: 0
