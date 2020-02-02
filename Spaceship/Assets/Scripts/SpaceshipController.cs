@@ -14,6 +14,8 @@ public class SpaceshipController : MonoBehaviour
     public float turningInputX;
     public float turningInputY;
     public float jumpInput;
+    public float health;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,5 +38,28 @@ public class SpaceshipController : MonoBehaviour
         transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime * jumpInput);
         transform.Rotate(Vector3.right * turnSpeed * Time.deltaTime * turningInputY);
         // x, y, z
+    }
+
+    // Detect Collision with another object
+    void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+
+            health = health - (30f/5f * (speed / 10f) * (forwardInput + 2f));
+
+            print(health);
+        }
+
+        else
+        {
+
+            health = health - (10f/5f * (speed / 10f) * (forwardInput + 2f));
+
+            print(health);
+
+        }
+
     }
 }
