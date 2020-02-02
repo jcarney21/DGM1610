@@ -38,6 +38,18 @@ public class SpaceshipController : MonoBehaviour
         transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime * jumpInput);
         transform.Rotate(Vector3.right * turnSpeed * Time.deltaTime * turningInputY);
         // x, y, z
+
+        if (1 > health)
+        {
+
+            speed = 0f;
+            turnSpeed = 0f;
+            spinSpeed = 0f;
+            jumpSpeed = 0f;
+
+            print("Game Over");
+
+        }
     }
 
     // Detect Collision with another object
@@ -47,19 +59,18 @@ public class SpaceshipController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
 
-            health = health - (30f/5f * (speed / 10f) * (forwardInput + 2f));
+            health = health - (40f/5f * (speed / 10f) * (forwardInput + 2f));
 
-            print(health);
+            print("Current HP: " + health);
         }
 
         else
         {
 
-            health = health - (10f/5f * (speed / 10f) * (forwardInput + 2f));
+            health = health - (20f/5f * (speed / 10f) * (forwardInput + 2f));
 
-            print(health);
+            print("Current HP: " + health);
 
         }
-
     }
 }
