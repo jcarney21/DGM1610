@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pointsystem : MonoBehaviour
+public class Pickup : MonoBehaviour
 {
 
-    public static int score;
- 
+    public int pointsToAdd;
 
     // Start is called before the first frame update
     void Start()
@@ -17,14 +16,18 @@ public class Pointsystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Current score: " + score);
-
+        
     }
 
-    public static void AddPoints(int pointsToAdd)
+    void OnTriggerEnter(Collider other)
     {
-        score = score + pointsToAdd;
 
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Pointsystem.AddPoints (pointsToAdd);
+            Destroy(gameObject);
+
+        }
 
     }
 }
