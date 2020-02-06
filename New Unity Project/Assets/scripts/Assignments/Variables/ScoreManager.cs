@@ -18,12 +18,13 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Game Score: " + score);
+        
     }
 
     public static void AddPoints(int pointsToAdd)
     {
         score += pointsToAdd;
+        Debug.Log("Game Score: " + score);
 
     }
 }
