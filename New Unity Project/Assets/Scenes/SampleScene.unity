@@ -910,6 +910,8 @@ MonoBehaviour:
   turnSpeed: 200
   verticalInput: 0
   horizontalInput: 0
+  projectilePrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
+    type: 3}
 --- !u!54 &840120299
 Rigidbody:
   m_ObjectHideFlags: 0
