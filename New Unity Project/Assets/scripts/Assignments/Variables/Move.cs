@@ -29,7 +29,7 @@ public class Move : MonoBehaviour
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
         // x, y, z
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
 
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
