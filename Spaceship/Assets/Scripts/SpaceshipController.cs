@@ -15,8 +15,7 @@ public class SpaceshipController : MonoBehaviour
     public float turningInputY;
     public float jumpInput;
     public float health;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +45,8 @@ public class SpaceshipController : MonoBehaviour
             turnSpeed = 0f;
             spinSpeed = 0f;
             jumpSpeed = 0f;
+            Destroy(gameObject);
+           
 
             print("Game Over");
 
@@ -59,7 +60,7 @@ public class SpaceshipController : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
 
-            health = health - (40f/5f * (speed / 10f) * (forwardInput + 2f));
+            health = health - (20 * (forwardInput + 2f));
 
             print("Current HP: " + health);
         }
@@ -67,7 +68,7 @@ public class SpaceshipController : MonoBehaviour
         else
         {
 
-            health = health - (20f/5f * (speed / 10f) * (forwardInput + 2f));
+            health = health - (10 * (forwardInput + 2f));
 
             print("Current HP: " + health);
 

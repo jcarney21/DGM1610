@@ -22,12 +22,11 @@ public class Pickup : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Player"))
-        {
-            Pointsystem.AddPoints (pointsToAdd);
+     
+            Pointsystem.AddPoints(pointsToAdd);
             Destroy(gameObject);
 
-        }
+       
 
     }
 }
