@@ -34,7 +34,7 @@ public class SpaceshipController : MonoBehaviour
         transform.Translate(Vector3.back * (speed/10f) * Time.deltaTime * (forwardInput + 2f));//Equal 2 (0, 0, .1f)
         transform.Rotate(Vector3.forward * spinSpeed * Time.deltaTime * spinInput);
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * turningInputX);
-        transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime * jumpInput);
+        transform.Translate(Vector3.up * jumpSpeed * Time.deltaTime *jumpInput);
         transform.Rotate(Vector3.right * turnSpeed * Time.deltaTime * turningInputY);
         // x, y, z
 
@@ -45,7 +45,8 @@ public class SpaceshipController : MonoBehaviour
             turnSpeed = 0f;
             spinSpeed = 0f;
             jumpSpeed = 0f;
-            Destroy(gameObject);
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            health = 0;
            
 
             print("Game Over");
