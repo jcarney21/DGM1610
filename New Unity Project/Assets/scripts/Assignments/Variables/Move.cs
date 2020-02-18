@@ -8,13 +8,16 @@ public class Move : MonoBehaviour
     public float turnSpeed;
     public float verticalInput;
     public float horizontalInput;
+    public int ammoMag;
+    public int ammoTotal;
+    
 
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ammoMag = 15;
     }
 
     // Update is called once per frame
@@ -29,10 +32,37 @@ public class Move : MonoBehaviour
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
         // x, y, z
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (ammoMag >= 1)
+            {
+                Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+                ammoMag = ammoMag - 1;
+                print("ammunition: " + ammoMag);
 
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+
+            }
+
+            else
+            {
+                print("No Ammo");
+
+            }
+            
+        }
+
+        if (ammoMag < 1)
+        {
+            if (ammoTotal >= 1)
+            {
+                ammoMag = 15;
+                ammoTotal = ammoTotal - 15;
+                print("ammunition: " + ammoMag);
+                print("Total Ammo: " + ammoTotal);
+
+
+            }
+         
 
         }
             //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
