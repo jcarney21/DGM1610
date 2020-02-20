@@ -8,6 +8,9 @@ public class Move : MonoBehaviour
     public float turnSpeed;
     public float verticalInput;
     public float horizontalInput;
+    public float strafeInput;
+    public float jumpInput;
+    public float jumpLimit;
     public int ammoMag;
     public static int ammoTotal;
     
@@ -19,21 +22,33 @@ public class Move : MonoBehaviour
     {
         ammoMag = 15;
         ammoTotal = 15;
+        jumpLimit = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
         verticalInput = Input.GetAxis("Vertical");
-        horizontalInput = Input.GetAxis("Horizontal");
-
+        strafeInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("MouseX");
+        jumpInput = Input.GetAxis("Jump");
+        jumpLimit = jumpLimit - jumpInput;
         
         
         transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);//Equal 2 (0, 0, .1f)
+        transform.Translate(Vector3.left * speed * Time.deltaTime * strafeInput);
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
+        transform.Translate(Vector3.up * jumpInput * jumpLimit/10);
         // x, y, z
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpLimit = 10;
+
+
+        }
+
+        if (Input.GetButtonDown("Fire1"))
         {
             if (ammoMag >= 1)
             {
