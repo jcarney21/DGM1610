@@ -106,9 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 0
+  damage: 10
   moveSpeed: 5
   enemyHealth: 25
+  pointsToAdd: 25
 --- !u!54 &4222262000846100785
 Rigidbody:
   m_ObjectHideFlags: 0

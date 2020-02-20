@@ -132,14 +132,14 @@ public class Move : MonoBehaviour
     public static void AddHealth(int healthAmt)
     {
         health = health + healthAmt;
-
+        print("Current HP " + health);
 
     }
 
     public static void TakeDamage(int damage)
     {
         health = health - damage;
-        print("Currnet HP " + health);
+        print("Current HP " + health);
     }
 
     

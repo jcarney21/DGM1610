@@ -21,7 +21,7 @@ public class HealthPickup : Pickup
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("Current HP "+ Move.health);
+            
             Destroy(gameObject);
             Move.AddHealth(healthAmt);
 

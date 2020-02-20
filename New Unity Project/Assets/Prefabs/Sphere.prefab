@@ -110,6 +110,7 @@ MonoBehaviour:
   damage: 50
   moveSpeed: 6
   enemyHealth: 50
+  pointsToAdd: 50
 --- !u!54 &5572978091841213740
 Rigidbody:
   m_ObjectHideFlags: 0

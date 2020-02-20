@@ -8,6 +8,7 @@ public class EnemyMove : MonoBehaviour
     public int damage;
     public float moveSpeed;
     public float enemyHealth;
+    public int pointsToAdd;
     // Another Option is to set target as GameObject
 
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class EnemyMove : MonoBehaviour
         if (enemyHealth < 1)
         {
             Destroy(gameObject);
+            ScoreManager.AddPoints(pointsToAdd);
 
         }
     }
