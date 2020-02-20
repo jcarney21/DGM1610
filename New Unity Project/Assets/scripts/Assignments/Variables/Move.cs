@@ -9,7 +9,7 @@ public class Move : MonoBehaviour
     public float verticalInput;
     public float horizontalInput;
     public int ammoMag;
-    public int ammoTotal;
+    public static int ammoTotal;
     
 
     public GameObject projectilePrefab;
@@ -18,6 +18,7 @@ public class Move : MonoBehaviour
     void Start()
     {
         ammoMag = 15;
+        ammoTotal = 15;
     }
 
     // Update is called once per frame
@@ -36,8 +37,8 @@ public class Move : MonoBehaviour
         {
             if (ammoMag >= 1)
             {
-                Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
-                ammoMag = ammoMag - 1;
+                Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
+                 ammoMag = ammoMag - 1;
                 print("ammunition: " + ammoMag);
 
 
@@ -65,7 +66,15 @@ public class Move : MonoBehaviour
          
 
         }
-            //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
+        //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
+
+        
+    }
+
+    public static void AddAmmo(int ammoToAdd)
+    {
+        ammoTotal = ammoTotal + ammoToAdd;
+
 
     }
 

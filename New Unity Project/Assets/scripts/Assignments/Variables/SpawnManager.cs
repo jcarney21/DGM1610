@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         //int enemyIndex = Random.Range(0, enemyPrefabs.Length)
-
+        int enemyIndex = Random.Range(0, enemyPrefabs.Length);
         if (Input.GetKeyDown(KeyCode.E))
         {
             Instantiate(enemyPrefabs[enemyIndex], new Vector3(0, 0, 0), enemyPrefabs[enemyIndex].transform.rotation);
