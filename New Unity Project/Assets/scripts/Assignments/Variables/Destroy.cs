@@ -17,4 +17,20 @@ public class Destroy : MonoBehaviour
     {
         Destroy(gameObject, timeToDie);
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+
+        }
+
+        else
+        {
+            Destroy(gameObject);
+
+        }
+        
+    }
 }

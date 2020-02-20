@@ -6,14 +6,20 @@ public class Move : MonoBehaviour
 {
     public float speed;
     public float turnSpeed;
+    public float verticalTurnSpeed;
     public float verticalInput;
     public float horizontalInput;
+    public float updownInput;
     public float strafeInput;
-    public float jumpInput;
-    public float jumpLimit;
     public int ammoMag;
     public static int ammoTotal;
-    
+    public bool isGrounded;
+    public float jumpHeight;
+    public static int health;
+    public int maxHealth;
+
+
+  
 
     public GameObject projectilePrefab;
 
@@ -22,32 +28,49 @@ public class Move : MonoBehaviour
     {
         ammoMag = 15;
         ammoTotal = 15;
-        jumpLimit = 10;
+        health = maxHealth;
+        
+     
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Inputs
         verticalInput = Input.GetAxis("Vertical");
         strafeInput = Input.GetAxis("Horizontal");
-        horizontalInput = Input.GetAxis("MouseX");
-        jumpInput = Input.GetAxis("Jump");
-        jumpLimit = jumpLimit - jumpInput;
-        
-        
-        transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);//Equal 2 (0, 0, .1f)
-        transform.Translate(Vector3.left * speed * Time.deltaTime * strafeInput);
-        transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
-        transform.Translate(Vector3.up * jumpInput * jumpLimit/10);
-        // x, y, z
+        horizontalInput = Input.GetAxis("Mouse X");
+        updownInput = Input.GetAxis("Mouse Y");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // transformations
+        transform.Translate(Vector3.forward * speed * Time.deltaTime * verticalInput);//Equal 2 (0, 0, .1f)
+        transform.Translate(Vector3.right * speed * Time.deltaTime * strafeInput);
+        transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
+        //transform.Rotate(Vector3.left * verticalTurnSpeed * Time.deltaTime * updownInput);
+
+        
+        //Jump
+        if (Input.GetKey(KeyCode.Space))
         {
-            jumpLimit = 10;
+            if (jumpHeight > 0)
+            {
+                jumpHeight = jumpHeight - Time.deltaTime;
+
+            }
+            transform.Translate(Vector3.up * jumpHeight);
 
 
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpHeight = .3f;
+
+        }
+
+        // x, y, z
+
+        //Firing and Ammo
         if (Input.GetButtonDown("Fire1"))
         {
             if (ammoMag >= 1)
@@ -83,7 +106,20 @@ public class Move : MonoBehaviour
         }
         //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
 
-        
+        if (health <= 0)
+        {
+
+            speed = 0;
+            turnSpeed = 0;
+            print("Game Over");
+
+        }
+
+        if (health >= maxHealth)
+        {
+            health = maxHealth;
+
+        }
     }
 
     public static void AddAmmo(int ammoToAdd)
@@ -93,6 +129,20 @@ public class Move : MonoBehaviour
 
     }
 
+    public static void AddHealth(int healthAmt)
+    {
+        health = health + healthAmt;
+
+
+    }
+
+    public static void TakeDamage(int damage)
+    {
+        health = health - damage;
+        print("Currnet HP " + health);
+    }
+
+    
 
     // Detect collision with another object
     /*void OnCollisionEnter(Collision other){

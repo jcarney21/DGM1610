@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthPickup : Pickup
 {
-    public int healthAmt = 100;
+    public int healthAmt = 50;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +19,14 @@ public class HealthPickup : Pickup
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("Current HP "+ Move.health);
+            Destroy(gameObject);
+            Move.AddHealth(healthAmt);
 
-        print("You Gained " + healthAmt + " Health");
-        Destroy(gameObject);
+        }
+        
     
     }
 }

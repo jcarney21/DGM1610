@@ -40,5 +40,12 @@ public class EnemyMove : MonoBehaviour
 
         }
 
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Move.TakeDamage(damage);
+
+
+        }
+
     }
 }
