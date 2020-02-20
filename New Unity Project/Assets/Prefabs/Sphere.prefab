@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5572978091841213740}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Ranged Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,13 @@ MonoBehaviour:
   moveSpeed: 6
   enemyHealth: 50
   pointsToAdd: 50
+  isRanged: 1
+  playerProximity: 0
+  enemyRange: 20
+  enemyCooldown: 0
+  enemyRof: 1
+  fireballPrefab: {fileID: 428064115737602964, guid: 9840859c5b3ed174cbfee2a773515a1b,
+    type: 3}
 --- !u!54 &5572978091841213740
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,7 +126,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869493151481938021}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0

@@ -22,7 +22,6 @@ public class AmmoPickup : Pickup
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            print("You gained " + ammoToAdd + " Ammo");
             Move.AddAmmo(ammoToAdd);
 
         }

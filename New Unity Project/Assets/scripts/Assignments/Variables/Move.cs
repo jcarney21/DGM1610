@@ -125,6 +125,7 @@ public class Move : MonoBehaviour
     public static void AddAmmo(int ammoToAdd)
     {
         ammoTotal = ammoTotal + ammoToAdd;
+        print("Ammo Total: " + ammoTotal);
 
 
     }

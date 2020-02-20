@@ -9,6 +9,13 @@ public class EnemyMove : MonoBehaviour
     public float moveSpeed;
     public float enemyHealth;
     public int pointsToAdd;
+
+    public bool isRanged;
+    public float playerProximity;
+    public float enemyRange;
+    public float enemyCooldown;
+    public float enemyRof;
+    public GameObject fireballPrefab;
     // Another Option is to set target as GameObject
 
     // Start is called before the first frame update
@@ -23,12 +30,32 @@ public class EnemyMove : MonoBehaviour
         transform.LookAt(target);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         target = GameObject.FindWithTag("Player").transform;
+        enemyCooldown += Time.deltaTime;
 
+        playerProximity = Vector3.Distance(target.position, transform.position);
 
         if (enemyHealth < 1)
         {
             Destroy(gameObject);
             ScoreManager.AddPoints(pointsToAdd);
+
+        }
+
+        if (playerProximity < enemyRange)
+        {
+            if (isRanged == true)
+            {
+                transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+                if (enemyCooldown >= enemyRof)
+                {
+                    Instantiate(fireballPrefab, transform.position, transform.rotation);
+                    enemyCooldown = 0;
+
+
+                }
+
+
+            }
 
         }
     }

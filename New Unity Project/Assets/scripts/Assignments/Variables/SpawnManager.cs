@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        autospawner = 16;
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class SpawnManager : MonoBehaviour
         int enemyIndex = Random.Range(0, enemyPrefabs.Length);
         int mediumIndex = Random.Range(0, mediumPrefabs.Length);
         int hardIndex = Random.Range(0, hardPrefabs.Length);
-        if (autospawner > 10f)
+        if (autospawner > 20f)
         {
             wave = wave + 1;
 
@@ -56,7 +56,7 @@ public class SpawnManager : MonoBehaviour
 
             }
         }
-        if (autospawner > 10.1f)
+        if (autospawner > 20.1f)
         {
             autospawner = 0;
 
