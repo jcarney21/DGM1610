@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
         //All of the waves and autospawner part
         if (autospawner > 20f)
         {
-            wave = wave + 1;
+            
             Instantiate(powerupPrefabs[powerupIndex], new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70)), powerupPrefabs[powerupIndex].transform.rotation);
 
             if (wave > 0)
@@ -77,7 +77,7 @@ public class SpawnManager : MonoBehaviour
         if (autospawner > 20.2f)
         {
             autospawner = 0;
-
+            wave = wave + 1;
 
         }
 

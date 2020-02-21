@@ -112,7 +112,7 @@ MonoBehaviour:
   pointsToAdd: 50
   isRanged: 1
   playerProximity: 0
-  enemyRange: 50
+  enemyRange: 30
   enemyCooldown: 0
   enemyRof: 1.5
   fireballPrefab: {fileID: 2988409870479159241, guid: e7c3b92a6c5fe444081581c76920725c,
