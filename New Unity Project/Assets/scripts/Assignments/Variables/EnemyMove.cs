@@ -58,6 +58,12 @@ public class EnemyMove : MonoBehaviour
             }
 
         }
+
+        if (playerProximity > 100)
+        {
+            Destroy(gameObject);
+
+        }
     }
 
     void OnCollisionEnter(Collision other)

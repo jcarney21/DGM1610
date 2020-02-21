@@ -6,6 +6,7 @@ public class Pickup : MonoBehaviour
 {
 
     public int pointsToAdd;
+    public float timeToDie;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,9 @@ public class Pickup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(gameObject, timeToDie);
+
+
     }
 
     void OnTriggerEnter(Collider Other)

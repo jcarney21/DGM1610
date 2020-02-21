@@ -18,6 +18,8 @@ public class Move : MonoBehaviour
     public static int health;
     public int maxHealth;
 
+    public float cooldown;
+    public float rof;
 
   
 
@@ -102,6 +104,40 @@ public class Move : MonoBehaviour
 
             }
          
+
+        }
+
+        //Automatic Rifle
+
+        if (cooldown < 1)
+        {
+            cooldown += Time.deltaTime;
+
+
+        }
+        if (Input.GetButton("Fire2"))
+        {
+            if (ammoMag >= 1)
+            {
+                if (cooldown > rof)
+                {
+                    Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
+                    ammoMag = ammoMag - 1;
+                    print("ammunition: " + ammoMag);
+                    cooldown = 0;
+
+
+                }
+
+
+            }
+
+            else
+            {
+                print("No Ammo");
+
+            }
+
 
         }
         //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
