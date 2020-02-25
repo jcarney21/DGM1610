@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    public Transform target;
+    //public GameObject player;
+    public Transform target; //used for transform.translate
     public int damage;
     public float moveSpeed;
     public float enemyHealth;
@@ -16,22 +17,28 @@ public class EnemyMove : MonoBehaviour
     public float enemyCooldown;
     public float enemyRof;
     public GameObject fireballPrefab;
+    //private Rigidbody enemyRb; //Velocity and Add Force examples
     // Another Option is to set target as GameObject
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //enemyRb = GetComponent<Rigidbody>();
+        //player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        //transforming.translate stuff
+
         transform.LookAt(target);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         target = GameObject.FindWithTag("Player").transform;
+
         enemyCooldown += Time.deltaTime;
 
+        //measures the object's distance from player
         playerProximity = Vector3.Distance(target.position, transform.position);
 
         if (enemyHealth < 1)
@@ -83,4 +90,11 @@ public class EnemyMove : MonoBehaviour
         }
 
     }
+
+    /*void FixedUpdate()
+    {
+        enemyRb.AddForce((player.transform.position - transform.position).normalized * moveSpeed);
+
+
+    } */
 }

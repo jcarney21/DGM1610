@@ -681,8 +681,8 @@ MonoBehaviour:
   - {fileID: 1092357298442399581, guid: 173a2289843902d40a29ffccf953e6e6, type: 3}
   - {fileID: 3501424405440612198, guid: 9c09294d79e219247af455a50c8fe4cb, type: 3}
   - {fileID: 3501424405440612198, guid: 9c09294d79e219247af455a50c8fe4cb, type: 3}
-  - {fileID: 4137052450907463824, guid: bd2d25e61f3f1b94184e04997ef9a5f8, type: 3}
-  - {fileID: 4137052450907463824, guid: bd2d25e61f3f1b94184e04997ef9a5f8, type: 3}
+  - {fileID: 3501424405440612198, guid: 9c09294d79e219247af455a50c8fe4cb, type: 3}
+  - {fileID: 3501424405440612198, guid: 9c09294d79e219247af455a50c8fe4cb, type: 3}
   - {fileID: 1092357298442399581, guid: 173a2289843902d40a29ffccf953e6e6, type: 3}
   - {fileID: 869493151481938021, guid: fda411fd63d25114a9c7834dee08f9d8, type: 3}
   - {fileID: 4853679017537558991, guid: 54132070af449fd4aa9d72544832c740, type: 3}
@@ -715,7 +715,7 @@ MonoBehaviour:
   autospawner: 0
   terrainGenerator: 0
   spawnNumber: 0
-  wave: 0
+  wave: 11
 --- !u!4 &1964190699
 Transform:
   m_ObjectHideFlags: 0
