@@ -10,6 +10,7 @@ public class EnemyMove : MonoBehaviour
     public float moveSpeed;
     public float enemyHealth;
     public int pointsToAdd;
+    public int damageTaken;
 
     public bool isRanged;
     public float playerProximity;

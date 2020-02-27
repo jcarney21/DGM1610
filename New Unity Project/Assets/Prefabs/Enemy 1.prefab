@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 10
-  moveSpeed: 14
+  moveSpeed: 6
   enemyHealth: 5
   pointsToAdd: 25
   isRanged: 0

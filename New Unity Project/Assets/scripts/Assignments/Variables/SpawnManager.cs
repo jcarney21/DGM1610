@@ -59,20 +59,20 @@ public class SpawnManager : MonoBehaviour
 
 
             }
-            else if (wave < 6)
+            else if (wave < 11)
             {
                 Instantiate(enemyPrefabs[enemyIndex], new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70)), enemyPrefabs[enemyIndex].transform.rotation);
                 
 
 
             }
-            else if (wave < 11)
+            else if (wave < 21)
             {
                 Instantiate(mediumPrefabs[mediumIndex], new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70)), enemyPrefabs[enemyIndex].transform.rotation);
                 
 
             }
-            else if (wave < 31)
+            else if (wave < 51)
             {
                 Instantiate(hardPrefabs[hardIndex], new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70)), enemyPrefabs[enemyIndex].transform.rotation);
                 
