@@ -21,25 +21,42 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        /*if (other.gameObject.CompareTag("Enemy"))
         {
             var hit = other.gameObject;
-            //var health = hit.GetComponent<EnemyHealth>();
+            var enemyHealth = hit.GetComponent<EnemyHealth>();
 
-            if (health != null)
+            if (enemyHealth != null)
             {
-                health.TakeDamage(damageToTake);
+                EnemyMove.TakeDamage(damageToTake);
                 Debug.Log("Ouch, you hit me!");
+                Destroy(gameObject);
 
+            } 
+
+          
+
+        }
+
+        else if (other.gameObject.CompareTag("Ranged Enemy"))
+        {
+            var hit = other.gameObject;
+            var enemyHealth = hit.GetComponent<EnemyHealth>();
+
+            if (enemyHealth != null)
+            {
+                EnemyMove.TakeDamage(damageToTake);
+                Debug.Log("Ouch, you hit me!");
+                Destroy(gameObject);
 
             }
 
-        }
+        }*/
 
 
     }
 
-    public int Calc(int num1, int num2)
+    /*public int Calc(int num1, int num2)
     {
         int total;
 
@@ -47,7 +64,7 @@ public class Bullet : MonoBehaviour
 
         return total;
 
-    }
+    }*/
 
     IEnumerator DestroyBullet()
     {

@@ -106,11 +106,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90d18f12d3e3ae4ba179720706889ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  target: {fileID: 0}
   damage: 0
   moveSpeed: 1
-  enemyHealth: 25
   pointsToAdd: 50
+  damageTaken: 0
+  health: 25
   isRanged: 1
   playerProximity: 0
   enemyRange: 30

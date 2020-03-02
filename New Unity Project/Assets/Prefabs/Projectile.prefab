@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2189045452478769629}
   - component: {fileID: 6642588302421437140}
   - component: {fileID: 8235654039744537770}
+  - component: {fileID: 5173743808207497180}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Bullet
@@ -136,3 +137,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDie: 1
+--- !u!114 &5173743808207497180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350767761932908331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0422bd740493d46840d9e50e2a17d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToTake: 25
+  time: 1

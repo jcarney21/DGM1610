@@ -29,8 +29,16 @@ public class EnemyProjectile : MonoBehaviour
 
         }
 
+        else if (other.gameObject.CompareTag("Enemy"))
+        {
+
+
+        }
+
         else if (other.gameObject.CompareTag("Ranged Enemy"))
         {
+
+
 
 
         }

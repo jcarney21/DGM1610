@@ -153,8 +153,9 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 100
   moveSpeed: 3
-  enemyHealth: 800
   pointsToAdd: 1000
+  damageTaken: 0
+  health: 800
   isRanged: 1
   playerProximity: 0
   enemyRange: 15
