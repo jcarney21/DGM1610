@@ -70,6 +70,13 @@ public class Move : MonoBehaviour
 
         }
 
+        /*if (isGrounded && Input.GetButtonDown("Jump"))
+        {
+            
+
+
+        }*/
+
         // x, y, z
 
         //Firing and Ammo

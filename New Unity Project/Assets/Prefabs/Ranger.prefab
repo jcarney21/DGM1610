@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3303204693321063770}
   - component: {fileID: 713712714038494876}
   - component: {fileID: 2703635653335862433}
+  - component: {fileID: 7576158007219834433}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Untagged
@@ -108,13 +109,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 0
-  moveSpeed: 1
+  moveSpeed: 6
+  enemyHealth: 25
   pointsToAdd: 50
   damageTaken: 0
   health: 25
   isRanged: 1
   playerProximity: 0
-  enemyRange: 30
+  enemyRange: 25
   enemyCooldown: 0
   enemyRof: 1.5
   fireballPrefab: {fileID: 2988409870479159241, guid: e7c3b92a6c5fe444081581c76920725c,
@@ -135,3 +137,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &7576158007219834433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092357298442399581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb344eb3f9af61e40a8d606d02278601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  spawnPoint: {fileID: 0}
+  pointsValue: 50

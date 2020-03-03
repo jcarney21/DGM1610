@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int currentHealth;
+    public static int currentHealth;
     public int maxHealth;
     public Transform spawnPoint;
-    public int pointsvalue;
+    public static int pointsToAdd;
+    public int pointsValue;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        //spawnPoint = GameObject.Find("SpawnPoint");
+        pointsToAdd = pointsValue;
     }
 
-    public void TakeDamage(int amount)
+    public static void TakeDamage(int amount)
     {
         currentHealth -= amount;
         if (currentHealth <= 0)
@@ -22,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
             currentHealth = 0;
             print("Enemy is dead");
             // Add points to score for killing enemy
-
+            ScoreManager.AddPoints(pointsToAdd);
         }
 
 
@@ -31,6 +34,11 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentHealth < 1)
+        {
+            //Destroy(gameObject);
+
+
+        }
     }
 }

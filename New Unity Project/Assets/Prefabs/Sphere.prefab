@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 869493151481938019}
   - component: {fileID: 869493151481938020}
   - component: {fileID: 5572978091841213740}
+  - component: {fileID: 883471606934629097}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Ranged Enemy
@@ -108,7 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 50
-  moveSpeed: 6
+  moveSpeed: 4
+  enemyHealth: 50
   pointsToAdd: 50
   damageTaken: 0
   health: 50
@@ -135,6 +137,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 3
+--- !u!114 &883471606934629097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869493151481938021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb344eb3f9af61e40a8d606d02278601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  spawnPoint: {fileID: 0}
+  pointsValue: 50
 --- !u!1 &3399658610229506546
 GameObject:
   m_ObjectHideFlags: 0

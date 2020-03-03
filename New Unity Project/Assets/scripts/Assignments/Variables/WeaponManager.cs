@@ -10,6 +10,7 @@ public class WeaponManager : MonoBehaviour
     public int ammoMax;
     public float fireCycle;
     public float rateOfFire;
+    public float proximityToPlayer;
 
 
     public bool autoFire;
@@ -53,6 +54,14 @@ public class WeaponManager : MonoBehaviour
 
                 }
 
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    isHoldingWeapon = false;
+
+
+
+                }
+
 
             }
 
@@ -60,7 +69,19 @@ public class WeaponManager : MonoBehaviour
 
         else if (isHoldingWeapon == false)
         {
+            if (proximityToPlayer < 2)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    isHoldingWeapon = true;
+                    isActiveWeapon = true;
 
+
+                }
+
+
+
+            }
 
 
         }

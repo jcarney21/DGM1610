@@ -21,14 +21,14 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        /*if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             var hit = other.gameObject;
             var enemyHealth = hit.GetComponent<EnemyHealth>();
 
             if (enemyHealth != null)
             {
-                EnemyMove.TakeDamage(damageToTake);
+                EnemyHealth.TakeDamage(damageToTake);
                 Debug.Log("Ouch, you hit me!");
                 Destroy(gameObject);
 
@@ -45,13 +45,13 @@ public class Bullet : MonoBehaviour
 
             if (enemyHealth != null)
             {
-                EnemyMove.TakeDamage(damageToTake);
+                EnemyHealth.TakeDamage(damageToTake);
                 Debug.Log("Ouch, you hit me!");
                 Destroy(gameObject);
 
             }
 
-        }*/
+        }
 
 
     }

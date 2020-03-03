@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 4853679017537558992}
   - component: {fileID: 4853679017537558993}
   - component: {fileID: 4853679017537558997}
+  - component: {fileID: 3594688479062249622}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Ranged Enemy
@@ -153,6 +154,7 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 100
   moveSpeed: 3
+  enemyHealth: 800
   pointsToAdd: 1000
   damageTaken: 0
   health: 800
@@ -179,3 +181,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &3594688479062249622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853679017537558991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb344eb3f9af61e40a8d606d02278601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 800
+  spawnPoint: {fileID: 0}
+  pointsValue: 1000
