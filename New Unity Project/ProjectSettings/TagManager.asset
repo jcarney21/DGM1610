@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Ranged Enemy
   - Enemy
+  - Weapon
   layers:
   - Default
   - TransparentFX

@@ -51,6 +51,7 @@ public class WeaponManager : MonoBehaviour
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
                         magazine -= 1;
                         fireCycle = 0;
+                        
 
                     }
 
@@ -61,10 +62,11 @@ public class WeaponManager : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Fire1"))
                     {
+                        print("transform(weapon): " + transform.position);
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
                         magazine -= 1;
                         fireCycle = 0;
-
+                        print(bulletPrefab);
                     }
 
 

@@ -26,6 +26,13 @@ public class Destroy : MonoBehaviour
 
         }
 
+        else if (other.gameObject.CompareTag("Weapon"))
+        {
+
+
+
+        }
+
         else
         {
             Destroy(gameObject);

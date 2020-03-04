@@ -84,6 +84,7 @@ public class Move : MonoBehaviour
         {
             if (ammoMag >= 1)
             {
+                print("transform(move): " + transform.position);
                 Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
                  ammoMag = ammoMag - 1;
                 print("ammunition: " + ammoMag);
