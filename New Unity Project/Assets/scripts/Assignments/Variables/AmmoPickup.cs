@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : Pickup
+public class AmmoPickup : MonoBehaviour
 {
 
     public int ammoToAdd;
@@ -22,8 +22,8 @@ public class AmmoPickup : Pickup
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Move.AddAmmo(ammoToAdd);
-
+            WeaponManager.ammoPickup(ammoToAdd);
+            Destroy(gameObject);
         }
         
 

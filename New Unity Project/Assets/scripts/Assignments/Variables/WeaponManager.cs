@@ -7,7 +7,7 @@ public class WeaponManager : MonoBehaviour
     public float weaponDmg;
     public int magazine;
     public int magazineMax;
-    public int ammoCarrying;
+    public static int ammoCarrying;
     public int ammoMax;
     public int spawnAmmo;
     public int magazineValue;
@@ -25,10 +25,12 @@ public class WeaponManager : MonoBehaviour
     public bool isActiveWeapon;
     public bool isHoldingWeapon;
     public bool isReloading;
+
+    public static bool canPickupAmmo;
     public GameObject bulletPrefab;
 
-    public Transform activeParent;
-    public Transform reserveParent;
+    //public Transform activeParent;
+    //public Transform reserveParent;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        canPickupAmmo = isActiveWeapon;
         //Data for firing weapon
         if (isActiveWeapon && isHoldingWeapon)
         {
@@ -170,19 +172,19 @@ public class WeaponManager : MonoBehaviour
         }
 
         // Data to determine if you are holding a weapon
-        activeParent = GameObject.FindWithTag("Active Slot").transform;
-        reserveParent = GameObject.FindWithTag("Reserve Slot").transform;
+        //activeParent = GameObject.FindWithTag("Active Slot").transform;
+        //reserveParent = GameObject.FindWithTag("Reserve Slot").transform;
 
         if (isActiveWeapon)
         {
-            gameObject.transform.SetParent(activeParent, false);
+            //gameObject.transform.SetParent(activeParent, false);
 
 
         }
 
         if (!isActiveWeapon)
         {
-            gameObject.transform.SetParent(reserveParent, false);
+            //gameObject.transform.SetParent(reserveParent, false);
 
 
 
@@ -195,8 +197,8 @@ public class WeaponManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     isActiveWeapon = true;
-                    gameObject.transform.SetParent(activeParent, false);
-
+                    //gameObject.transform.SetParent(activeParent, false);
+                    transform.Translate(0, 0, 2);
                 }
 
 
@@ -207,8 +209,8 @@ public class WeaponManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     isActiveWeapon = false;
-                    gameObject.transform.SetParent(reserveParent, false);
-
+                    //gameObject.transform.SetParent(reserveParent, false);
+                    transform.Translate(0, 0, -2);
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))
@@ -248,5 +250,16 @@ public class WeaponManager : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         
+    }
+
+    public static void ammoPickup(int ammoToAdd)
+    {
+        if (canPickupAmmo)
+        {
+            ammoCarrying = ammoCarrying + ammoToAdd;
+            print("Ammo Total: " + ammoCarrying);
+        }
+
+
     }
 }
