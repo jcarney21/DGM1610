@@ -11,10 +11,14 @@ public class Move : MonoBehaviour
     public float horizontalInput;
     public float updownInput;
     public float strafeInput;
+
     public int ammoMag;
     public static int ammoTotal;
+
     public bool isGrounded;
     public float jumpHeight;
+    private Rigidbody rb;
+
     public static int health;
     public int maxHealth;
 
@@ -31,7 +35,8 @@ public class Move : MonoBehaviour
         ammoMag = 15;
         ammoTotal = 15;
         health = maxHealth;
-        
+
+        rb = GetComponent<Rigidbody>();
      
     }
 
@@ -50,9 +55,19 @@ public class Move : MonoBehaviour
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
         //transform.Rotate(Vector3.left * verticalTurnSpeed * Time.deltaTime * updownInput);
 
-        
+
         //Jump
-        if (Input.GetKey(KeyCode.Space))
+
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpHeight * 1000 * Time.deltaTime * 100);
+
+
+
+        }
+
+        // Defunct Jump Code
+        /*if (Input.GetKey(KeyCode.Space))
         {
             if (jumpHeight > 0)
             {
@@ -68,7 +83,7 @@ public class Move : MonoBehaviour
         {
             jumpHeight = .3f;
 
-        }
+        }*/
 
         /*if (isGrounded && Input.GetButtonDown("Jump"))
         {
@@ -84,8 +99,8 @@ public class Move : MonoBehaviour
         {
             if (ammoMag >= 1)
             {
-                print("transform(move): " + transform.position);
-                Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
+                
+                //Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
                  ammoMag = ammoMag - 1;
                 print("ammunition: " + ammoMag);
 
@@ -129,7 +144,7 @@ public class Move : MonoBehaviour
             {
                 if (cooldown > rof)
                 {
-                    Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
+                    //Instantiate(projectilePrefab, transform.position, transform.rotation); //projectilePrefab.transform.rotation
                     ammoMag = ammoMag - 1;
                     print("ammunition: " + ammoMag);
                     cooldown = 0;
@@ -188,7 +203,50 @@ public class Move : MonoBehaviour
     }
 
     
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Obstacle"))
+        {
+            isGrounded = true;
 
+
+        }
+
+        else
+        {
+            
+
+
+        }
+
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+
+
+
+
+        }
+
+        else if (other.gameObject.CompareTag("Ranged Enemy"))
+        {
+
+
+
+
+        }
+
+        else
+        {
+            isGrounded = false;
+
+
+        }
+
+    }
     // Detect collision with another object
     /*void OnCollisionEnter(Collision other){
         
