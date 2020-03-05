@@ -95,7 +95,8 @@ public class Move : MonoBehaviour
         // x, y, z
 
         //Firing and Ammo
-        if (Input.GetButtonDown("Fire1"))
+
+        /*if (Input.GetButtonDown("Fire1"))
         {
             if (ammoMag >= 1)
             {
@@ -128,11 +129,11 @@ public class Move : MonoBehaviour
             }
          
 
-        }
+        }*/
 
         //Automatic Rifle
 
-        if (cooldown < 1)
+        /*if (cooldown < 1)
         {
             cooldown += Time.deltaTime;
 
@@ -162,7 +163,7 @@ public class Move : MonoBehaviour
             }
 
 
-        }
+        }*/
         //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
 
         if (health <= 0)
