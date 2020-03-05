@@ -173,6 +173,21 @@ public class WeaponManager : MonoBehaviour
         activeParent = GameObject.FindWithTag("Active Slot").transform;
         reserveParent = GameObject.FindWithTag("Reserve Slot").transform;
 
+        if (isActiveWeapon)
+        {
+            gameObject.transform.SetParent(activeParent, false);
+
+
+        }
+
+        if (!isActiveWeapon)
+        {
+            gameObject.transform.SetParent(reserveParent, false);
+
+
+
+        }
+
         if (isHoldingWeapon == true)
         {
             if (isActiveWeapon == false)
