@@ -27,6 +27,9 @@ public class WeaponManager : MonoBehaviour
     public bool isReloading;
     public GameObject bulletPrefab;
 
+    public Transform activeParent;
+    public Transform reserveParent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,11 +65,10 @@ public class WeaponManager : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Fire1"))
                     {
-                        print("transform(weapon): " + transform.position);
+                        
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
                         magazine -= 1;
                         fireCycle = 0;
-                        print(bulletPrefab);
                     }
 
 
@@ -168,6 +170,9 @@ public class WeaponManager : MonoBehaviour
         }
 
         // Data to determine if you are holding a weapon
+        activeParent = GameObject.FindWithTag("Active Slot").transform;
+        reserveParent = GameObject.FindWithTag("Reserve Slot").transform;
+
         if (isHoldingWeapon == true)
         {
             if (isActiveWeapon == false)
@@ -175,7 +180,7 @@ public class WeaponManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     isActiveWeapon = true;
-
+                    gameObject.transform.SetParent(activeParent, false);
 
                 }
 
@@ -187,7 +192,7 @@ public class WeaponManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     isActiveWeapon = false;
-
+                    gameObject.transform.SetParent(reserveParent, false);
 
                 }
 

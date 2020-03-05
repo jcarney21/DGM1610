@@ -17,9 +17,9 @@ public class EnemyHealth : MonoBehaviour
         pointsToAdd = pointsValue;
     }
 
-    public static void TakeDamage(int amount)
+    public static void TakeDamage(int damageToTake)
     {
-        currentHealth -= amount;
+        currentHealth -= damageToTake;
         if (currentHealth <= 0)
         {
             currentHealth = 0;

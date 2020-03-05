@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         StartCoroutine(DestroyBullet());
+        print("Bullet Spawned");
     }
 
     // Update is called once per frame

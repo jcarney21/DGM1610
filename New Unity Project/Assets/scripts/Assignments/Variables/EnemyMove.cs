@@ -27,7 +27,7 @@ public class EnemyMove : MonoBehaviour
     {
         //enemyRb = GetComponent<Rigidbody>();
         //player = GameObject.Find("Player");
-        enemyHealth = health;
+        enemyHealth = health;                                                           
     }
 
     // Update is called once per frame
@@ -78,6 +78,7 @@ public class EnemyMove : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+
         if (other.gameObject.CompareTag("Bullet"))
         {
             enemyHealth -= 25;
