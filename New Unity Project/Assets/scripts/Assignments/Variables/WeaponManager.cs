@@ -29,15 +29,17 @@ public class WeaponManager : MonoBehaviour
     public static bool canPickupAmmo;
     public GameObject bulletPrefab;
 
-    //public Transform activeParent;
-    //public Transform reserveParent;
+    public Transform activeSlot;
+    public Transform player;
+    public Transform reserveSlot;
+    private Rigidbody weaponRB;
 
     // Start is called before the first frame update
     void Start()
     {
         magazine = magazineMax;
         ammoCarrying = spawnAmmo;
-
+        weaponRB = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -135,9 +137,17 @@ public class WeaponManager : MonoBehaviour
 
         }
 
-        if (isReloading)
+        if (isReloading && isActiveWeapon)
         {
             reloadCycle += Time.deltaTime;
+
+
+        }
+
+        else if (isReloading && !isActiveWeapon)
+        {
+            reloadCycle = 0;
+            isReloading = false;
 
 
         }
@@ -172,8 +182,10 @@ public class WeaponManager : MonoBehaviour
         }
 
         // Data to determine if you are holding a weapon
-        //activeParent = GameObject.FindWithTag("Active Slot").transform;
-        //reserveParent = GameObject.FindWithTag("Reserve Slot").transform;
+        //proximityToPlayer = Vector3.Distance(player.position, transform.position);
+        activeSlot = GameObject.FindWithTag("Active Slot").transform;
+        player = GameObject.FindWithTag("Player").transform;
+        reserveSlot = GameObject.FindWithTag("Reserve Slot").transform;
 
         if (isActiveWeapon)
         {
@@ -198,7 +210,8 @@ public class WeaponManager : MonoBehaviour
                 {
                     isActiveWeapon = true;
                     //gameObject.transform.SetParent(activeParent, false);
-                    transform.Translate(0, 0, 2);
+                    transform.position = activeSlot.transform.position;
+                    transform.rotation = activeSlot.transform.rotation;
                 }
 
 
@@ -210,15 +223,15 @@ public class WeaponManager : MonoBehaviour
                 {
                     isActiveWeapon = false;
                     //gameObject.transform.SetParent(reserveParent, false);
-                    transform.Translate(0, 0, -2);
+                    transform.position = reserveSlot.transform.position;
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     isHoldingWeapon = false;
                     isActiveWeapon = false;
-
-
+                    gameObject.transform.parent = null;
+                    weaponRB.constraints = RigidbodyConstraints.None;
 
                 }
 
@@ -229,14 +242,16 @@ public class WeaponManager : MonoBehaviour
 
         else if (isHoldingWeapon == false)
         {
-            if (proximityToPlayer < 2)
+            if (proximityToPlayer < 3)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     isHoldingWeapon = true;
                     isActiveWeapon = true;
-
-
+                    gameObject.transform.SetParent(player);
+                    transform.position = activeSlot.transform.position;
+                    transform.rotation = activeSlot.transform.rotation;
+                    weaponRB.constraints = RigidbodyConstraints.FreezeAll;
                 }
 
 
