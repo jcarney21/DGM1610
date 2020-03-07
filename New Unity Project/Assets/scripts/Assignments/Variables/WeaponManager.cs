@@ -5,9 +5,9 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public float weaponDmg;
-    public int magazine;
+    private static int magazine;
     public int magazineMax;
-    public static int ammoCarrying;
+    private static int ammoCarrying;
     public int ammoMax;
     public int spawnAmmo;
     public int magazineValue;
@@ -27,6 +27,7 @@ public class WeaponManager : MonoBehaviour
     public bool isReloading;
 
     public static bool canPickupAmmo;
+    public static bool currentlyActive;
     public GameObject bulletPrefab;
 
     public Transform activeSlot;
@@ -45,6 +46,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentlyActive = isActiveWeapon;
         canPickupAmmo = isActiveWeapon;
         //Data for firing weapon
         if (isActiveWeapon && isHoldingWeapon)
@@ -58,7 +60,7 @@ public class WeaponManager : MonoBehaviour
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
                         magazine -= 1;
                         fireCycle = 0;
-                        
+                        print("Ammo in Mag: " + magazine);
 
                     }
 
@@ -73,6 +75,7 @@ public class WeaponManager : MonoBehaviour
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
                         magazine -= 1;
                         fireCycle = 0;
+                        print("Ammo in Mag: " + magazine);
                     }
 
 
@@ -97,7 +100,6 @@ public class WeaponManager : MonoBehaviour
 
             else if (isReloading)
             {
-                print("Reloading");
 
 
 
@@ -126,14 +128,14 @@ public class WeaponManager : MonoBehaviour
         if (magazine == 0 && ammoCarrying > 0)
         {
             isReloading = true;
-
+            print("Reloading");
 
         }
 
         if (Input.GetKeyDown("r") && ammoCarrying > 0 && magazine < magazineMax)
         {
             isReloading = true;
-
+            print("Reloading");
 
         }
 
@@ -170,7 +172,7 @@ public class WeaponManager : MonoBehaviour
             }
             ammoCarrying = ammoCarrying - (magazineMax - magazineValue);
             isReloading = false;
-
+            print("Ammunition: " + ammoCarrying);
 
         }
 
@@ -190,7 +192,15 @@ public class WeaponManager : MonoBehaviour
         if (isActiveWeapon)
         {
             //gameObject.transform.SetParent(activeParent, false);
+            if (magazine > magazineMax)
+            {
+                magazineValue = magazine;
+                magazine = magazineMax;
+                ammoCarrying += (magazineValue - magazineMax);
 
+
+
+            }
 
         }
 
