@@ -43,6 +43,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Inputs
         verticalInput = Input.GetAxis("Vertical");
         strafeInput = Input.GetAxis("Horizontal");
