@@ -184,10 +184,10 @@ public class WeaponManager : MonoBehaviour
         }
 
         // Data to determine if you are holding a weapon
-        //proximityToPlayer = Vector3.Distance(player.position, transform.position);
         activeSlot = GameObject.FindWithTag("Active Slot").transform;
         player = GameObject.FindWithTag("Player").transform;
         reserveSlot = GameObject.FindWithTag("Reserve Slot").transform;
+        proximityToPlayer = Vector3.Distance(player.position, transform.position);
 
         if (isActiveWeapon)
         {
