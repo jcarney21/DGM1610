@@ -16,9 +16,10 @@ GameObject:
   - component: {fileID: 6642588302421437140}
   - component: {fileID: 8235654039744537770}
   - component: {fileID: 5173743808207497180}
+  - component: {fileID: 5658185209276932611}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Bullet
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8350767761932908331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ba2379d9f9c4ae4c9843d4fd4f45f38, type: 3}
   m_Name: 
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8350767761932908331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ac24b0f6699f80419d5903fc34b9db8, type: 3}
   m_Name: 
@@ -144,10 +145,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8350767761932908331}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef0422bd740493d46840d9e50e2a17d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageToTake: 25
   time: 1
+--- !u!114 &5658185209276932611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8350767761932908331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724ab1a5ca541d242a29f0cfa0837c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 25
+  timeToDie: 2
+  velocity: 75
+  range: 0
