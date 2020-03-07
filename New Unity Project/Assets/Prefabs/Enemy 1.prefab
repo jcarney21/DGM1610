@@ -109,10 +109,11 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 10
   moveSpeed: 6
-  enemyHealth: 25
+  enemyHealth: 0
   pointsToAdd: 25
   damageTaken: 0
-  health: 20
+  spawnHealth: 25
+  lifetime: 0
   isRanged: 0
   playerProximity: 0
   enemyRange: 0

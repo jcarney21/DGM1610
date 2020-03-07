@@ -8,10 +8,11 @@ public class EnemyMove : MonoBehaviour
     public Transform target; //used for transform.translate
     public int damage;
     public float moveSpeed;
-    public /*static*/ int enemyHealth;
+    public int enemyHealth;
     public int pointsToAdd;
     public int damageTaken;
-    public int health;
+    public int spawnHealth;
+    public float lifetime;
 
     public bool isRanged;
     public float playerProximity;
@@ -27,14 +28,14 @@ public class EnemyMove : MonoBehaviour
     {
         //enemyRb = GetComponent<Rigidbody>();
         //player = GameObject.Find("Player");
-        enemyHealth = health;                                                           
+        enemyHealth = spawnHealth;                                                           
     }
 
     // Update is called once per frame
     void Update()
     {
+        lifetime += Time.deltaTime;
         //transforming.translate stuff
-
         transform.LookAt(target);
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         target = GameObject.FindWithTag("Player").transform;
@@ -81,7 +82,7 @@ public class EnemyMove : MonoBehaviour
 
         if (other.gameObject.CompareTag("Bullet"))
         {
-            enemyHealth -= 25;
+            //enemyHealth -= 25;
 
 
         }
@@ -92,6 +93,12 @@ public class EnemyMove : MonoBehaviour
 
 
         }
+
+    }
+
+    public void TakeDamage (int damage)
+    {
+        enemyHealth -= damage;
 
     }
 
