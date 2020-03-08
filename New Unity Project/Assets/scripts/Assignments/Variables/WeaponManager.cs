@@ -5,9 +5,9 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public float weaponDmg;
-    private static int magazine;
+    private int magazine;
     public int magazineMax;
-    private static int ammoCarrying;
+    public int ammoCarrying;
     public int ammoMax;
     public int spawnAmmo;
     public int magazineValue;
@@ -277,13 +277,12 @@ public class WeaponManager : MonoBehaviour
         
     }
 
-    public static void ammoPickup(int ammoToAdd)
+    public void AmmoPickup(int ammoToAdd)
     {
-        if (canPickupAmmo)
-        {
-            ammoCarrying = ammoCarrying + ammoToAdd;
-            print("Ammo Total: " + ammoCarrying);
-        }
+       
+       ammoCarrying = ammoCarrying + ammoToAdd;
+       print("Ammo Total: " + ammoCarrying);
+       
 
 
     }
