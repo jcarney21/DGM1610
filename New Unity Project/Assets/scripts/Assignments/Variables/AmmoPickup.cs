@@ -6,6 +6,7 @@ public class AmmoPickup : MonoBehaviour
 {
 
     public int ammoToAdd;
+    public GameObject weapon;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,20 @@ public class AmmoPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (other.gameObject.CompareTag("Player"))
         {
-            WeaponManager.ammoPickup(ammoToAdd);
-            Destroy(gameObject);
+            //WeaponManager.AmmoPickup(ammoToAdd);
+            //weapon = GameObject.FindWithTag("Weapon");
+           // WeaponManager wm = weapon.GetComponent<WeaponManager>();
+            //bool isActiveWeapon = weapon.GetComponent<WeaponManager>();
+
+            /*if (isActiveWeapon)
+            {
+                wm.AmmoPickup(ammoToAdd);
+
+
+            }*/
         }
         
 
