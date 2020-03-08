@@ -108,8 +108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  damage: 50
+  damage: 25
   moveSpeed: 4
+  enemyHealth: 0
   pointsToAdd: 50
   damageTaken: 0
   spawnHealth: 50
