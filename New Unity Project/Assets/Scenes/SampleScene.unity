@@ -400,7 +400,7 @@ MonoBehaviour:
   magazineMax: 6
   ammoCarrying: 0
   ammoMax: 30
-  spawnAmmo: 12
+  spawnAmmo: 30
   magazineValue: 0
   reloadCycle: 0
   reloadTime: 2
@@ -862,7 +862,7 @@ MonoBehaviour:
   magazineMax: 10
   ammoCarrying: 0
   ammoMax: 50
-  spawnAmmo: 20
+  spawnAmmo: 50
   magazineValue: 0
   reloadCycle: 0
   reloadTime: 2
@@ -1267,7 +1267,7 @@ MonoBehaviour:
   magazineMax: 60
   ammoCarrying: 0
   ammoMax: 300
-  spawnAmmo: 180
+  spawnAmmo: 300
   magazineValue: 0
   reloadCycle: 0
   reloadTime: 2
@@ -6761,7 +6761,7 @@ MonoBehaviour:
   magazineMax: 40
   ammoCarrying: 0
   ammoMax: 320
-  spawnAmmo: 120
+  spawnAmmo: 320
   magazineValue: 0
   reloadCycle: 0
   reloadTime: 2
@@ -6885,7 +6885,7 @@ MonoBehaviour:
   - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
   - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
   - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
-  - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
+  - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
   - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
   - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
   - {fileID: 3392871021677849456, guid: 6b73bb3a28ca4744c9d8f0e9e5efdce9, type: 3}
@@ -6908,7 +6908,7 @@ MonoBehaviour:
   autospawner: 0
   terrainGenerator: 0
   spawnNumber: 0
-  wave: 0
+  wave: 5
 --- !u!4 &1964190699
 Transform:
   m_ObjectHideFlags: 0

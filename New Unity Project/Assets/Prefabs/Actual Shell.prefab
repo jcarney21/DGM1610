@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
-  timeToDie: 1
+  timeToDie: 2
   velocity: 75
   range: 0
 --- !u!114 &8610119156485207666
