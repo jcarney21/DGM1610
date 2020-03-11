@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2611691504069280026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.7175791, y: 0.4676094, z: -18.26086}
-  m_LocalScale: {x: 0.47043, y: 0.47043, z: 0.47043}
+  m_LocalScale: {x: 0.24932788, y: 0.24932788, z: 0.24932788}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,6 +110,7 @@ MonoBehaviour:
   isLive: 0
   scattermin: 0
   scattermax: 360
+  timeToDie: 15
   shrapnelCount: 100
   shrapnel: {fileID: 2639951946215355482, guid: b0a1beac8fdd09b4b8dfa19c479d0a1d,
     type: 3}
