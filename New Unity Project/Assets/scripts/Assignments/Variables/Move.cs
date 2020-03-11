@@ -25,8 +25,8 @@ public class Move : MonoBehaviour
     public float cooldown;
     public float rof;
 
-  
 
+    public GameObject fragGrenade;
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
@@ -56,6 +56,14 @@ public class Move : MonoBehaviour
         transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime * horizontalInput);
         //transform.Rotate(Vector3.left * verticalTurnSpeed * Time.deltaTime * updownInput);
 
+        //Grenade
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Instantiate(fragGrenade, transform.position, transform.rotation);
+
+
+        }
 
         //Jump
 
