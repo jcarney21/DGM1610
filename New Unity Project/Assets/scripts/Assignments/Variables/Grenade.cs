@@ -11,6 +11,7 @@ public class Grenade : MonoBehaviour
 
     public float scattermin;
     public float scattermax;
+    public float timeToDie;
 
     public int shrapnelCount;
 
@@ -22,10 +23,12 @@ public class Grenade : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddRelativeForce(Vector3.forward * 1000 * Time.deltaTime * 20);
-        rb.AddForce(Vector3.up * 1000 * Time.deltaTime * 15);
+        rb.AddRelativeForce(Vector3.forward * 1000 * Time.deltaTime * 15);
+        rb.AddForce(Vector3.up * 1000 * Time.deltaTime * 10);
         countdown = timedFuse;
         isLive = false;
+
+        Destroy(gameObject, timeToDie);
     }
 
     // Update is called once per frame
@@ -42,8 +45,8 @@ public class Grenade : MonoBehaviour
         {
             for (int i = 0; i < shrapnelCount; i++)
             {
-                Instantiate(shrapnel, transform.position, transform.rotation * Quaternion.Euler(Random.Range(scattermin, scattermax), Random.Range(scattermin, scattermax), 0));
-                Instantiate(deadlyShrapnel, transform.position, transform.rotation * Quaternion.Euler(Random.Range(scattermin, scattermax), Random.Range(scattermin, scattermax), 0));
+                Instantiate(shrapnel, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range(scattermin, scattermax), 0));
+                Instantiate(deadlyShrapnel, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range(scattermin, scattermax), 0));
 
 
             }
