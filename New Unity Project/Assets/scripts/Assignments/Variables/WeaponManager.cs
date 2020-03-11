@@ -234,6 +234,7 @@ public class WeaponManager : MonoBehaviour
                     isActiveWeapon = false;
                     //gameObject.transform.SetParent(reserveParent, false);
                     transform.position = reserveSlot.transform.position;
+                    transform.rotation = reserveSlot.transform.rotation;
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))

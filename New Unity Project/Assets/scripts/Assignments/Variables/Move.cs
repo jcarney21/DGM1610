@@ -26,7 +26,7 @@ public class Move : MonoBehaviour
     public float rof;
 
 
-    public GameObject fragGrenade;
+    //public GameObject fragGrenade;
     public GameObject projectilePrefab;
 
     // Start is called before the first frame update
@@ -58,12 +58,12 @@ public class Move : MonoBehaviour
 
         //Grenade
 
-        if (Input.GetKeyDown(KeyCode.G))
+        /*if (Input.GetKeyDown(KeyCode.G))
         {
             Instantiate(fragGrenade, transform.position, transform.rotation);
 
 
-        }
+        }*/
 
         //Jump
 

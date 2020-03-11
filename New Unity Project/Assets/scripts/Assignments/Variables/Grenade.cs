@@ -22,8 +22,8 @@ public class Grenade : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.forward * 1000 * Time.deltaTime * 20);
-        rb.AddForce(Vector3.up * 1000 * Time.deltaTime * 10);
+        rb.AddRelativeForce(Vector3.forward * 1000 * Time.deltaTime * 20);
+        rb.AddForce(Vector3.up * 1000 * Time.deltaTime * 15);
         countdown = timedFuse;
         isLive = false;
     }

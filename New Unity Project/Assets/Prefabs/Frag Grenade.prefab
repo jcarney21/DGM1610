@@ -106,11 +106,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdown: 0
-  timedFuse: 1
+  timedFuse: 0.5
   isLive: 0
   scattermin: 0
   scattermax: 360
-  shrapnelCount: 40
+  shrapnelCount: 100
   shrapnel: {fileID: 2639951946215355482, guid: b0a1beac8fdd09b4b8dfa19c479d0a1d,
     type: 3}
   deadlyShrapnel: {fileID: 1295127275934967899, guid: 9b37ed722ebd9314aaabcfc80bb79770,
