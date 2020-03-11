@@ -105,6 +105,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  timeToDie: 0.2
-  velocity: 50
+  timeToDie: 0.5
+  velocity: 25
   range: 0

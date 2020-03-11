@@ -91,9 +91,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 724ab1a5ca541d242a29f0cfa0837c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
-  timeToDie: 0.1
-  velocity: 50
+  damage: 1
+  timeToDie: 0.2
+  velocity: 25
   range: 0
 --- !u!135 &7307886292149149404
 SphereCollider:

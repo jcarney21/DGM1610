@@ -59,6 +59,14 @@ public class WeaponProjectile : MonoBehaviour
 
         }
 
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Move.TakeDamage(damage);
+            Destroy(gameObject);
+
+
+        }
+
         /*else if (other.gameObject.CompareTag("Player"))
         {
 

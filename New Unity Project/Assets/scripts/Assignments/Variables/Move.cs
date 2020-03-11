@@ -20,14 +20,19 @@ public class Move : MonoBehaviour
     private Rigidbody rb;
 
     public static int health;
+    public static float shields;
+    public int maxShields;
     public int maxHealth;
+    public static float shieldCooldown;
+    public float rechargeDelay;
+    public int rechargeRate;
 
     public float cooldown;
     public float rof;
 
 
     //public GameObject fragGrenade;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,7 @@ public class Move : MonoBehaviour
         ammoMag = 15;
         ammoTotal = 15;
         health = maxHealth;
+        shields = maxShields;
 
         rb = GetComponent<Rigidbody>();
      
@@ -174,6 +180,20 @@ public class Move : MonoBehaviour
 
         }*/
         //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
+        if (shields < maxShields && shieldCooldown > rechargeDelay)
+        {
+            shields += Time.deltaTime;
+
+
+
+        }
+
+        if (shields == maxShields)
+        {
+            shieldCooldown = 0;
+
+
+        }
 
         if (health <= 0)
         {
@@ -208,8 +228,22 @@ public class Move : MonoBehaviour
 
     public static void TakeDamage(int damage)
     {
-        health = health - damage;
+        shieldCooldown += Time.deltaTime;
+        if (shields > 0)
+        {
+            shields = shields - damage;
+
+
+        }
+
+        else
+        {
+            health = health - damage;
+
+
+        }
         print("Current HP " + health);
+
     }
 
     

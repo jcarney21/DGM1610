@@ -265,7 +265,7 @@ public class WeaponManager : MonoBehaviour
                     weaponRB.constraints = RigidbodyConstraints.FreezeAll;
                 }
 
-
+                print("Press E to pick up " + gameObject.name);
 
             }
 
