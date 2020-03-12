@@ -24,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     {
         autospawner = 16;
         terrainGenerator = 0;
+
     }
 
     // Update is called once per frame
@@ -48,10 +49,21 @@ public class SpawnManager : MonoBehaviour
         int terrainIndex = Random.Range(0, terrainPrefabs.Length);
 
         //All of the waves and autospawner part
+
+        if (autospawner == 20f)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Instantiate(powerupPrefabs[powerupIndex], new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70)), powerupPrefabs[powerupIndex].transform.rotation);
+
+
+            }
+
+
+        }
+
         if (autospawner > 20f)
         {
-            
-            Instantiate(powerupPrefabs[powerupIndex], new Vector3(Random.Range(-70, 70), 0, Random.Range(-70, 70)), powerupPrefabs[powerupIndex].transform.rotation);
 
             if (wave < 0)
             {

@@ -26,6 +26,7 @@ public class Move : MonoBehaviour
     public static float shieldCooldown;
     public float rechargeDelay;
     public int rechargeRate;
+    public int shieldRecharges;
 
     public float cooldown;
     public float rof;
@@ -180,7 +181,17 @@ public class Move : MonoBehaviour
 
         }*/
         //GetKeyDown is a single input, Get key (or getdown, because I don't remember) continues each time it fires
-        if (shields < maxShields && shieldCooldown > rechargeDelay)
+        // Shielding
+        if (shields < maxShields && Input.GetKeyDown(KeyCode.LeftShift) && shieldRecharges > 0)
+        {
+            shields = maxShields;
+            shieldRecharges--;
+
+
+        }
+
+        // unused system for shield recharge
+        /*if (shields < maxShields && shieldCooldown > rechargeDelay)
         {
             shields += Time.deltaTime;
 
@@ -194,6 +205,14 @@ public class Move : MonoBehaviour
 
 
         }
+        else if (shields < maxShields)
+        {
+            shieldCooldown += Time.deltaTime;
+
+
+
+
+        }*/
 
         if (health <= 0)
         {
@@ -207,6 +226,13 @@ public class Move : MonoBehaviour
         if (health >= maxHealth)
         {
             health = maxHealth;
+
+        }
+
+        if (shields < 0)
+        {
+            shields = 0;
+
 
         }
     }
@@ -228,7 +254,7 @@ public class Move : MonoBehaviour
 
     public static void TakeDamage(int damage)
     {
-        shieldCooldown += Time.deltaTime;
+        shieldCooldown = 0;
         if (shields > 0)
         {
             shields = shields - damage;
@@ -243,6 +269,12 @@ public class Move : MonoBehaviour
 
         }
         print("Current HP " + health);
+
+    }
+
+    public void AddRecharge (int rechargeToAdd)
+    {
+        shieldRecharges += rechargeToAdd;
 
     }
 
