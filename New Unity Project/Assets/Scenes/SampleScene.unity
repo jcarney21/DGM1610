@@ -1173,6 +1173,7 @@ MonoBehaviour:
   maxHealth: 100
   rechargeDelay: 1
   rechargeRate: 10
+  shieldRecharges: 2
   cooldown: 0
   rof: 0.1
 --- !u!54 &840120299
@@ -6949,10 +6950,10 @@ MonoBehaviour:
   - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
   - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
   - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
-  - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
+  - {fileID: 7908514267505208176, guid: 153282eace3eb684c80cca227beb9d14, type: 3}
   - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
   - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
-  - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
+  - {fileID: 3392871021677849456, guid: 6b73bb3a28ca4744c9d8f0e9e5efdce9, type: 3}
   - {fileID: 3392871021677849456, guid: 6b73bb3a28ca4744c9d8f0e9e5efdce9, type: 3}
   terrainPrefabs:
   - {fileID: 2007301171846529088, guid: 242317ac322c75c4088aa5715df7c086, type: 3}

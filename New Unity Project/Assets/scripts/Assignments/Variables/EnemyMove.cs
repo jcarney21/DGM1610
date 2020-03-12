@@ -37,13 +37,20 @@ public class EnemyMove : MonoBehaviour
         lifetime += Time.deltaTime;
         //transforming.translate stuff
         transform.LookAt(target);
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        //transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         target = GameObject.FindWithTag("Player").transform;
 
         enemyCooldown += Time.deltaTime;
 
         //measures the object's distance from player
         playerProximity = Vector3.Distance(target.position, transform.position);
+        if (playerProximity > enemyRange)
+        {
+            transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
+
+
+        }
 
         if (enemyHealth < 1)
         {
@@ -56,7 +63,7 @@ public class EnemyMove : MonoBehaviour
         {
             if (isRanged == true)
             {
-                transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+                //transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
                 if (enemyCooldown >= enemyRof)
                 {
                     Instantiate(fireballPrefab, transform.position, transform.rotation);
