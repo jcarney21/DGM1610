@@ -220,6 +220,8 @@ public class Move : MonoBehaviour
             speed = 0;
             turnSpeed = 0;
             print("Game Over");
+            shieldRecharges = 0;
+            jumpHeight = 0;
 
         }
 

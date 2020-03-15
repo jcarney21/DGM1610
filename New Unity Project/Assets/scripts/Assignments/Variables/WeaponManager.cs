@@ -25,6 +25,7 @@ public class WeaponManager : MonoBehaviour
     public bool isActiveWeapon;
     public bool isHoldingWeapon;
     public bool isReloading;
+    public bool heldByEnemy;
 
     public static bool canPickupAmmo;
     public static bool currentlyActive;
@@ -284,6 +285,19 @@ public class WeaponManager : MonoBehaviour
        ammoCarrying = ammoCarrying + ammoToAdd;
        print("Ammo Total: " + ammoCarrying);
        
+
+
+    }
+
+    public void Fire()
+    {
+        if (fireCycle >= rateOfFire) //&& heldByEnemy)
+        {
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
+            fireCycle = 0;
+
+
+        }
 
 
     }
