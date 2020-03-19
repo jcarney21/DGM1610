@@ -25,6 +25,7 @@ public class AIWeaponuser : MonoBehaviour
     public bool targetingPlayer;
 
     public bool firing;
+    public bool turning;
     public float firingFrequency;
     public float firingCooldown;
 
@@ -32,30 +33,19 @@ public class AIWeaponuser : MonoBehaviour
     void Start()
     {
         status = 1;
+        InvokeRepeating("GuardingBehavior", 5, 5);
     }
 
     // Update is called once per frame
+
     void Update()
     {
         if (!awareOfPlayer)
         {
-            if (status == 1)
+            if (status == 1 && turning)
             {
                 int rotateDistance = Random.Range(-1, 1);
-                for (int i = 0; i < 10; i++)
-                {
-                    transform.Rotate(Vector3.up * turnSpeed/4 * rotateDistance);
-
-
-                }
-
-                for (int i = 0; i < 6; i += (int) Time.deltaTime)
-                {
-
-
-
-
-                }
+                transform.Rotate(Vector3.up * turnSpeed * rotateDistance);
 
 
 
@@ -95,5 +85,26 @@ public class AIWeaponuser : MonoBehaviour
             }
 
         }
+    }
+
+    void GuardingBehavior()
+    {
+
+        print("Turning");
+        float timer = 0;
+        while(timer < 2)
+        {
+            turning = true;
+            timer += Time.deltaTime;
+
+        }
+
+        while (timer >= 2)
+        {
+            turning = false;
+
+
+        }
+
     }
 }
