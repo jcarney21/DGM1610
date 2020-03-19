@@ -7,7 +7,10 @@ public class AIWeaponuser : MonoBehaviour
     public float weaponProximity;
     public Transform wepLocation;
     public Transform playerLocation;
+    public Transform patrolLocation;
     public float turnSpeed;
+    public float walkSpeed;
+    public float patrolDistance;
 
     public int status;
     private int guarding = 1;
@@ -28,12 +31,28 @@ public class AIWeaponuser : MonoBehaviour
     public bool turning;
     public float firingFrequency;
     public float firingCooldown;
+    public float firingDuration;
 
+    public int rotateDistance;
+    public bool walking;
     // Start is called before the first frame update
     void Start()
     {
-        status = 1;
-        InvokeRepeating("GuardingBehavior", 5, 5);
+        status = attacking;
+        if (status == guarding)
+        {
+            InvokeRepeating("GuardingBehavior", 5.0f, 3f);
+            walking = false;
+
+        }
+
+        if (status == patrolling)
+        {
+            walking = true;
+            InvokeRepeating("PatrollingBehavior", 0.1f, 3f);
+
+
+        }
     }
 
     // Update is called once per frame
@@ -42,10 +61,42 @@ public class AIWeaponuser : MonoBehaviour
     {
         if (!awareOfPlayer)
         {
-            if (status == 1 && turning)
+            var patrolPoint = GameObject.FindWithTag("PatrolPoint");
+            patrolLocation = patrolPoint.transform;
+            var proximity = Vector3.Distance(patrolLocation.position, transform.position);
+            if (status == guarding && turning)
             {
-                int rotateDistance = Random.Range(-1, 1);
-                transform.Rotate(Vector3.up * turnSpeed * rotateDistance);
+                
+                
+                transform.Rotate(Vector3.up * turnSpeed * rotateDistance/5);
+
+
+
+            }
+
+            if (status == patrolling && proximity < patrolDistance)
+            {
+                if (turning)
+                {
+
+                    transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
+
+
+                }
+
+                if (walking)
+                {
+                    transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
+
+
+
+                }
+
+            }
+            else if (status == patrolling && proximity > patrolDistance)
+            {
+                transform.LookAt(patrolLocation, Vector3.up * turnSpeed);
+                transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
 
 
 
@@ -57,9 +108,28 @@ public class AIWeaponuser : MonoBehaviour
         }
         else if (awareOfPlayer)
         {
+            if (status == attacking)
+            {
+                targetingPlayer = true;
+                firing = true;
+
+
+            }
+
+            else if (status == cautiousAttacking)
+            {
 
 
 
+            }
+            else if (status == defending)
+            {
+
+
+
+
+
+            }
 
         }
 
@@ -77,12 +147,31 @@ public class AIWeaponuser : MonoBehaviour
             weaponProximity = Vector3.Distance(wepLocation.position, transform.position);
             WeaponManager wm = weapon.GetComponent<WeaponManager>();
             //bool heldByEnemy = wm;
-            if (weaponProximity < 1 && firing)
+            if (weaponProximity < 2 && firingCooldown >= firingFrequency)
             {
                 wm.Fire();
 
+            }
+
+            else if (firingCooldown >= firingFrequency + firingDuration)
+            {
+                firingCooldown = 0;
+
+
 
             }
+
+
+
+
+        }
+
+
+        if (firing)
+        {
+            firingCooldown += Time.deltaTime;
+
+
 
         }
     }
@@ -91,20 +180,56 @@ public class AIWeaponuser : MonoBehaviour
     {
 
         print("Turning");
-        float timer = 0;
-        while(timer < 2)
+        //float timer = 0;
+        /*while(timer < 4.0f)
         {
             turning = true;
             timer += Time.deltaTime;
 
-        }
+        }*/
 
-        while (timer >= 2)
+        turning = !turning;
+        rotateDistance = Random.Range(-5, 5);
+    }
+
+    void PatrollingBehavior()
+    {
+        print("Patrolling");
+        turning = !turning;
+        walking = !walking;
+        rotateDistance = Random.Range(-5, 5);
+
+
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Player"))
         {
-            turning = false;
+
+
+
 
 
         }
+
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+
+
+
+
+        }
+
+        else
+        {
+            //walking = false;
+            //turning = true;
+
+
+
+        }
+
 
     }
 }

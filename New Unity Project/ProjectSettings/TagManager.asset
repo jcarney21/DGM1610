@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - Active Slot
   - Reserve Slot
+  - PatrolPoint
   layers:
   - Default
   - TransparentFX
