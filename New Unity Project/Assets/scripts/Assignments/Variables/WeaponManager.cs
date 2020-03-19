@@ -291,7 +291,7 @@ public class WeaponManager : MonoBehaviour
 
     public void Fire()
     {
-        if (fireCycle >= rateOfFire) //&& heldByEnemy)
+        if (fireCycle >= rateOfFire && heldByEnemy)
         {
             Instantiate(bulletPrefab, transform.position, transform.rotation);
             fireCycle = 0;

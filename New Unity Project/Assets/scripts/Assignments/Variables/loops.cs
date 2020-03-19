@@ -34,7 +34,7 @@ public class loops : MonoBehaviour
         } while (shouldContinue == true);*/
 
         //for each loop
-        string[] strings = new string[4];
+        string[] strings = new string[3];
         strings[0] = "First string";
         strings[1] = "Second string";
         strings[2] = "Third string";
