@@ -936,20 +936,28 @@ MonoBehaviour:
   wepLocation: {fileID: 0}
   playerLocation: {fileID: 0}
   patrolLocation: {fileID: 0}
-  turnSpeed: 1
+  turnSpeed: 0
   walkSpeed: 3
   patrolDistance: 15
-  status: 0
+  maxRange: 20
+  distanceFromPlayer: 0
+  firingFrequency: 1
+  firingDuration: 1
+  agressiveness: 2
+  rotateDistance: 0
+  walking: 1
+  protectingALocation: 1
+  sightDistance: 10
+  fieldOfViewRange: 45
+  forgetfulness: 5
+  status: 1
   awareOfPlayer: 1
-  canSeePlayer: 1
+  canSeePlayer: 0
   targetingPlayer: 0
   firing: 0
   turning: 0
-  firingFrequency: 1
   firingCooldown: 0
-  firingDuration: 1
-  rotateDistance: 0
-  walking: 1
+  awarenessCooldown: 0
 --- !u!65 &732990244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1017,7 +1025,7 @@ Transform:
   m_GameObject: {fileID: 732990242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.91, y: -0.46, z: -14.72}
-  m_LocalScale: {x: 1.4621, y: 1.4621, z: 1.4621}
+  m_LocalScale: {x: 1.3305111, y: 1.3305111, z: 1.3305111}
   m_Children:
   - {fileID: 671649371}
   m_Father: {fileID: 0}
