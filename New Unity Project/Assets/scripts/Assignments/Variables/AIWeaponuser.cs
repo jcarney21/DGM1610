@@ -4,26 +4,40 @@ using UnityEngine;
 
 public class AIWeaponuser : MonoBehaviour
 {
+    // this stuff decides what weapon it's holding
     public float weaponProximity;
     public Transform wepLocation;
     public Transform playerLocation;
     public Transform patrolLocation;
+
+    // basic unit data (this should eventually be the only public stuff, I think.)
+        //movement speed
     public float turnSpeed;
     public float walkSpeed;
-    public float patrolDistance;
-    public float maxRange;
-    public float distanceFromPlayer;
+        //firing behavior data
     public float firingFrequency;
     public float firingDuration;
+    public float maxRange;
+    public float meleeRange;
+        //personality
+    public float forgetfulness;
     public int agressiveness;
-    public int rotateDistance;
-    public bool walking;
+        //Orders
     public bool protectingALocation;
+    public float patrolDistance;
+    //Sight Data
     public float sightDistance;
     public float fieldOfViewRange;
-    public float forgetfulness;
-    public float meleeRange;
+        //health and shielding Data
+    public float maxHealth;
+    public float unitHealth;
+    
+    //directional and distance data
+    public float strafingDirection;
+    public int rotateDistance;
+    public float distanceFromPlayer;
 
+    // status data
     public int status;
     private int previousCondition;
     private int guarding = 1;
@@ -40,32 +54,44 @@ public class AIWeaponuser : MonoBehaviour
     public bool canSeePlayer;
     public bool targetingPlayer;
 
+    // what is it acting
+    public bool isRetreating;
+
     public Vector3 playersLastLocation;
 
+    public bool strafing;
     public bool firing;
     public bool turning;
+    public bool walking;
+    public bool hasAlreadyRetreated;
+
+    //cooldowns
     public float firingCooldown;
+    public float timeRetreating;
 
     public float awarenessCooldown;
     // Start is called before the first frame update
     void Start()
     {
         status = guarding;
-        if (status == guarding)
-        {
-            InvokeRepeating("GuardingBehavior", 5.0f, 3f);
-            walking = false;
+        
+        
+        InvokeRepeating("GuardingBehavior", 5.0f, 3f);            
+        
 
-        }
-
-        if (status == patrolling)
-        {
-            walking = true;
-            InvokeRepeating("PatrollingBehavior", 0.1f, 3f);
+        
+        
+        InvokeRepeating("PatrollingBehavior", 0.1f, 3f);
 
 
-        }
+        
         previousCondition = status;
+        InvokeRepeating("StrafingBehavior", 4f, 4f);
+        strafing = true;
+        walking = false;
+        turning = true;
+        hasAlreadyRetreated = false;
+
     }
 
     // Update is called once per frame
@@ -108,6 +134,7 @@ public class AIWeaponuser : MonoBehaviour
 
         }
 
+        // this decides when the AI forgets the player and moves to its previous status
         if (!canSeePlayer && awareOfPlayer)
         {
             awarenessCooldown -= Time.deltaTime;
@@ -184,23 +211,38 @@ public class AIWeaponuser : MonoBehaviour
             {
                 var playerHealth = Move.health;
                 var playerShields = Move.shields;
-                if (agressiveness > 10 || playerShields < 10)
+                if (agressiveness >= 8 || playerShields < 10 && !isRetreating)
                 {
                     status = attacking;
 
 
                 }
-
-                else if (agressiveness < 10 && playerShields > 10)
+                else if (agressiveness < 8 && playerShields > 10 && !isRetreating)
                 {
                     status = cautiousAttacking;
 
+                }
+                else if (((unitHealth/maxHealth) * 10) < agressiveness && !hasAlreadyRetreated)
+                {
+                    if (agressiveness > 5)
+                    {
+                        status = retreating;
+                        timeRetreating = (30 - agressiveness);
+                        hasAlreadyRetreated = true;
+                        isRetreating = true;
 
+                    }
+                    else if (agressiveness <= 4)
+                    {
+                        status = fleeing;
+                        timeRetreating = (30 - agressiveness);
+                        hasAlreadyRetreated = true;
+                        isRetreating = true;
+
+                    }
 
 
                 }
-
-
 
 
             }
@@ -217,7 +259,23 @@ public class AIWeaponuser : MonoBehaviour
                     if (distanceFromPlayer < maxRange)
                     {
                         firing = true;
+                        if (walking)
+                        {
+                            transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
 
+
+
+                        }
+
+                        else if (strafing)
+                        {
+
+                            transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection/2);
+
+
+
+
+                        }
 
 
 
@@ -261,7 +319,7 @@ public class AIWeaponuser : MonoBehaviour
                     {
                         if (turning)
                         {
-                            transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 3);
+                            transform.Rotate(Vector3.up * turnSpeed * rotateDistance);
 
 
 
@@ -279,7 +337,53 @@ public class AIWeaponuser : MonoBehaviour
 
             else if (status == cautiousAttacking) // this is for when the AI is in standard attack mode
             {
+                targetingPlayer = true;
+                playerLocation = GameObject.FindWithTag("Player").transform;
+                distanceFromPlayer = Vector3.Distance(playerLocation.position, transform.position);
 
+
+                if (distanceFromPlayer < maxRange && canSeePlayer)
+                {
+                    firing = true;
+                    if (walking)
+                    {
+                        
+
+
+
+                    }
+
+                    else if (strafing)
+                    {
+
+                        transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection / 2);
+
+
+
+
+                    }
+
+
+
+                }
+
+                else if (distanceFromPlayer > maxRange)
+                {
+                    firing = false;
+                    transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
+
+
+
+
+                }
+
+                else if (distanceFromPlayer < meleeRange)
+                {
+
+
+
+
+                }
 
 
             }
@@ -368,6 +472,75 @@ public class AIWeaponuser : MonoBehaviour
 
         }
 
+        // the info for what to do while retreating
+        if (status == retreating) 
+        {
+            timeRetreating -= Time.deltaTime;
+            playerLocation = GameObject.FindWithTag("Player").transform;
+            distanceFromPlayer = Vector3.Distance(playerLocation.position, transform.position);
+            if (distanceFromPlayer < maxRange)
+            {
+                targetingPlayer = true;
+                firing = true;
+                transform.Translate(Vector3.back * walkSpeed * Time.deltaTime);
+
+
+
+            }
+            else if (distanceFromPlayer >= maxRange)
+            {
+                targetingPlayer = false;
+                firing = false;
+                transform.Translate(Vector3.back * walkSpeed * Time.deltaTime);
+                transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection);
+
+            }
+            else if (distanceFromPlayer >= (maxRange + 15))
+            {
+                if (turning)
+                {
+                    transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
+
+
+
+                }
+
+
+
+            }
+
+            if (timeRetreating <= 0)
+            {
+                status = previousCondition;
+                isRetreating = false;
+
+
+
+            }
+
+        }
+        else if (status == fleeing) // the info for what to do while fleeing
+        {
+            timeRetreating -= Time.deltaTime;
+            transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
+            if (turning)
+            {
+                transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
+
+
+
+            }
+
+            if (timeRetreating <= 0)
+            {
+                status = previousCondition;
+                isRetreating = false;
+
+            }
+
+        }
+
+        // aims at player when targeting is true
         if (targetingPlayer)
         {
             transform.LookAt(playerLocation);
@@ -403,7 +576,7 @@ public class AIWeaponuser : MonoBehaviour
 
         }
 
-
+        // firing cooldown
         if (firing)
         {
             firingCooldown += Time.deltaTime;
@@ -415,26 +588,47 @@ public class AIWeaponuser : MonoBehaviour
 
     void GuardingBehavior()
     {
-
-        print("Turning");
-        //float timer = 0;
-        /*while(timer < 4.0f)
+        if (status == 1 || status == 6 || status == 7)
         {
-            turning = true;
-            timer += Time.deltaTime;
+            turning = !turning;
+            walking = !walking;
+            strafing = !strafing;
+            rotateDistance = Random.Range(-5, 5);
 
-        }*/
 
-        turning = !turning;
-        rotateDistance = Random.Range(-5, 5);
+        }
+        print("Turning");
     }
 
     void PatrollingBehavior()
     {
-        print("Patrolling");
-        turning = !turning;
-        walking = !walking;
+        if (status == 2 || status == 5)
+        {
+            print("Patrolling");
+            turning = !turning;
+            walking = !walking;
+            strafing = !strafing;
+
+
+
+        }
         rotateDistance = Random.Range(-5, 5);
+
+
+    }
+
+    void StrafingBehavior()
+    {
+        if (status == 3 || status == 4)
+        {
+            walking = !walking;
+            strafing = !strafing;
+            turning = !turning;
+            strafingDirection = Random.Range(-1, 1);
+
+
+        }
+
 
 
     }

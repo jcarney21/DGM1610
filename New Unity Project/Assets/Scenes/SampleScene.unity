@@ -938,27 +938,34 @@ MonoBehaviour:
   patrolLocation: {fileID: 0}
   turnSpeed: 1
   walkSpeed: 3
-  patrolDistance: 15
-  maxRange: 20
-  distanceFromPlayer: 0
   firingFrequency: 1
   firingDuration: 1
-  agressiveness: 11
-  rotateDistance: 0
-  walking: 1
+  maxRange: 20
+  meleeRange: 0
+  forgetfulness: 15
+  agressiveness: 6
   protectingALocation: 0
+  patrolDistance: 15
   sightDistance: 10
   fieldOfViewRange: 45
-  forgetfulness: 15
-  meleeRange: 0
+  maxHealth: 100
+  unitHealth: 60
+  strafingDirection: 0
+  rotateDistance: 0
+  distanceFromPlayer: 0
   status: 1
-  awareOfPlayer: 1
+  awareOfPlayer: 0
   canSeePlayer: 0
   targetingPlayer: 0
+  isRetreating: 0
   playersLastLocation: {x: 0, y: 0, z: 0}
+  strafing: 0
   firing: 0
   turning: 0
+  walking: 0
+  hasAlreadyRetreated: 0
   firingCooldown: 0
+  timeRetreating: 0
   awarenessCooldown: 0
 --- !u!65 &732990244
 BoxCollider:
@@ -1041,7 +1048,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732990242}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
