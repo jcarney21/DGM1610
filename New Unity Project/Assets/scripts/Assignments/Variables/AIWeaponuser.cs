@@ -22,6 +22,7 @@ public class AIWeaponuser : MonoBehaviour
     public float sightDistance;
     public float fieldOfViewRange;
     public float forgetfulness;
+    public float meleeRange;
 
     public int status;
     private int previousCondition;
@@ -38,6 +39,8 @@ public class AIWeaponuser : MonoBehaviour
     public bool awareOfPlayer;
     public bool canSeePlayer;
     public bool targetingPlayer;
+
+    public Vector3 playersLastLocation;
 
     public bool firing;
     public bool turning;
@@ -75,25 +78,6 @@ public class AIWeaponuser : MonoBehaviour
         //Ray lineOfSight = new Ray(transform.position, Vector3.forward);
         Vector3 rayDirection = player.transform.position - transform.position;
 
-        /*if (Physics.Raycast(lineOfSight, out hit, sightDistance))
-        {
-            if (hit.collider.CompareTag("Player"))
-            {
-                awareOfPlayer = true;
-                canSeePlayer = true;
-                //sightCooldown = 2;
-                
-
-            }
-
-            else
-            {
-                
-
-            }
-
-
-        }*/
 
         // all of this helps the Ai determine if it can see the player
         if ((Vector3.Angle(rayDirection, transform.forward)) < fieldOfViewRange)
@@ -106,11 +90,13 @@ public class AIWeaponuser : MonoBehaviour
                     canSeePlayer = true;
                     awareOfPlayer = true;
                     awarenessCooldown = forgetfulness;
+                    playersLastLocation = player.transform.position;
                 }
 
                 else
                 {
                     canSeePlayer = false;
+                    
                 }
 
 
@@ -221,10 +207,74 @@ public class AIWeaponuser : MonoBehaviour
 
             if (status == attacking) // this is for when the ai is attacking agressively
             {
-                targetingPlayer = true;
-                firing = true;
+                if (canSeePlayer)
+                {
+                    targetingPlayer = true;
+                    playerLocation = GameObject.FindWithTag("Player").transform;
+                    distanceFromPlayer = Vector3.Distance(playerLocation.position, transform.position);
+                    
+
+                    if (distanceFromPlayer < maxRange)
+                    {
+                        firing = true;
 
 
+
+
+                    }
+
+                    else if (distanceFromPlayer > maxRange)
+                    {
+                        firing = false;
+                        transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
+
+
+
+
+                    }
+
+                    else if (distanceFromPlayer < meleeRange)
+                    {
+
+
+
+
+                    }
+
+                }
+                else if (!canSeePlayer)
+                {
+                    targetingPlayer = false;
+                    firing = false;
+                    distanceFromPlayer = Vector3.Distance(playersLastLocation, transform.position);
+                    
+
+                    if (distanceFromPlayer > 1)
+                    {
+                        transform.LookAt(playersLastLocation);
+                        transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
+
+
+                    }
+
+                    else if (distanceFromPlayer <= 1)
+                    {
+                        if (turning)
+                        {
+                            transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 3);
+
+
+
+                        }
+
+
+
+                    }
+
+
+
+
+                }
             }
 
             else if (status == cautiousAttacking) // this is for when the AI is in standard attack mode
