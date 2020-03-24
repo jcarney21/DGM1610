@@ -913,9 +913,10 @@ GameObject:
   - component: {fileID: 732990244}
   - component: {fileID: 732990243}
   - component: {fileID: 732990248}
+  - component: {fileID: 732990249}
   m_Layer: 0
   m_Name: Aitestcube
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -943,13 +944,15 @@ MonoBehaviour:
   maxRange: 20
   meleeRange: 0
   forgetfulness: 15
-  agressiveness: 6
+  agressiveness: 1
   protectingALocation: 0
   patrolDistance: 15
   sightDistance: 10
   fieldOfViewRange: 45
   maxHealth: 100
   unitHealth: 60
+  maxShields: 0
+  unitShields: 0
   strafingDirection: 0
   rotateDistance: 0
   distanceFromPlayer: 0
@@ -1056,6 +1059,35 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &732990249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732990242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93d5a3c63144e744bb06cec0d809539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  maxShields: 25
+  spawnShields: 25
+  spawnHealth: 100
+  aiHealth: 0
+  aiShields: 0
+  pointsToAdd: 50
+  armor: 0
+  shieldArmor: 4
+  regeneratingHealth: 0
+  regeneratingShields: 1
+  healthRegen: 0
+  shieldRegen: 0.5
+  hpDelay: 0
+  shieldDelay: 6
+  hpclock: 0
+  shieldClock: 0
 --- !u!1 &771103384
 GameObject:
   m_ObjectHideFlags: 0

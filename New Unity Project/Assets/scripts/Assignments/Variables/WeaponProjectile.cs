@@ -9,6 +9,7 @@ public class WeaponProjectile : MonoBehaviour
     //public Transform player;
 
     public int damage;
+    public int shieldDamage;
     public float timeToDie;
     public float velocity;
     public float range;
@@ -19,6 +20,13 @@ public class WeaponProjectile : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, timeToDie);
+
+        if (shieldDamage == 0)
+        {
+            shieldDamage = damage;
+
+
+        }
     }
 
     // Update is called once per frame
@@ -37,10 +45,11 @@ public class WeaponProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            EnemyMove en = other.gameObject.GetComponent<EnemyMove>();
-            en.TakeDamage(damage);
+            //EnemyMove en = other.gameObject.GetComponent<EnemyMove>();
+            //en.TakeDamage(damage);
+            AIhealth ahp = other.gameObject.GetComponent<AIhealth>();
+            ahp.TakeDamage(damage, shieldDamage);
             Destroy(gameObject);
-
         }
 
         else if (other.gameObject.CompareTag("Ranged Enemy"))

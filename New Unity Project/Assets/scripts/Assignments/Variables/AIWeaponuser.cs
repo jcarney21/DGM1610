@@ -31,6 +31,8 @@ public class AIWeaponuser : MonoBehaviour
         //health and shielding Data
     public float maxHealth;
     public float unitHealth;
+    public float maxShields;
+    public float unitShields;
     
     //directional and distance data
     public float strafingDirection;
@@ -73,6 +75,8 @@ public class AIWeaponuser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         status = guarding;
         
         
@@ -98,6 +102,14 @@ public class AIWeaponuser : MonoBehaviour
 
     void Update()
     {
+        //Connects to AI health
+        AIhealth aiHealth = gameObject.GetComponent<AIhealth>();
+
+        maxHealth = aiHealth.maxHealth;
+        unitHealth = aiHealth.aiHealth;
+        maxShields = aiHealth.maxShields;
+        unitShields = aiHealth.aiShields;
+
         // for raycasting. I found it in a Unity tutorial or something
         var player = GameObject.FindWithTag("Player");
         RaycastHit hit;
