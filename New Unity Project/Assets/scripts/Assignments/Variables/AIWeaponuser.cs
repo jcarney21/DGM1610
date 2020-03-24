@@ -14,6 +14,8 @@ public class AIWeaponuser : MonoBehaviour
         //movement speed
     public float turnSpeed;
     public float walkSpeed;
+    public bool flyingUnit;
+
         //firing behavior data
     public float firingFrequency;
     public float firingDuration;
@@ -25,6 +27,8 @@ public class AIWeaponuser : MonoBehaviour
         //Orders
     public bool protectingALocation;
     public float patrolDistance;
+    //public int radioChannel;
+
     //Sight Data
     public float sightDistance;
     public float fieldOfViewRange;
@@ -34,10 +38,12 @@ public class AIWeaponuser : MonoBehaviour
     public float maxShields;
     public float unitShields;
     
+
     //directional and distance data
     public float strafingDirection;
     public int rotateDistance;
     public float distanceFromPlayer;
+    public bool isGrounded;
 
     // status data
     public int status;
@@ -66,6 +72,7 @@ public class AIWeaponuser : MonoBehaviour
     public bool turning;
     public bool walking;
     public bool hasAlreadyRetreated;
+    //public bool raisingAlarm;
 
     //cooldowns
     public float firingCooldown;
@@ -111,6 +118,13 @@ public class AIWeaponuser : MonoBehaviour
         unitShields = aiHealth.aiShields;
         var justGotHit = aiHealth.justGotHit;
 
+        if (flyingUnit)
+        {
+
+            isGrounded = true;
+
+        }
+
         if (justGotHit)
         {
             awareOfPlayer = true;
@@ -154,6 +168,14 @@ public class AIWeaponuser : MonoBehaviour
 
         }
 
+        /*if (awarenessCooldown < forgetfulness - 4 && awarenessCooldown > 0)
+        {
+            raisingAlarm = true;
+
+
+
+        }*/
+
         // this decides when the AI forgets the player and moves to its previous status
         if (!canSeePlayer && awareOfPlayer)
         {
@@ -166,7 +188,7 @@ public class AIWeaponuser : MonoBehaviour
         {
             awareOfPlayer = false;
             status = previousCondition;
-
+            //raisingAlarm = false;
 
         }
 
@@ -195,7 +217,7 @@ public class AIWeaponuser : MonoBehaviour
 
                 }
 
-                if (walking)
+                if (walking && isGrounded)
                 {
                     transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
 
@@ -279,7 +301,7 @@ public class AIWeaponuser : MonoBehaviour
                     if (distanceFromPlayer < maxRange)
                     {
                         firing = true;
-                        if (walking)
+                        if (walking && isGrounded)
                         {
                             transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
 
@@ -287,7 +309,7 @@ public class AIWeaponuser : MonoBehaviour
 
                         }
 
-                        else if (strafing)
+                        else if (strafing && isGrounded)
                         {
 
                             transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection/2);
@@ -301,7 +323,7 @@ public class AIWeaponuser : MonoBehaviour
 
                     }
 
-                    else if (distanceFromPlayer > maxRange)
+                    else if (distanceFromPlayer > maxRange && isGrounded)
                     {
                         firing = false;
                         transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
@@ -373,7 +395,7 @@ public class AIWeaponuser : MonoBehaviour
 
                     }
 
-                    else if (strafing)
+                    else if (strafing && isGrounded)
                     {
 
                         transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection / 2);
@@ -387,7 +409,7 @@ public class AIWeaponuser : MonoBehaviour
 
                 }
 
-                else if (distanceFromPlayer > maxRange)
+                else if (distanceFromPlayer > maxRange && isGrounded)
                 {
                     firing = false;
                     transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
@@ -429,7 +451,7 @@ public class AIWeaponuser : MonoBehaviour
 
                         }
 
-                        if (walking)
+                        if (walking && isGrounded)
                         {
                             transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
 
@@ -438,7 +460,7 @@ public class AIWeaponuser : MonoBehaviour
                         }
 
                     }
-                    else if (proximity > (patrolDistance + 5))
+                    else if (proximity > (patrolDistance + 5) && isGrounded)
                     {
                         transform.LookAt(patrolLocation, Vector3.up * turnSpeed);
                         transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
@@ -467,7 +489,7 @@ public class AIWeaponuser : MonoBehaviour
 
 
                     }
-                    else if (distanceFromPlayer > maxRange && proximity <= patrolDistance)
+                    else if (distanceFromPlayer > maxRange && proximity <= patrolDistance && isGrounded)
                     {
                         targetingPlayer = true;
                         transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
@@ -498,7 +520,7 @@ public class AIWeaponuser : MonoBehaviour
             timeRetreating -= Time.deltaTime;
             playerLocation = GameObject.FindWithTag("Player").transform;
             distanceFromPlayer = Vector3.Distance(playerLocation.position, transform.position);
-            if (distanceFromPlayer < maxRange)
+            if (distanceFromPlayer < maxRange && isGrounded)
             {
                 targetingPlayer = true;
                 firing = true;
@@ -507,7 +529,7 @@ public class AIWeaponuser : MonoBehaviour
 
 
             }
-            else if (distanceFromPlayer >= maxRange)
+            else if (distanceFromPlayer >= maxRange && isGrounded)
             {
                 targetingPlayer = false;
                 firing = false;
@@ -568,6 +590,29 @@ public class AIWeaponuser : MonoBehaviour
 
 
         }
+
+        // checks if any nearby soldiers are raising Alarm
+       /* var enemyAllies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject ally in enemyAllies)
+        {
+            var enemyLocation = ally.transform;
+            var allyProximity = Vector3.Distance(enemyLocation.position, transform.position);
+            AIWeaponuser aiwu = ally.GetComponent<AIWeaponuser>();
+            var allyRadio = aiwu.radioChannel;
+            var allyRaisingAlarm = aiwu.raisingAlarm;
+
+            if (allyRadio == radioChannel && allyRaisingAlarm && !raisingAlarm)
+            {
+                awareOfPlayer = true;
+                awarenessCooldown = forgetfulness;
+
+
+            }
+
+
+
+
+        }*/
 
         // this stuff decides what weapon the ai is holding
         var weapons = GameObject.FindGameObjectsWithTag("Weapon");
@@ -657,8 +702,8 @@ public class AIWeaponuser : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-
-
+            awareOfPlayer = true;
+            awarenessCooldown = forgetfulness;
 
 
 
@@ -677,6 +722,18 @@ public class AIWeaponuser : MonoBehaviour
             //walking = false;
             //turning = true;
 
+
+
+        }
+
+
+    }
+
+    void OnCollisionStay (Collision other)
+    {
+        if (!flyingUnit)
+        {
+            isGrounded = true;
 
 
         }
