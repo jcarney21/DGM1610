@@ -13,6 +13,9 @@ public class WeaponProjectile : MonoBehaviour
     public float timeToDie;
     public float velocity;
     public float range;
+    public int effectStrength;
+
+    public GameObject impactEffect;
 
     //public float enemyProximity;
     //public float rangedEnemyProximity;
@@ -43,12 +46,14 @@ public class WeaponProjectile : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
+
         if (other.gameObject.CompareTag("Enemy"))
         {
             //EnemyMove en = other.gameObject.GetComponent<EnemyMove>();
             //en.TakeDamage(damage);
+
             AIhealth ahp = other.gameObject.GetComponent<AIhealth>();
-            ahp.TakeDamage(damage, shieldDamage);
+            ahp.TakeDamage(damage, shieldDamage, effectStrength);
             Destroy(gameObject);
         }
 
@@ -73,7 +78,6 @@ public class WeaponProjectile : MonoBehaviour
             Move.TakeDamage(damage);
             Destroy(gameObject);
 
-
         }
 
         /*else if (other.gameObject.CompareTag("Player"))
@@ -84,6 +88,7 @@ public class WeaponProjectile : MonoBehaviour
 
         else
         {
+
             Destroy(gameObject);
 
         }

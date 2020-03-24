@@ -165,6 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  shieldDamage: 0
   timeToDie: 2
   velocity: 75
   range: 0
+  effectStrength: 20
+  impactEffect: {fileID: 0}

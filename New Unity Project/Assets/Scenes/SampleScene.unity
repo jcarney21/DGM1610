@@ -1089,6 +1089,10 @@ MonoBehaviour:
   hpclock: 0
   shieldClock: 0
   justGotHit: 0
+  shieldEffect: {fileID: 8664684550646117269, guid: 3a015ab7b5d4326429483a4d45c9c402,
+    type: 3}
+  healthEffect: {fileID: 2124838629636799206, guid: f856bc05c425a6041a2a6133309b46e4,
+    type: 3}
 --- !u!1 &771103384
 GameObject:
   m_ObjectHideFlags: 0

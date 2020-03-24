@@ -25,6 +25,11 @@ public class AIhealth : MonoBehaviour
     public float shieldClock;
 
     public bool justGotHit;
+
+    public GameObject shieldEffect;
+    public GameObject healthEffect;
+    //public GameObject deathEffect;
+    //public int deathAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,14 @@ public class AIhealth : MonoBehaviour
         justGotHit = false;
         if (aiHealth <= 0)
         {
+            /*for (int i = 0; i < deathAmount; i++)
+            {
+                Instantiate(deathEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range(-30, 30), 0));
+
+
+
+            }*/
+
             Destroy(gameObject);
             ScoreManager.AddPoints(pointsToAdd);
         }
@@ -93,13 +106,20 @@ public class AIhealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, int shieldDamage)
+    public void TakeDamage(int damage, int shieldDamage, int effectStrength)
     {
         justGotHit = true;
         if (aiShields <= 0)
         {
             aiHealth -= (damage - armor);
             hpclock = 0;
+            for (int i = 0; i < effectStrength; i++)
+            {
+                Instantiate(healthEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range( 0, 30), 0));
+                
+
+
+            }
 
         }
 
@@ -108,6 +128,13 @@ public class AIhealth : MonoBehaviour
             aiShields -= (shieldDamage - shieldArmor);
             shieldClock = 0;
 
+            for (int i = 0; i < effectStrength; i++)
+            {
+                Instantiate(shieldEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range( 0, 30), 0));
+                
+
+
+            }
 
         }
 

@@ -65,6 +65,8 @@ MonoBehaviour:
   timeToDie: 2
   velocity: 75
   range: 0
+  effectStrength: 30
+  impactEffect: {fileID: 0}
 --- !u!114 &8610119156485207666
 MonoBehaviour:
   m_ObjectHideFlags: 0
