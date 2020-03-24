@@ -7,6 +7,7 @@ public class EnemyMove : MonoBehaviour
     //public GameObject player;
     public Transform target; //used for transform.translate
     public int damage;
+    public int shieldDamage;
     public float moveSpeed;
     public int enemyHealth;
     public int pointsToAdd;
@@ -28,7 +29,8 @@ public class EnemyMove : MonoBehaviour
     {
         //enemyRb = GetComponent<Rigidbody>();
         //player = GameObject.Find("Player");
-        enemyHealth = spawnHealth;                                                           
+        enemyHealth = spawnHealth;
+        shieldDamage = damage;
     }
 
     // Update is called once per frame
@@ -96,7 +98,8 @@ public class EnemyMove : MonoBehaviour
 
         else if (other.gameObject.CompareTag("Player"))
         {
-            Move.TakeDamage(damage);
+            Move mv = other.gameObject.GetComponent<Move>();
+            mv.TakeDamage(damage, shieldDamage);
 
 
         }

@@ -59,8 +59,8 @@ public class WeaponProjectile : MonoBehaviour
 
         else if (other.gameObject.CompareTag("Ranged Enemy"))
         {
-            EnemyMove en = other.gameObject.GetComponent<EnemyMove>();
-            en.TakeDamage(damage);
+            AIhealth ahp = other.gameObject.GetComponent<AIhealth>();
+            ahp.TakeDamage(damage, shieldDamage, effectStrength);
             Destroy(gameObject);
 
         }
@@ -75,7 +75,8 @@ public class WeaponProjectile : MonoBehaviour
 
         else if (other.gameObject.CompareTag("Player"))
         {
-            Move.TakeDamage(damage);
+            Move mv = other.gameObject.GetComponent<Move>();
+            mv.TakeDamage(damage, shieldDamage);
             Destroy(gameObject);
 
         }

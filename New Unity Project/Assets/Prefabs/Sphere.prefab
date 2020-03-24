@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 869493151481938019}
   - component: {fileID: 869493151481938020}
   - component: {fileID: 5572978091841213740}
-  - component: {fileID: 883471606934629097}
+  - component: {fileID: 5450649497313537469}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Ranged Enemy
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 25
+  shieldDamage: 0
   moveSpeed: 4
   enemyHealth: 0
   pointsToAdd: 50
@@ -138,7 +139,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 3
---- !u!114 &883471606934629097
+--- !u!114 &5450649497313537469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,12 +148,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 869493151481938021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb344eb3f9af61e40a8d606d02278601, type: 3}
+  m_Script: {fileID: 11500000, guid: a93d5a3c63144e744bb06cec0d809539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  spawnPoint: {fileID: 0}
-  pointsValue: 50
+  maxHealth: 5
+  maxShields: 50
+  spawnShields: 50
+  spawnHealth: 5
+  aiHealth: 0
+  aiShields: 0
+  pointsToAdd: 50
+  armor: 0
+  shieldArmor: 1
+  regeneratingHealth: 0
+  regeneratingShields: 1
+  healthRegen: 0
+  shieldRegen: 2
+  hpDelay: 0
+  shieldDelay: 5
+  hpclock: 0
+  shieldClock: 0
+  justGotHit: 0
+  shieldEffect: {fileID: 8664684550646117269, guid: 3a015ab7b5d4326429483a4d45c9c402,
+    type: 3}
+  healthEffect: {fileID: 6552965035525116765, guid: 553e9500ee8f2914c8e38b13eaf6bca0,
+    type: 3}
 --- !u!1 &3399658610229506546
 GameObject:
   m_ObjectHideFlags: 0

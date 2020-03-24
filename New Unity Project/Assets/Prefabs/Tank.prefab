@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3501424405440612196}
   - component: {fileID: 3501424405440612197}
   - component: {fileID: 5420757087307100487}
-  - component: {fileID: 362334515435427480}
+  - component: {fileID: 3228368935004405506}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Enemy
@@ -108,7 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 50
+  shieldDamage: 0
   moveSpeed: 3
+  enemyHealth: 0
   pointsToAdd: 200
   damageTaken: 0
   spawnHealth: 200
@@ -135,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &362334515435427480
+--- !u!114 &3228368935004405506
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,9 +146,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 3501424405440612198}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb344eb3f9af61e40a8d606d02278601, type: 3}
+  m_Script: {fileID: 11500000, guid: a93d5a3c63144e744bb06cec0d809539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
-  spawnPoint: {fileID: 0}
-  pointsValue: 200
+  maxShields: 50
+  spawnShields: 50
+  spawnHealth: 200
+  aiHealth: 0
+  aiShields: 0
+  pointsToAdd: 250
+  armor: 2
+  shieldArmor: 0
+  regeneratingHealth: 0
+  regeneratingShields: 1
+  healthRegen: 0
+  shieldRegen: 0.3
+  hpDelay: 0
+  shieldDelay: 4
+  hpclock: 0
+  shieldClock: 0
+  justGotHit: 0
+  shieldEffect: {fileID: 8664684550646117269, guid: 3a015ab7b5d4326429483a4d45c9c402,
+    type: 3}
+  healthEffect: {fileID: 2124838629636799206, guid: f856bc05c425a6041a2a6133309b46e4,
+    type: 3}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4137052450907463826}
   - component: {fileID: 4137052450907463827}
   - component: {fileID: 4222262000846100785}
-  - component: {fileID: 8930769919649030080}
+  - component: {fileID: 1271053542142208857}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 10
+  shieldDamage: 0
   moveSpeed: 6
   enemyHealth: 0
   pointsToAdd: 25
@@ -136,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 3
---- !u!114 &8930769919649030080
+--- !u!114 &1271053542142208857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,9 +146,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 4137052450907463824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb344eb3f9af61e40a8d606d02278601, type: 3}
+  m_Script: {fileID: 11500000, guid: a93d5a3c63144e744bb06cec0d809539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
-  spawnPoint: {fileID: 0}
-  pointsValue: 25
+  maxShields: 0
+  spawnShields: 0
+  spawnHealth: 25
+  aiHealth: 0
+  aiShields: 0
+  pointsToAdd: 25
+  armor: 0
+  shieldArmor: 0
+  regeneratingHealth: 1
+  regeneratingShields: 0
+  healthRegen: 1
+  shieldRegen: 0
+  hpDelay: 4
+  shieldDelay: 0
+  hpclock: 0
+  shieldClock: 0
+  justGotHit: 0
+  shieldEffect: {fileID: 0}
+  healthEffect: {fileID: 2124838629636799206, guid: f856bc05c425a6041a2a6133309b46e4,
+    type: 3}

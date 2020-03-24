@@ -115,7 +115,7 @@ public class AIhealth : MonoBehaviour
             hpclock = 0;
             for (int i = 0; i < effectStrength; i++)
             {
-                Instantiate(healthEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range( 0, 30), 0));
+                Instantiate(healthEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-5, 5), Random.Range (-30, 30), 0));
                 
 
 
@@ -130,7 +130,7 @@ public class AIhealth : MonoBehaviour
 
             for (int i = 0; i < effectStrength; i++)
             {
-                Instantiate(shieldEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-10, 90), Random.Range( 0, 30), 0));
+                Instantiate(shieldEffect, transform.position, transform.rotation * Quaternion.Euler(Random.Range(-5, 5), Random.Range (-180, 180), 0));
                 
 
 

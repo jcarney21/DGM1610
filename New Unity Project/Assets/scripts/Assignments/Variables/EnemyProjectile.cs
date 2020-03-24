@@ -5,12 +5,17 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public int damage;
+    public int shieldDamage;
     public float timeToDie;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (shieldDamage == 0)
+        {
+            shieldDamage = damage;
+
+        }
     }
 
     // Update is called once per frame
@@ -23,7 +28,8 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Move.TakeDamage(damage);
+            Move mv = other.gameObject.GetComponent<Move>();
+            mv.TakeDamage(damage, shieldDamage);
             Destroy(gameObject);
 
 

@@ -254,12 +254,12 @@ public class Move : MonoBehaviour
 
     }
 
-    public static void TakeDamage(int damage)
+    public void TakeDamage(int damage, int shieldDamage)
     {
         shieldCooldown = 0;
         if (shields > 0)
         {
-            shields = shields - damage;
+            shields -= shieldDamage;
 
 
         }

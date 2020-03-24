@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3303204693321063770}
   - component: {fileID: 713712714038494876}
   - component: {fileID: 2703635653335862433}
+  - component: {fileID: 1181514857971916147}
   m_Layer: 0
   m_Name: Ranger
   m_TagString: Ranged Enemy
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 25
+  shieldDamage: 0
   moveSpeed: 3
   enemyHealth: 0
   pointsToAdd: 50
@@ -137,3 +139,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
+--- !u!114 &1181514857971916147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092357298442399581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a93d5a3c63144e744bb06cec0d809539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 25
+  maxShields: 0
+  spawnShields: 0
+  spawnHealth: 25
+  aiHealth: 0
+  aiShields: 0
+  pointsToAdd: 50
+  armor: 0
+  shieldArmor: 0
+  regeneratingHealth: 0
+  regeneratingShields: 0
+  healthRegen: 0
+  shieldRegen: 0
+  hpDelay: 0
+  shieldDelay: 0
+  hpclock: 0
+  shieldClock: 0
+  justGotHit: 0
+  shieldEffect: {fileID: 0}
+  healthEffect: {fileID: 2124838629636799206, guid: f856bc05c425a6041a2a6133309b46e4,
+    type: 3}
