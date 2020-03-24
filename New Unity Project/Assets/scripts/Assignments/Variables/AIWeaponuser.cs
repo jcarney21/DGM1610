@@ -109,7 +109,15 @@ public class AIWeaponuser : MonoBehaviour
         unitHealth = aiHealth.aiHealth;
         maxShields = aiHealth.maxShields;
         unitShields = aiHealth.aiShields;
+        var justGotHit = aiHealth.justGotHit;
 
+        if (justGotHit)
+        {
+            awareOfPlayer = true;
+            awarenessCooldown = forgetfulness;
+
+
+        }
         // for raycasting. I found it in a Unity tutorial or something
         var player = GameObject.FindWithTag("Player");
         RaycastHit hit;

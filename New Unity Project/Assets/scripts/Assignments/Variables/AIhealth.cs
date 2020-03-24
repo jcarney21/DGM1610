@@ -24,16 +24,19 @@ public class AIhealth : MonoBehaviour
     public float hpclock;
     public float shieldClock;
 
+    public bool justGotHit;
     // Start is called before the first frame update
     void Start()
     {
         aiHealth = spawnHealth;
         aiShields = spawnShields;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        justGotHit = false;
         if (aiHealth <= 0)
         {
             Destroy(gameObject);
@@ -92,10 +95,12 @@ public class AIhealth : MonoBehaviour
 
     public void TakeDamage(int damage, int shieldDamage)
     {
+        justGotHit = true;
         if (aiShields <= 0)
         {
             aiHealth -= (damage - armor);
             hpclock = 0;
+
         }
 
         else if (aiShields > 0)
