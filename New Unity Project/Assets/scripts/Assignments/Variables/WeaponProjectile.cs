@@ -73,6 +73,15 @@ public class WeaponProjectile : MonoBehaviour
 
         }
 
+        else if (other.gameObject.CompareTag("Friendly"))
+        {
+            AIhealth ahp = other.gameObject.GetComponent<AIhealth>();
+            ahp.TakeDamage(damage, shieldDamage, effectStrength);
+            Destroy(gameObject);
+
+
+        }
+
         else if (other.gameObject.CompareTag("Player"))
         {
             Move mv = other.gameObject.GetComponent<Move>();
