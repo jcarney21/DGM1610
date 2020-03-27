@@ -92,9 +92,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  shieldDamage: 0
   timeToDie: 0.2
   velocity: 25
   range: 0
+  effectStrength: 0
+  impactEffect: {fileID: 0}
 --- !u!135 &7307886292149149404
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -698,6 +698,14 @@ public class AIWeaponuser : MonoBehaviour
 
     }
 
+    public void HeardGunfire()
+    {
+        awareOfPlayer = true;
+        awarenessCooldown = forgetfulness;
+
+
+    }
+
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))

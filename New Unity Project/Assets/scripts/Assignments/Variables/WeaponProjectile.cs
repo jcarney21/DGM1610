@@ -26,7 +26,7 @@ public class WeaponProjectile : MonoBehaviour
 
         if (shieldDamage == 0)
         {
-            shieldDamage = damage;
+            //shieldDamage = damage;
 
 
         }

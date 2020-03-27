@@ -179,6 +179,7 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -458,6 +459,7 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 1
   fireCycle: 0
@@ -679,8 +681,9 @@ MonoBehaviour:
   magazineMax: 6
   ammoCarrying: 0
   ammoMax: 30
-  spawnAmmo: 30
+  spawnAmmo: 24
   magazineValue: 0
+  loudness: 70
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -720,12 +723,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355098505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4011908, y: -0.37369332, z: -8.193}
+  m_LocalPosition: {x: 3.5, y: -0.37369332, z: -16.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1724639495}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382278042
 GameObject:
@@ -779,6 +782,7 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 1
   fireCycle: 0
@@ -1042,7 +1046,7 @@ RectTransform:
   - {fileID: 771103385}
   - {fileID: 1472211282}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1207,6 +1211,7 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -1356,6 +1361,7 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 1
   fireCycle: 0
@@ -1481,6 +1487,7 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -1552,7 +1559,7 @@ MonoBehaviour:
   patrolLocation: {fileID: 0}
   turnSpeed: 1
   walkSpeed: 3
-  flyingUnit: 0
+  flyingUnit: 1
   firingFrequency: 1
   firingDuration: 1
   maxRange: 20
@@ -1855,7 +1862,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794288042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28f1a335f71427f43be4f9ac003aa0a6, type: 3}
   m_Name: 
@@ -1868,7 +1875,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794288042}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55a3b1522e550b347984433337a30894, type: 3}
   m_Name: 
@@ -2115,6 +2122,7 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -2253,7 +2261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1467608886
 GameObject:
@@ -2546,8 +2554,9 @@ MonoBehaviour:
   magazineMax: 60
   ammoCarrying: 0
   ammoMax: 300
-  spawnAmmo: 300
+  spawnAmmo: 240
   magazineValue: 0
+  loudness: 40
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -2645,6 +2654,7 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 1
   fireCycle: 0
@@ -2771,6 +2781,7 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 1
   fireCycle: 0
@@ -8342,7 +8353,7 @@ GameObject:
   - component: {fileID: 1858479147}
   - component: {fileID: 1858479149}
   m_Layer: 0
-  m_Name: Actual Weapon 1
+  m_Name: PlasmaRifle
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8363,9 +8374,10 @@ MonoBehaviour:
   weaponDmg: 0
   magazineMax: 40
   ammoCarrying: 0
-  ammoMax: 320
-  spawnAmmo: 320
+  ammoMax: 240
+  spawnAmmo: 120
   magazineValue: 0
+  loudness: 0
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
@@ -8485,13 +8497,13 @@ MonoBehaviour:
   - {fileID: 4137052450907463824, guid: bd2d25e61f3f1b94184e04997ef9a5f8, type: 3}
   - {fileID: 4853679017537558991, guid: 54132070af449fd4aa9d72544832c740, type: 3}
   powerupPrefabs:
-  - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
-  - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
-  - {fileID: 7818622141614547251, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}
+  - {fileID: 2703828878700999284, guid: 330465dea844d1e41a69e8978c70ae00, type: 3}
+  - {fileID: 2947281061817242563, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
+  - {fileID: 508642933644560086, guid: fd640b9c0e00aae479e9b6d461fe8ca3, type: 3}
   - {fileID: 7908514267505208176, guid: 153282eace3eb684c80cca227beb9d14, type: 3}
   - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
   - {fileID: 696951734419339952, guid: b0e07cd8ce0c634428f7864cbdc62edc, type: 3}
-  - {fileID: 3392871021677849456, guid: 6b73bb3a28ca4744c9d8f0e9e5efdce9, type: 3}
+  - {fileID: 2947281061817242563, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
   - {fileID: 3392871021677849456, guid: 6b73bb3a28ca4744c9d8f0e9e5efdce9, type: 3}
   terrainPrefabs:
   - {fileID: 2007301171846529088, guid: 242317ac322c75c4088aa5715df7c086, type: 3}
@@ -8577,7 +8589,7 @@ PrefabInstance:
     - target: {fileID: 8228601745382075431, guid: 9b37ed722ebd9314aaabcfc80bb79770,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8228601745382075431, guid: 9b37ed722ebd9314aaabcfc80bb79770,
         type: 3}
@@ -8646,7 +8658,7 @@ PrefabInstance:
     - target: {fileID: 7528083495614044120, guid: b0a1beac8fdd09b4b8dfa19c479d0a1d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7528083495614044120, guid: b0a1beac8fdd09b4b8dfa19c479d0a1d,
         type: 3}

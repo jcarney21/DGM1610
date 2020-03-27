@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
+  shieldDamage: 25
   timeToDie: 2
 --- !u!54 &1334801719595908231
 Rigidbody:

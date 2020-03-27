@@ -239,13 +239,13 @@ public class Move : MonoBehaviour
         }
     }
 
-    public static void AddAmmo(int ammoToAdd)
+    /*public static void AddAmmo(int ammoToAdd)
     {
         ammoTotal = ammoTotal + ammoToAdd;
         print("Ammo Total: " + ammoTotal);
 
 
-    }
+    }*/
 
     public static void AddHealth(int healthAmt)
     {

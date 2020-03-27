@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviour
     public int spawnAmmo;
     public int magazineValue;
 
+    public float loudness;
+
     public float reloadCycle;
     public float reloadTime;
 
@@ -47,8 +49,13 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         currentlyActive = isActiveWeapon;
         canPickupAmmo = isActiveWeapon;
+
+        
+
         //Data for firing weapon
         if (isActiveWeapon && isHoldingWeapon)
         {
@@ -62,6 +69,23 @@ public class WeaponManager : MonoBehaviour
                         magazine -= 1;
                         fireCycle = 0;
                         print("Ammo in Mag: " + magazine);
+
+                        //allows the enemy to hear the gunshot
+                        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                        foreach (GameObject enemy in enemies)
+                        {
+                            var enemyLocation = enemy.transform;
+                            var enemyProximity = Vector3.Distance(enemyLocation.position, transform.position);
+                            AIWeaponuser aiwu = enemy.GetComponent<AIWeaponuser>();
+                            if (enemyProximity < loudness)
+                            {
+                                aiwu.HeardGunfire();
+
+
+                            }
+
+                        }
+
 
                     }
 
@@ -77,6 +101,22 @@ public class WeaponManager : MonoBehaviour
                         magazine -= 1;
                         fireCycle = 0;
                         print("Ammo in Mag: " + magazine);
+
+                        //allows the enemy to hear the gunshot
+                        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                        foreach (GameObject enemy in enemies)
+                        {
+                            var enemyLocation = enemy.transform;
+                            var enemyProximity = Vector3.Distance(enemyLocation.position, transform.position);
+                            AIWeaponuser aiwu = enemy.GetComponent<AIWeaponuser>();
+                            if (enemyProximity < loudness)
+                            {
+                                aiwu.HeardGunfire();
+
+
+                            }
+
+                        }
                     }
 
 
@@ -184,6 +224,13 @@ public class WeaponManager : MonoBehaviour
 
         }
 
+        if (ammoCarrying > ammoMax)
+        {
+            ammoCarrying = ammoMax;
+
+
+        }
+
         // Data to determine if you are holding a weapon
         activeSlot = GameObject.FindWithTag("Active Slot").transform;
         player = GameObject.FindWithTag("Player").transform;
@@ -281,12 +328,15 @@ public class WeaponManager : MonoBehaviour
 
     public void AmmoPickup(int ammoToAdd)
     {
-       
-       ammoCarrying = ammoCarrying + ammoToAdd;
-       print("Ammo Total: " + ammoCarrying);
-       
+       if (isActiveWeapon || isHoldingWeapon)
+       {
+            ammoCarrying = ammoCarrying + ammoToAdd;
+            print("Ammo Total: " + ammoCarrying);
 
 
+
+
+        }
     }
 
     public void Fire()
