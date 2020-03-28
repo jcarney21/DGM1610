@@ -8767,7 +8767,7 @@ GameObject:
   - component: {fileID: 2074730423}
   m_Layer: 0
   m_Name: friendlyAI
-  m_TagString: Enemy
+  m_TagString: Friendly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

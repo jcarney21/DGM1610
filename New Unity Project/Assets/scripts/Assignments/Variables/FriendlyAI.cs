@@ -7,10 +7,14 @@ public class FriendlyAI : MonoBehaviour
     // this stuff decides what weapon it's holding
     public float weaponProximity;
     public Transform wepLocation;
+
+    public GameObject targetedEnemy;
     public Transform playerLocation;
     public Transform enemyLocation;
     public Transform patrolLocation;
 
+    public float nearestEnemyProximity;
+    public float proximity;
     // basic unit data (this should eventually be the only public stuff, I think.)
     //movement speed
     public float turnSpeed;
@@ -48,17 +52,18 @@ public class FriendlyAI : MonoBehaviour
     public bool isGrounded;
 
     // status data
-    public int status;
-    private int previousCondition;
-    private int firstCondition;
-    private int guarding = 1;
-    private int patrolling = 2;
-    private int followingPlayer = 8;
-    private int attacking = 3;
-    private int cautiousAttacking = 4;
-    private int defending = 5;
-    private int retreating = 6;
-    private int fleeing = 7;
+    enum Status { guarding = 1, patrolling, attacking, cautiousAttacking, defending, retreating, fleeing, followingPlayer}
+    Status status;
+    Status previousCondition;
+    Status firstCondition;
+    //private int guarding = 1;
+    //private int patrolling = 2;
+    //private int followingPlayer = 8;
+    //private int attacking = 3;
+    //private int cautiousAttacking = 4;
+    //private int defending = 5;
+    //private int retreating = 6;
+    //private int fleeing = 7;
 
     // for deciding if it knows about the player
 
@@ -88,7 +93,7 @@ public class FriendlyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        status = guarding;
+        status = Status.guarding;
 
 
         InvokeRepeating("GuardingBehavior", 5.0f, 3f);
@@ -138,10 +143,27 @@ public class FriendlyAI : MonoBehaviour
 
         // for raycasting. I found it in a Unity tutorial or something
         var player = GameObject.FindWithTag("Player");
-        var enemy = GameObject.FindWithTag("Enemy");
+        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (var enemy in enemies)
+        {
+            enemyLocation = enemy.transform;
+            proximity = Vector3.Distance(enemyLocation.position, transform.position);
+            if (proximity < nearestEnemyProximity)
+            {
+                targetedEnemy = enemy;
+                nearestEnemyProximity = proximity;
+
+
+            }
+
+
+
+
+        }
         RaycastHit hit;
         //Ray lineOfSight = new Ray(transform.position, Vector3.forward);
-        Vector3 rayDirection = enemy.transform.position - transform.position;
+        Vector3 rayDirection = targetedEnemy.transform.position - transform.position;
 
 
         // all of this helps the Ai determine if it can see the enemy
@@ -162,8 +184,7 @@ public class FriendlyAI : MonoBehaviour
                     awareOfEnemy = true;
                     awarenessCooldown = forgetfulness;
                     enemyLastLocation = enemy.transform.position;
-
-
+                    canSeeEnemy = true;
                 }
 
                 else
@@ -204,7 +225,7 @@ public class FriendlyAI : MonoBehaviour
 
 
         }
-        if (awareOfPlayer && willingToFollowPlayer && awareOfEnemy)
+        if (awareOfPlayer && willingToFollowPlayer && !awareOfEnemy)
         {
             status = followingPlayer;
 
@@ -216,374 +237,22 @@ public class FriendlyAI : MonoBehaviour
 
         }
 
-        if (!awareOfEnemy)// contains the behaviors for guarding and patrolling
+
+
+
+        // aims at player when targeting is true
+        if (targetingEnemy)
         {
-            var patrolPoint = GameObject.FindWithTag("PatrolPoint");
-            patrolLocation = patrolPoint.transform;
-            var proximity = Vector3.Distance(patrolLocation.position, transform.position);
-            if (status == guarding && turning)
-            {
-
-                previousCondition = guarding;
-                transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
-
-
-
-            }
-
-            if (status == patrolling && proximity < patrolDistance)
-            {
-                if (turning)
-                {
-                    previousCondition = patrolling;
-                    transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
-
-
-                }
-
-                if (walking && isGrounded)
-                {
-                    transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-                }
-
-            }
-            else if (status == patrolling && proximity > patrolDistance)
-            {
-                transform.LookAt(patrolLocation, Vector3.up * turnSpeed);
-                transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-            }
-
-            if (status == followingPlayer)
-            {
-                patrolLocation = player.transform;
-                proximity = Vector3.Distance(patrolLocation.position, transform.position);
-                previousCondition = followingPlayer;
-                if (proximity < patrolDistance)
-                {
-                    if (turning)
-                    {
-                        
-                        transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
-
-
-                    }
-
-                    if (walking && isGrounded)
-                    {
-                        transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-                    }
-
-                }
-                else if (proximity > patrolDistance)
-                {
-                    transform.LookAt(patrolLocation, Vector3.up * turnSpeed);
-                    transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-                }
-
-
-
-            }
+            transform.LookAt(enemyLocation);
+            enemyLocation = GameObject.FindWithTag("Enemy").transform;
 
 
         }
 
-        else if (awareOfEnemy)
-        {
-            if (protectingALocation)
-            {
-                status = defending;
 
 
 
-            }
-
-            else if (!protectingALocation)
-            {
-                AIhealth aihp = enemy.GetComponent<AIhealth>();
-                var enemyHealth = aihp.aiHealth;
-                var enemyShields = aihp.aiShields;
-                if (agressiveness >= 8 || enemyShields < 10 && !isRetreating)
-                {
-                    status = attacking;
-
-
-                }
-                else if (agressiveness < 8 && enemyShields > 10 && !isRetreating)
-                {
-                    status = cautiousAttacking;
-
-                }
-                else if (((unitHealth / maxHealth) * 10) < agressiveness && !hasAlreadyRetreated)
-                {
-                    if (agressiveness > 5)
-                    {
-                        status = retreating;
-                        timeRetreating = (30 - agressiveness);
-                        hasAlreadyRetreated = true;
-                        isRetreating = true;
-
-                    }
-                    else if (agressiveness <= 4)
-                    {
-                        status = fleeing;
-                        timeRetreating = (30 - agressiveness);
-                        hasAlreadyRetreated = true;
-                        isRetreating = true;
-
-                    }
-
-
-                }
-
-
-            }
-
-            if (status == attacking) // this is for when the ai is attacking agressively
-            {
-                if (canSeeEnemy)
-                {
-                    targetingEnemy = true;
-                    enemyLocation = GameObject.FindWithTag("Enemy").transform;
-                    distanceFromEnemy = Vector3.Distance(enemyLocation.position, transform.position);
-
-
-                    if (distanceFromEnemy < maxRange)
-                    {
-                        firing = true;
-                        if (walking && isGrounded)
-                        {
-                            transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-                        }
-
-                        else if (strafing && isGrounded)
-                        {
-
-                            transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection / 2);
-
-
-
-
-                        }
-
-
-
-                    }
-
-                    else if (distanceFromEnemy > maxRange && isGrounded)
-                    {
-                        firing = false;
-                        transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
-
-
-
-
-                    }
-
-                    else if (distanceFromEnemy < meleeRange)
-                    {
-
-
-
-
-                    }
-
-                }
-                else if (!canSeeEnemy)
-                {
-                    targetingEnemy = false;
-                    firing = false;
-                    distanceFromEnemy = Vector3.Distance(enemyLastLocation, transform.position);
-
-
-                    if (distanceFromEnemy > 1)
-                    {
-                        transform.LookAt(enemyLastLocation);
-                        transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
-
-
-                    }
-
-                    else if (distanceFromEnemy <= 1)
-                    {
-                        if (turning)
-                        {
-                            transform.Rotate(Vector3.up * turnSpeed * rotateDistance);
-
-
-
-                        }
-
-
-
-                    }
-
-
-
-
-                }
-            }
-            else if (status == cautiousAttacking) // this is for when the AI is in standard attack mode
-            {
-                targetingEnemy = true;
-                enemyLocation = GameObject.FindWithTag("Enemy").transform;
-                distanceFromEnemy = Vector3.Distance(enemyLocation.position, transform.position);
-
-
-                if (distanceFromEnemy < maxRange && canSeeEnemy)
-                {
-                    firing = true;
-                    if (walking)
-                    {
-
-
-
-
-                    }
-
-                    else if (strafing && isGrounded)
-                    {
-
-                        transform.Translate(Vector3.left * walkSpeed * Time.deltaTime * strafingDirection / 2);
-
-
-
-
-                    }
-
-
-
-                }
-
-                else if (distanceFromEnemy > maxRange && isGrounded)
-                {
-                    firing = false;
-                    transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
-
-
-
-
-                }
-
-                else if (distanceFromEnemy < meleeRange)
-                {
-
-
-
-
-                }
-
-
-            }
-
-            else if (status == defending) // this is for when the AI is in defensive mode
-            {
-                if (!canSeeEnemy)
-                {
-                    firing = false;
-                    targetingEnemy = false;
-                    var patrolPoint = GameObject.FindWithTag("PatrolPoint");
-                    patrolLocation = patrolPoint.transform;
-                    var proximity = Vector3.Distance(patrolLocation.position, transform.position);
-
-
-
-                    if (proximity < patrolDistance)
-                    {
-                        if (turning)
-                        {
-
-                            transform.Rotate(Vector3.up * turnSpeed * rotateDistance / 5);
-
-
-                        }
-
-                        if (walking && isGrounded)
-                        {
-                            transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-                        }
-
-                    }
-                    else if (proximity > (patrolDistance + 5) && isGrounded)
-                    {
-                        transform.LookAt(patrolLocation, Vector3.up * turnSpeed);
-                        transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-
-
-
-                    }
-
-
-
-
-                }
-                else if (canSeeEnemy)
-                {
-                    enemyLocation = GameObject.FindWithTag("Enemy").transform;
-                    distanceFromEnemy = Vector3.Distance(enemyLocation.position, transform.position);
-
-                    var patrolPoint = GameObject.FindWithTag("PatrolPoint");
-                    patrolLocation = patrolPoint.transform;
-                    var proximity = Vector3.Distance(patrolLocation.position, transform.position);
-                    if (distanceFromEnemy < maxRange)
-                    {
-                        targetingEnemy = true;
-                        firing = true;
-
-
-
-                    }
-                    else if (distanceFromEnemy > maxRange && proximity <= patrolDistance && isGrounded)
-                    {
-                        targetingEnemy = true;
-                        transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
-                        firing = false;
-
-                    }
-                    else if (distanceFromEnemy > maxRange && proximity > patrolDistance)
-                    {
-                        targetingEnemy = true;
-                        firing = false;
-
-                    }
-
-
-
-                }
-
-
-
-
-            }
-
-            // aims at player when targeting is true
-            if (targetingEnemy)
-            {
-                transform.LookAt(enemyLocation);
-                enemyLocation = GameObject.FindWithTag("Enemy").transform;
-
-
-            }
-
-
-            // this stuff decides what weapon the ai is holding
+        // this stuff decides what weapon the ai is holding
         var weapons = GameObject.FindGameObjectsWithTag("Weapon");
         foreach (GameObject weapon in weapons)
         {
@@ -618,7 +287,7 @@ public class FriendlyAI : MonoBehaviour
 
 
         }
-        }
+        
     }
 
     void GuardingBehavior()
@@ -664,18 +333,6 @@ public class FriendlyAI : MonoBehaviour
 
         }
 
-
-
-    }
-
-    void OnCollisionStay(Collision other)
-    {
-        if (!flyingUnit)
-        {
-            isGrounded = true;
-
-
-        }
 
 
     }
