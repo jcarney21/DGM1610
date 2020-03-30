@@ -183,7 +183,7 @@ public class FriendlyAI : MonoBehaviour
                 {
                     awareOfEnemy = true;
                     awarenessCooldown = forgetfulness;
-                    enemyLastLocation = enemy.transform.position;
+                    //enemyLastLocation = enemy.transform.position;
                     canSeeEnemy = true;
                 }
 
@@ -227,7 +227,7 @@ public class FriendlyAI : MonoBehaviour
         }
         if (awareOfPlayer && willingToFollowPlayer && !awareOfEnemy)
         {
-            status = followingPlayer;
+            //status = followingPlayer;
 
 
 
@@ -292,7 +292,7 @@ public class FriendlyAI : MonoBehaviour
 
     void GuardingBehavior()
     {
-        if (status == 1 || status == 6 || status == 7)
+        /*if (status == 1 || status == 6 || status == 7)
         {
             turning = !turning;
             walking = !walking;
@@ -301,12 +301,12 @@ public class FriendlyAI : MonoBehaviour
 
 
         }
-        print("Turning");
+        print("Turning");*/
     }
 
     void PatrollingBehavior()
     {
-        if (status == 2 || status == 5)
+        /*if (status == 2 || status == 5)
         {
             print("Patrolling");
             turning = !turning;
@@ -316,14 +316,14 @@ public class FriendlyAI : MonoBehaviour
 
 
         }
-        rotateDistance = Random.Range(-5, 5);
+        rotateDistance = Random.Range(-5, 5);*/
 
 
     }
 
     void StrafingBehavior()
     {
-        if (status == 3 || status == 4)
+        /*if (status == 3 || status == 4)
         {
             walking = !walking;
             strafing = !strafing;
@@ -331,7 +331,7 @@ public class FriendlyAI : MonoBehaviour
             strafingDirection = Random.Range(-1, 1);
 
 
-        }
+        }*/
 
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public float weaponDmg;
-    private int magazine;
+    public int magazine;
     public int magazineMax;
     public int ammoCarrying;
     public int ammoMax;
@@ -49,7 +49,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
 
         currentlyActive = isActiveWeapon;
         canPickupAmmo = isActiveWeapon;

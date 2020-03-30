@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 10
   ammoCarrying: 0
   ammoMax: 50
@@ -257,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 10
   ammoCarrying: 0
   ammoMax: 50
@@ -537,6 +539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 15
   ammoCarrying: 0
   ammoMax: 45
@@ -777,6 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 15
   ammoCarrying: 0
   ammoMax: 45
@@ -888,6 +892,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 6
   ammoCarrying: 0
   ammoMax: 30
@@ -987,6 +992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 15
   ammoCarrying: 0
   ammoMax: 45
@@ -1112,7 +1118,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392777500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 263cd4897712b6743b2a925f4db23628, type: 3}
   m_Name: 
@@ -1153,7 +1159,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Health: '
+  m_Text: 'Health:'
 --- !u!222 &392777504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1174,6 +1180,7 @@ GameObject:
   - component: {fileID: 415022235}
   - component: {fileID: 415022234}
   - component: {fileID: 415022233}
+  - component: {fileID: 415022237}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1229,8 +1236,8 @@ Canvas:
   m_GameObject: {fileID: 415022232}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 534669904}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1255,6 +1262,8 @@ RectTransform:
   - {fileID: 392777501}
   - {fileID: 771103385}
   - {fileID: 1472211282}
+  - {fileID: 1569930646}
+  - {fileID: 1302914447}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1263,6 +1272,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &415022237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415022232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263cd4897712b6743b2a925f4db23628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldText: {fileID: 771103387}
+  healthText: {fileID: 392777503}
+  scoreText: {fileID: 1472211283}
 --- !u!1 &484317231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 10
   ammoCarrying: 0
   ammoMax: 50
@@ -1566,6 +1591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 15
   ammoCarrying: 0
   ammoMax: 45
@@ -1692,6 +1718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 10
   ammoCarrying: 0
   ammoMax: 50
@@ -1938,7 +1965,7 @@ GameObject:
   - component: {fileID: 771103387}
   - component: {fileID: 771103386}
   m_Layer: 5
-  m_Name: Ammunition
+  m_Name: Shields
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1976,7 +2003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shieldText: {fileID: 771103387}
-  healthText: {fileID: 392777503}
+  healthText: {fileID: 0}
   scoreText: {fileID: 0}
 --- !u!114 &771103387
 MonoBehaviour:
@@ -2011,7 +2038,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Magazine:'
+  m_Text: 'Shields:'
 --- !u!222 &771103388
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2327,6 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 10
   ammoCarrying: 0
   ammoMax: 50
@@ -2407,6 +2435,101 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: -1
   m_Mesh: {fileID: 4300122, guid: 4c712009bf5704c4fb4ae9711f09b3e2, type: 3}
+--- !u!1 &1302914446
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302914447}
+  - component: {fileID: 1302914449}
+  - component: {fileID: 1302914448}
+  - component: {fileID: 1302914450}
+  m_Layer: 5
+  m_Name: Carry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1302914447
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302914446}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 415022236}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -50, y: -50}
+  m_SizeDelta: {x: 160, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1302914448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302914446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 180
+--- !u!222 &1302914449
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302914446}
+  m_CullTransparentMesh: 0
+--- !u!114 &1302914450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302914446}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263cd4897712b6743b2a925f4db23628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldText: {fileID: 0}
+  healthText: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!1 &1360322260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2680,6 +2803,7 @@ GameObject:
   - component: {fileID: 1472211282}
   - component: {fileID: 1472211284}
   - component: {fileID: 1472211283}
+  - component: {fileID: 1472211285}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -2748,6 +2872,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472211281}
   m_CullTransparentMesh: 0
+--- !u!114 &1472211285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472211281}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263cd4897712b6743b2a925f4db23628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldText: {fileID: 0}
+  healthText: {fileID: 0}
+  scoreText: {fileID: 1472211283}
 --- !u!114 &1551622913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,6 +2900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 60
   ammoCarrying: 0
   ammoMax: 300
@@ -2859,6 +2999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 15
   ammoCarrying: 0
   ammoMax: 45
@@ -2939,6 +3080,101 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558052786}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1569930645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1569930646}
+  - component: {fileID: 1569930648}
+  - component: {fileID: 1569930647}
+  - component: {fileID: 1569930649}
+  m_Layer: 5
+  m_Name: Mag
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1569930646
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569930645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 415022236}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -80, y: -120}
+  m_SizeDelta: {x: 200, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1569930647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569930645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 45
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 60
+--- !u!222 &1569930648
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569930645}
+  m_CullTransparentMesh: 0
+--- !u!114 &1569930649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569930645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263cd4897712b6743b2a925f4db23628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldText: {fileID: 0}
+  healthText: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!1 &1592840949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,6 +3222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 15
   ammoCarrying: 0
   ammoMax: 45
@@ -8582,6 +8819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponDmg: 0
+  magazine: 0
   magazineMax: 40
   ammoCarrying: 0
   ammoMax: 240
@@ -8786,9 +9024,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponProximity: 0
   wepLocation: {fileID: 0}
+  targetedEnemy: {fileID: 0}
   playerLocation: {fileID: 0}
   enemyLocation: {fileID: 0}
   patrolLocation: {fileID: 0}
+  nearestEnemyProximity: 0
+  proximity: 0
   turnSpeed: 1
   walkSpeed: 3
   flyingUnit: 0
@@ -8811,7 +9052,6 @@ MonoBehaviour:
   rotateDistance: 0
   distanceFromEnemy: 0
   isGrounded: 0
-  status: 0
   awareOfPlayer: 0
   awareOfEnemy: 0
   canSeeEnemy: 0
