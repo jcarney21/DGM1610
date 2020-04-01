@@ -30,8 +30,8 @@ public class DisplayText : MonoBehaviour
         {
             
             WeaponManager wm = weapon.GetComponent<WeaponManager>();
-            var isActiveWeapon = wm.isActiveWeapon;
-            if (isActiveWeapon)
+            bool activeWeapon = wm.isActiveWeapon;
+            if (activeWeapon)
             {
                 weaponHeld = weapon;
 
@@ -55,8 +55,8 @@ public class DisplayText : MonoBehaviour
         healthText.text = "Health: " + displayHealth;
         shieldText.text = "Shields: " + displayShields;
         scoreText.text = "Score: " + score;
-        //ammoText.text = "" + fullAmmo;
-       // magazineText.text = " " + magazineAmmo;
+        //ammoText.text = "Ammo: " + fullAmmo;
+        //magazineText.text = "Magazine: " + magazineAmmo;
 
         /*if (isActiveWeapon)
         {

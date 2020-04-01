@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -38,12 +39,16 @@ public class WeaponManager : MonoBehaviour
     public Transform reserveSlot;
     private Rigidbody weaponRB;
 
+    //public Text pressEToPickup;
+
     // Start is called before the first frame update
     void Start()
     {
         magazine = magazineMax;
         ammoCarrying = spawnAmmo;
         weaponRB = GetComponent<Rigidbody>();
+
+        
     }
 
     // Update is called once per frame
@@ -313,11 +318,12 @@ public class WeaponManager : MonoBehaviour
                     weaponRB.constraints = RigidbodyConstraints.FreezeAll;
                 }
 
-                print("Press E to pick up " + gameObject.name);
-
+                //print("Press E to pick up " + gameObject.name);
+                //pressEToPickup.text = "Press E to pick up " + gameObject.name;
+                
             }
 
-
+            
         }
     }
 
