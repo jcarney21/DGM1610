@@ -129,7 +129,7 @@ public class AIWeaponuser : MonoBehaviour
         {
             awareOfPlayer = true;
             awarenessCooldown = forgetfulness;
-
+            
 
         }
         // for raycasting. I found it in a Unity tutorial or something
