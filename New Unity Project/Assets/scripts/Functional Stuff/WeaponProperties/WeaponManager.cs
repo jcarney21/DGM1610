@@ -33,6 +33,7 @@ public class WeaponManager : MonoBehaviour
     public static bool canPickupAmmo;
     public static bool currentlyActive;
     public GameObject bulletPrefab;
+    public GameObject casingPrefab;
 
     public Transform activeSlot;
     public Transform player;
@@ -71,6 +72,7 @@ public class WeaponManager : MonoBehaviour
                     if (Input.GetButton("Fire1"))
                     {
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
+                        
                         magazine -= 1;
                         fireCycle = 0;
                         print("Ammo in Mag: " + magazine);
@@ -91,6 +93,7 @@ public class WeaponManager : MonoBehaviour
 
                         }
 
+                        Instantiate(casingPrefab, transform.position, transform.rotation);
 
                     }
 
@@ -103,6 +106,7 @@ public class WeaponManager : MonoBehaviour
                     {
                         
                         Instantiate(bulletPrefab, transform.position, transform.rotation);
+                        
                         magazine -= 1;
                         fireCycle = 0;
                         print("Ammo in Mag: " + magazine);
@@ -122,6 +126,7 @@ public class WeaponManager : MonoBehaviour
                             }
 
                         }
+                        Instantiate(casingPrefab, transform.position, transform.rotation);
                     }
 
 

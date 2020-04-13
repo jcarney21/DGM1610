@@ -90,6 +90,14 @@ public class WeaponProjectile : MonoBehaviour
 
         }
 
+        else if (other.gameObject.CompareTag("Casing"))
+        {
+
+
+
+
+        }
+
         /*else if (other.gameObject.CompareTag("Player"))
         {
 
