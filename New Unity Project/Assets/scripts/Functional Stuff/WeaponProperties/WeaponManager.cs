@@ -22,7 +22,8 @@ public class WeaponManager : MonoBehaviour
     public float rateOfFire;
 
     public float proximityToPlayer;
-    
+
+    public string weaponName;
 
     public bool autoFire;
     public bool isActiveWeapon;
@@ -40,7 +41,9 @@ public class WeaponManager : MonoBehaviour
     public Transform reserveSlot;
     private Rigidbody weaponRB;
 
-    //public Text pressEToPickup;
+    public Text pressEToPickup;
+    public Text magazinetext;
+    public Text carryingtext;
 
     // Start is called before the first frame update
     void Start()
@@ -249,6 +252,9 @@ public class WeaponManager : MonoBehaviour
 
         if (isActiveWeapon)
         {
+            magazinetext.text = magazine.ToString();
+            carryingtext.text = ammoCarrying.ToString();
+
             //gameObject.transform.SetParent(activeParent, false);
             if (magazine > magazineMax)
             {
@@ -311,7 +317,7 @@ public class WeaponManager : MonoBehaviour
 
         else if (isHoldingWeapon == false)
         {
-            if (proximityToPlayer < 3)
+            if (proximityToPlayer < 3 && !heldByEnemy)
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -324,10 +330,18 @@ public class WeaponManager : MonoBehaviour
                 }
 
                 //print("Press E to pick up " + gameObject.name);
-                //pressEToPickup.text = "Press E to pick up " + gameObject.name;
+                pressEToPickup.text = "Press E to pick up " + weaponName;
                 
             }
 
+            else
+            {
+                pressEToPickup.text = "   ";
+
+
+
+
+            }
             
         }
     }

@@ -96,7 +96,7 @@ MonoBehaviour:
   timeToDie: 0.2
   velocity: 25
   range: 0
-  effectStrength: 0
+  effectStrength: 1
   impactEffect: {fileID: 0}
 --- !u!135 &7307886292149149404
 SphereCollider:

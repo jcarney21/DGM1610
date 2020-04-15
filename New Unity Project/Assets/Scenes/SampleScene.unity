@@ -186,6 +186,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.3
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -197,6 +198,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!1 &66620210
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,6 +275,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.3
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -282,6 +287,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!1 &72506668
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +484,7 @@ Transform:
   m_Children:
   - {fileID: 519741309}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &99159002
 GameObject:
@@ -553,6 +561,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.5
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -564,6 +573,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!136 &149891044
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -795,6 +807,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.5
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -806,6 +819,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!136 &320319582
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -908,6 +924,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.4
   proximityToPlayer: 0
+  weaponName: Shotgun
   autoFire: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -920,6 +937,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 742856511}
+  magazinetext: {fileID: 1569930647}
+  carryingtext: {fileID: 1302914448}
 --- !u!54 &355098507
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -949,7 +969,7 @@ Transform:
   m_Children:
   - {fileID: 1724639495}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382278042
 GameObject:
@@ -1010,6 +1030,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.5
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -1021,6 +1042,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!136 &382278045
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1273,7 +1297,7 @@ RectTransform:
   - {fileID: 1302914447}
   - {fileID: 742856513}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1295,6 +1319,75 @@ MonoBehaviour:
   shieldText: {fileID: 771103387}
   healthText: {fileID: 392777503}
   scoreText: {fileID: 1472211283}
+--- !u!1001 &451363506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2947281061817242563, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_Name
+      value: PdwAmmoPickup Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1396363
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.097095
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
 --- !u!1 &484317231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,7 +1477,7 @@ Transform:
   m_LocalScale: {x: 242.8717, y: 0.79634196, z: 213.78027}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519741308
 GameObject:
@@ -1460,6 +1553,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.3
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -1471,6 +1565,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1709,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.5
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -1623,6 +1721,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!136 &554215698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1732,7 +1833,7 @@ PrefabInstance:
     - target: {fileID: 773702644050020593, guid: 242317ac322c75c4088aa5715df7c086,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 773702644050020593, guid: 242317ac322c75c4088aa5715df7c086,
         type: 3}
@@ -1878,7 +1979,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671649370
 GameObject:
@@ -1938,6 +2039,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.3
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -1949,6 +2051,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!54 &671649373
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2109,7 +2214,7 @@ Transform:
   m_Children:
   - {fileID: 671649371}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &732990248
 Rigidbody:
@@ -2237,8 +2342,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -100}
-  m_SizeDelta: {x: 160, y: 50}
+  m_AnchoredPosition: {x: 300, y: -100}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &771103384
 GameObject:
@@ -2378,7 +2483,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &794288045
 MonoBehaviour:
@@ -2435,7 +2540,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840120293
 GameObject:
@@ -2533,7 +2638,7 @@ Transform:
   - {fileID: 1858479148}
   - {fileID: 1082970215}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &840120298
 MonoBehaviour:
@@ -2558,7 +2663,7 @@ MonoBehaviour:
   isGrounded: 1
   jumpHeight: 2
   maxShields: 75
-  maxHealth: 10000
+  maxHealth: 75
   rechargeDelay: 1
   rechargeRate: 10
   shieldRecharges: 2
@@ -2654,6 +2759,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.3
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -2665,6 +2771,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!1 &1082970214
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,7 +2936,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302914446
 GameObject:
@@ -2988,7 +3097,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1430107085
 PrefabInstance:
@@ -3040,7 +3149,7 @@ PrefabInstance:
     - target: {fileID: 6336768704579265238, guid: e1e01fe10a40e394f8d389075999e54f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6336768704579265238, guid: e1e01fe10a40e394f8d389075999e54f,
         type: 3}
@@ -3253,7 +3362,7 @@ Transform:
   m_Children:
   - {fileID: 66620211}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1472211281
 GameObject:
@@ -3350,6 +3459,75 @@ MonoBehaviour:
   shieldText: {fileID: 0}
   healthText: {fileID: 0}
   scoreText: {fileID: 1472211283}
+--- !u!1001 &1479493323
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2947281061817242563, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_Name
+      value: PdwAmmoPickup Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1396363
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.358995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
 --- !u!114 &1551622913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,6 +3553,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.05
   proximityToPlayer: 0
+  weaponName: PDW
   autoFire: 1
   isActiveWeapon: 0
   isHoldingWeapon: 0
@@ -3387,6 +3566,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 742856511}
+  magazinetext: {fileID: 1569930647}
+  carryingtext: {fileID: 1302914448}
 --- !u!54 &1551622914
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3476,6 +3658,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.5
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -3487,6 +3670,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!136 &1558052789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3700,6 +3886,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.5
   proximityToPlayer: 0
+  weaponName: 
   autoFire: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -3711,6 +3898,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 0}
+  magazinetext: {fileID: 0}
+  carryingtext: {fileID: 0}
 --- !u!136 &1592840952
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3820,7 +4010,7 @@ PrefabInstance:
     - target: {fileID: 7957100430739206550, guid: bc070433844e30044b902f81f1cfb5f0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7957100430739206550, guid: bc070433844e30044b902f81f1cfb5f0,
         type: 3}
@@ -3867,7 +4057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1724639494
 GameObject:
@@ -3969,12 +4159,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783439404}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.03, z: -18.37}
+  m_LocalPosition: {x: 0.03, y: 0.03, z: -30.84}
   m_LocalScale: {x: 0.094792835, y: 0.094792835, z: 0.094792835}
   m_Children:
   - {fileID: 1783283084}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &1783282702
 Transform:
@@ -5218,7 +5408,7 @@ GameObject:
   - component: {fileID: 1551622916}
   - component: {fileID: 1551622913}
   m_Layer: 2
-  m_Name: pdw
+  m_Name: PDW
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9094,7 +9284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1793477395
 MonoBehaviour:
@@ -9322,7 +9512,7 @@ Transform:
   m_Children:
   - {fileID: 906893888}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858479146
 GameObject:
@@ -9358,7 +9548,7 @@ MonoBehaviour:
   magazine: 0
   magazineMax: 20
   ammoCarrying: 0
-  ammoMax: 200
+  ammoMax: 100
   spawnAmmo: 80
   magazineValue: 0
   loudness: 45
@@ -9367,6 +9557,7 @@ MonoBehaviour:
   fireCycle: 0
   rateOfFire: 0.1
   proximityToPlayer: 0
+  weaponName: Plasma Rifle
   autoFire: 1
   isActiveWeapon: 1
   isHoldingWeapon: 1
@@ -9378,6 +9569,9 @@ MonoBehaviour:
   activeSlot: {fileID: 0}
   player: {fileID: 0}
   reserveSlot: {fileID: 0}
+  pressEToPickup: {fileID: 742856511}
+  magazinetext: {fileID: 1569930647}
+  carryingtext: {fileID: 1302914448}
 --- !u!4 &1858479148
 Transform:
   m_ObjectHideFlags: 0
@@ -9522,8 +9716,77 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2047650224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2947281061817242563, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_Name
+      value: PdwAmmoPickup Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1396363
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.681921
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242565, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
 --- !u!1 &2074730422
 GameObject:
   m_ObjectHideFlags: 0
@@ -9776,7 +10039,7 @@ Transform:
   m_Children:
   - {fileID: 6362920}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3969250923398415600
 PrefabInstance:
@@ -9828,7 +10091,7 @@ PrefabInstance:
     - target: {fileID: 510136662418831557, guid: aa5ca4d37f747204d842bcbe5568317f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 510136662418831557, guid: aa5ca4d37f747204d842bcbe5568317f,
         type: 3}
@@ -9916,7 +10179,7 @@ PrefabInstance:
     - target: {fileID: 6574008720310131775, guid: 07491547c4f28c840a6ad1f503230b0a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 6574008720310131775, guid: 07491547c4f28c840a6ad1f503230b0a,
         type: 3}
@@ -9990,7 +10253,7 @@ PrefabInstance:
     - target: {fileID: 8228601745382075431, guid: 9b37ed722ebd9314aaabcfc80bb79770,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8228601745382075431, guid: 9b37ed722ebd9314aaabcfc80bb79770,
         type: 3}
@@ -10059,7 +10322,7 @@ PrefabInstance:
     - target: {fileID: 7528083495614044120, guid: b0a1beac8fdd09b4b8dfa19c479d0a1d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7528083495614044120, guid: b0a1beac8fdd09b4b8dfa19c479d0a1d,
         type: 3}

@@ -30,6 +30,8 @@ public class AmmoPickup : MonoBehaviour
             {
                 var weaponString = weapon.name;
                 WeaponManager wm = weapon.GetComponent<WeaponManager>();
+                //var weaponString = wm.weaponName;
+
                 if (weaponName == weaponString)
                 {
                     wm.AmmoPickup(ammoToAdd);
