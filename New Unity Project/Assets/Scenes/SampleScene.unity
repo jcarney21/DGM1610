@@ -1508,6 +1508,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242564, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: weaponType
+      value: PDW
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242564, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: weaponName
+      value: PDW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
 --- !u!1 &484317231
@@ -3677,6 +3687,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242564, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: weaponType
+      value: PDW
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242564, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: weaponName
+      value: PDW
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
 --- !u!114 &1551622913
@@ -3708,7 +3728,7 @@ MonoBehaviour:
   reloadCycle: 0
   reloadTime: 2
   fireCycle: 0
-  rateOfFire: 0.05
+  rateOfFire: 0.02
   proximityToPlayer: 0
   weaponName: PDW
   autoFire: 1
@@ -9723,11 +9743,11 @@ MonoBehaviour:
   ammoMax: 0
   spawnAmmo: 0
   magazineValue: 0
-  spreadMax: 0
+  spreadMax: 5
   temperature: 0
   heatstep: 1
-  overheatThreshold: 15
-  rateOfSpread: 0
+  overheatThreshold: 20
+  rateOfSpread: 40
   spread: 0
   loudness: 45
   reloadCycle: 0
@@ -9963,6 +9983,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242564, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: weaponType
+      value: PDW
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947281061817242564, guid: e1b41b55cdfc09c4daeee5b525d42c98,
+        type: 3}
+      propertyPath: weaponName
+      value: PDW
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b41b55cdfc09c4daeee5b525d42c98, type: 3}
