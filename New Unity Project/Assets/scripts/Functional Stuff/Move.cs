@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
@@ -31,7 +32,8 @@ public class Move : MonoBehaviour
     public float cooldown;
     public float rof;
 
-
+    private float energyLevel;
+    public Text energy;
     //public GameObject fragGrenade;
     //public GameObject projectilePrefab;
 
@@ -190,6 +192,8 @@ public class Move : MonoBehaviour
 
         }
 
+        energyLevel = shieldRecharges * 25;
+        energy.text = "Energy " + energyLevel;
         // unused system for shield recharge
         /*if (shields < maxShields && shieldCooldown > rechargeDelay)
         {

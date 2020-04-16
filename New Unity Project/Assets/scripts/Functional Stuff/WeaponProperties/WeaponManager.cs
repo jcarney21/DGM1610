@@ -12,6 +12,15 @@ public class WeaponManager : MonoBehaviour
     public int ammoMax;
     public int spawnAmmo;
     public int magazineValue;
+    public float spreadMax;
+
+    public float temperature;
+    public float heatstep;
+    public float overheatThreshold;
+
+    public float rateOfSpread;
+    public float spread;
+
 
     public float loudness;
 
@@ -30,6 +39,7 @@ public class WeaponManager : MonoBehaviour
     public bool isHoldingWeapon;
     public bool isReloading;
     public bool heldByEnemy;
+    public bool energyWeapon;
 
     public static bool canPickupAmmo;
     public static bool currentlyActive;
@@ -64,6 +74,13 @@ public class WeaponManager : MonoBehaviour
         canPickupAmmo = isActiveWeapon;
 
         
+        if (energyWeapon && temperature > overheatThreshold)
+        {
+            isReloading = true;
+            temperature = overheatThreshold - 1;
+
+
+        }
 
         //Data for firing weapon
         if (isActiveWeapon && isHoldingWeapon)
@@ -74,11 +91,25 @@ public class WeaponManager : MonoBehaviour
                 {
                     if (Input.GetButton("Fire1"))
                     {
-                        Instantiate(bulletPrefab, transform.position, transform.rotation);
+                        Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(Random.Range(0 - spread, 0 + spread), Random.Range(0 - spread, 0 + spread), 0));
                         
                         magazine -= 1;
                         fireCycle = 0;
                         print("Ammo in Mag: " + magazine);
+                        
+                        if (spread < spreadMax)
+                        {
+                            spread += (rateOfSpread * Time.deltaTime);
+
+
+                        }
+
+                        if (energyWeapon)
+                        {
+                            temperature += heatstep;
+
+
+                        }
 
                         //allows the enemy to hear the gunshot
                         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -99,7 +130,29 @@ public class WeaponManager : MonoBehaviour
                         Instantiate(casingPrefab, transform.position, transform.rotation);
 
                     }
+                    else
+                    {
+                        if (temperature > 0)
+                        {
+                            temperature -= (Time.deltaTime);
 
+
+                        }
+                        else
+                        {
+                            temperature = 0;
+
+
+                        }
+
+                        if (spread > 0)
+                        {
+                            spread -= Time.deltaTime;
+
+
+                        }
+
+                    }
 
                 }
 
@@ -108,11 +161,18 @@ public class WeaponManager : MonoBehaviour
                     if (Input.GetButtonDown("Fire1"))
                     {
                         
-                        Instantiate(bulletPrefab, transform.position, transform.rotation);
+                        Instantiate(bulletPrefab, transform.position, transform.rotation * Quaternion.Euler(Random.Range(0 - spread, 0 + spread), Random.Range(0 - spread, 0 + spread), 0));
                         
                         magazine -= 1;
                         fireCycle = 0;
                         print("Ammo in Mag: " + magazine);
+
+                        if (energyWeapon)
+                        {
+                            temperature += heatstep;
+
+
+                        }
 
                         //allows the enemy to hear the gunshot
                         var enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -131,8 +191,29 @@ public class WeaponManager : MonoBehaviour
                         }
                         Instantiate(casingPrefab, transform.position, transform.rotation);
                     }
+                    else
+                    {
+                        
+                        if (temperature > 0)
+                        {
+                            temperature -= (Time.deltaTime);
 
 
+                        }
+                        else
+                        {
+                            temperature = 0;
+
+                        }
+
+                        if (spread > 0)
+                        {
+                            spread -= (rateOfSpread * Time.deltaTime);
+
+
+                        }
+
+                    }
 
                 }
 
@@ -196,7 +277,7 @@ public class WeaponManager : MonoBehaviour
         if (isReloading && isActiveWeapon)
         {
             reloadCycle += Time.deltaTime;
-
+            temperature -= (Time.deltaTime * (overheatThreshold/reloadTime));
 
         }
 
@@ -212,18 +293,21 @@ public class WeaponManager : MonoBehaviour
         {
             reloadCycle = 0;
             magazineValue = magazine;
-            if (ammoCarrying >= magazineMax)
+            temperature = 0;
+            spread = 0;
+            if (ammoCarrying >= magazineMax && !energyWeapon)
             {
                 magazine = magazineMax;
 
             }
 
-            else if (ammoCarrying < magazineMax)
+            else if (ammoCarrying < magazineMax && !energyWeapon)
             {
                 magazine = ammoCarrying;
 
 
             }
+
             ammoCarrying = ammoCarrying - (magazineMax - magazineValue);
             isReloading = false;
             print("Ammunition: " + ammoCarrying);
@@ -255,6 +339,13 @@ public class WeaponManager : MonoBehaviour
             magazinetext.text = magazine.ToString();
             carryingtext.text = ammoCarrying.ToString();
 
+            if (energyWeapon)
+            {
+                carryingtext.text = temperature.ToString();
+
+
+            }
+
             //gameObject.transform.SetParent(activeParent, false);
             if (magazine > magazineMax)
             {
@@ -283,6 +374,7 @@ public class WeaponManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     isActiveWeapon = true;
+                    temperature = 0;
                     //gameObject.transform.SetParent(activeParent, false);
                     transform.position = activeSlot.transform.position;
                     transform.rotation = activeSlot.transform.rotation;

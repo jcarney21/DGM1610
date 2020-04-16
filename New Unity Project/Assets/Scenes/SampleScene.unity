@@ -180,6 +180,12 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 2
@@ -192,6 +198,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 1
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -269,6 +276,12 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 2
@@ -281,6 +294,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 1
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -555,6 +569,12 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 1
@@ -567,6 +587,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -801,6 +822,12 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 1
@@ -813,6 +840,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -918,6 +946,12 @@ MonoBehaviour:
   ammoMax: 30
   spawnAmmo: 24
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 70
   reloadCycle: 0
   reloadTime: 2
@@ -930,6 +964,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 568922853495100986, guid: e9a46fa710becb7458f2c7cdc5f2476c,
     type: 3}
   casingPrefab: {fileID: 6949858775430811489, guid: aa5ca4d37f747204d842bcbe5568317f,
@@ -971,6 +1006,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &371312826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371312827}
+  - component: {fileID: 371312829}
+  - component: {fileID: 371312828}
+  m_Layer: 5
+  m_Name: Energy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &371312827
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371312826}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 415022236}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 400, y: -50}
+  m_SizeDelta: {x: 300, y: 60}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &371312828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371312826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Energy
+--- !u!222 &371312829
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371312826}
+  m_CullTransparentMesh: 0
 --- !u!1 &382278042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1138,12 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 1
@@ -1036,6 +1156,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -1269,7 +1390,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 534669904}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -1296,6 +1417,7 @@ RectTransform:
   - {fileID: 1569930646}
   - {fileID: 1302914447}
   - {fileID: 742856513}
+  - {fileID: 371312827}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1547,6 +1669,12 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 2
@@ -1559,6 +1687,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 1
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -1703,6 +1832,12 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 1
@@ -1715,6 +1850,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -2033,6 +2169,12 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 2
@@ -2045,6 +2187,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 1
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -2669,6 +2812,7 @@ MonoBehaviour:
   shieldRecharges: 2
   cooldown: 0
   rof: 0.1
+  energy: {fileID: 371312828}
 --- !u!54 &840120299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2753,6 +2897,12 @@ MonoBehaviour:
   ammoMax: 50
   spawnAmmo: 50
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 2
@@ -2765,6 +2915,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 1
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -3547,6 +3698,12 @@ MonoBehaviour:
   ammoMax: 300
   spawnAmmo: 240
   magazineValue: 0
+  spreadMax: 3
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 10
+  spread: 0
   loudness: 40
   reloadCycle: 0
   reloadTime: 2
@@ -3559,6 +3716,7 @@ MonoBehaviour:
   isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 6887225441340988046, guid: d813fa832b7b2644dadf52f491d95041,
     type: 3}
   casingPrefab: {fileID: 4349658332427463579, guid: 07491547c4f28c840a6ad1f503230b0a,
@@ -3652,6 +3810,12 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 1
@@ -3664,6 +3828,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -3880,6 +4045,12 @@ MonoBehaviour:
   ammoMax: 45
   spawnAmmo: 30
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 0
+  overheatThreshold: 0
+  rateOfSpread: 0
+  spread: 0
   loudness: 0
   reloadCycle: 0
   reloadTime: 1
@@ -3892,6 +4063,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 0
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
@@ -9546,11 +9718,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDmg: 0
   magazine: 0
-  magazineMax: 20
+  magazineMax: 100
   ammoCarrying: 0
-  ammoMax: 100
-  spawnAmmo: 80
+  ammoMax: 0
+  spawnAmmo: 0
   magazineValue: 0
+  spreadMax: 0
+  temperature: 0
+  heatstep: 1
+  overheatThreshold: 15
+  rateOfSpread: 0
+  spread: 0
   loudness: 45
   reloadCycle: 0
   reloadTime: 2
@@ -9563,6 +9741,7 @@ MonoBehaviour:
   isHoldingWeapon: 1
   isReloading: 0
   heldByEnemy: 0
+  energyWeapon: 1
   bulletPrefab: {fileID: 8350767761932908331, guid: b9b7c60299a288f44949236b535b42d6,
     type: 3}
   casingPrefab: {fileID: 0}
