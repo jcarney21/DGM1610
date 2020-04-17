@@ -35,7 +35,7 @@ public class AmmoPickup : MonoBehaviour
                 if (weaponName == weaponString)
                 {
                     wm.AmmoPickup(ammoToAdd);
-
+                    Destroy(gameObject);
 
 
                 }
