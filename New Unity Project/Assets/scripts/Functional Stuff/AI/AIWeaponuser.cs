@@ -27,6 +27,7 @@ public class AIWeaponuser : MonoBehaviour
         //Orders
     public bool protectingALocation;
     public float patrolDistance;
+    public int spawnStatus;
     //public int radioChannel;
 
     //Sight Data
@@ -83,8 +84,14 @@ public class AIWeaponuser : MonoBehaviour
     void Start()
     {
         
+        if (spawnStatus == 0)
+        {
+            spawnStatus = 1;
 
-        status = guarding;
+
+        }
+
+        status = spawnStatus;
         
         
         InvokeRepeating("GuardingBehavior", 5.0f, 3f);            

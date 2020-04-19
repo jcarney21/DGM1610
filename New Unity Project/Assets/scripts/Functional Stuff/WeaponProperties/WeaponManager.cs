@@ -35,6 +35,7 @@ public class WeaponManager : MonoBehaviour
     public string weaponName;
 
     public bool autoFire;
+    public bool fireSwitch;
     public bool isActiveWeapon;
     public bool isHoldingWeapon;
     public bool isReloading;
@@ -435,6 +436,14 @@ public class WeaponManager : MonoBehaviour
 
             }
             
+        }
+
+        if (fireSwitch && Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            autoFire = !autoFire;
+
+
+
         }
     }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 25
-  shieldDamage: 10
+  shieldDamage: 20
   timeToDie: 3
   velocity: 0
   range: 0

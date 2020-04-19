@@ -194,6 +194,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -273,6 +274,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: Energy Rifle
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -400,6 +402,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -513,6 +516,7 @@ MonoBehaviour:
   agressiveness: 1
   protectingALocation: 0
   patrolDistance: 15
+  spawnStatus: 2
   sightDistance: 20
   fieldOfViewRange: 45
   maxHealth: 100
@@ -693,6 +697,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -946,6 +951,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -1070,6 +1076,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: Shotgun
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -1262,6 +1269,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -1803,6 +1811,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -1966,6 +1975,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -2303,6 +2313,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -2382,6 +2393,7 @@ MonoBehaviour:
   agressiveness: 1
   protectingALocation: 1
   patrolDistance: 15
+  spawnStatus: 1
   sightDistance: 20
   fieldOfViewRange: 45
   maxHealth: 100
@@ -3031,6 +3043,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -3538,6 +3551,7 @@ MonoBehaviour:
   agressiveness: 1
   protectingALocation: 1
   patrolDistance: 15
+  spawnStatus: 1
   sightDistance: 20
   fieldOfViewRange: 45
   maxHealth: 100
@@ -3857,16 +3871,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponDmg: 0
   magazine: 0
-  magazineMax: 50
+  magazineMax: 32
   ammoCarrying: 0
-  ammoMax: 250
-  spawnAmmo: 150
+  ammoMax: 128
+  spawnAmmo: 96
   magazineValue: 0
   spreadMax: 5
   temperature: 0
   heatstep: 0
   overheatThreshold: 0
-  rateOfSpread: 5
+  rateOfSpread: 10
   spread: 0
   loudness: 75
   reloadCycle: 0
@@ -3876,6 +3890,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: Battle Rifle
   autoFire: 1
+  fireSwitch: 1
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -3939,6 +3954,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: PDW
   autoFire: 1
+  fireSwitch: 0
   isActiveWeapon: 0
   isHoldingWeapon: 0
   isReloading: 0
@@ -4051,6 +4067,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -4286,6 +4303,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: 
   autoFire: 0
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -9816,6 +9834,7 @@ MonoBehaviour:
   agressiveness: 1
   protectingALocation: 0
   patrolDistance: 15
+  spawnStatus: 2
   sightDistance: 20
   fieldOfViewRange: 45
   maxHealth: 100
@@ -9964,6 +9983,7 @@ MonoBehaviour:
   proximityToPlayer: 0
   weaponName: Plasma Rifle
   autoFire: 1
+  fireSwitch: 0
   isActiveWeapon: 1
   isHoldingWeapon: 1
   isReloading: 0
@@ -10474,6 +10494,7 @@ MonoBehaviour:
   agressiveness: 1
   protectingALocation: 0
   patrolDistance: 15
+  spawnStatus: 0
   sightDistance: 20
   fieldOfViewRange: 45
   maxHealth: 100
