@@ -2153,6 +2153,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderRadius: 50
   wanderTimer: 3
+  target: {fileID: 840120297}
+  speed: 1
+  damage: 15
+  alertDist: 20
+  attackDist: 3
 --- !u!195 &600150242
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2241,7 +2246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600150240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3, y: -0.05, z: -9.8}
+  m_LocalPosition: {x: -1.3, y: -0.05, z: 3.19}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10053,7 +10058,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964190697}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b8cc22a32f4b134aa8b53fbe63184cf, type: 3}
   m_Name: 
@@ -10130,6 +10135,7 @@ MonoBehaviour:
   terrainGenerator: 0
   spawnNumber: 0
   wave: 1
+  spawnTerrain: 0
 --- !u!4 &1964190699
 Transform:
   m_ObjectHideFlags: 0

@@ -18,12 +18,24 @@ public class SpawnManager : MonoBehaviour
     public float terrainGenerator;
     public int spawnNumber;
     public int wave;
+    public bool spawnTerrain;
 
     // Start is called before the first frame update
     void Start()
     {
         autospawner = 16;
-        terrainGenerator = 0;
+        if (spawnTerrain)
+        {
+            terrainGenerator = 0;
+
+
+        }
+        else if (!spawnTerrain)
+        {
+            terrainGenerator = 4;
+
+
+        }
 
     }
 
