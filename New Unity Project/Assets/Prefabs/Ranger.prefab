@@ -118,6 +118,7 @@ MonoBehaviour:
   lifetime: 0
   isRanged: 1
   playerProximity: 0
+  sightRange: 45
   enemyRange: 25
   enemyCooldown: 0
   enemyRof: 1.5

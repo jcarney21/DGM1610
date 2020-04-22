@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
 
     public bool isRanged;
     public float playerProximity;
+    public float sightRange;
     public float enemyRange;
     public float enemyCooldown;
     public float enemyRof;
@@ -37,16 +38,25 @@ public class EnemyMove : MonoBehaviour
     void Update()
     {
         lifetime += Time.deltaTime;
+
+        if (playerProximity < sightRange)
+        {
+            transform.LookAt(target);
+            target = GameObject.FindWithTag("Player").transform;
+
+
+        }
+
         //transforming.translate stuff
-        transform.LookAt(target);
+        
         //transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
         target = GameObject.FindWithTag("Player").transform;
 
         enemyCooldown += Time.deltaTime;
-
+        
         //measures the object's distance from player
         playerProximity = Vector3.Distance(target.position, transform.position);
-        if (playerProximity > enemyRange)
+        if (playerProximity > enemyRange && playerProximity < sightRange)
         {
             transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
 

@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damage: 10
-  shieldDamage: 0
+  shieldDamage: 5
   moveSpeed: 6
   enemyHealth: 0
   pointsToAdd: 25
@@ -117,6 +117,7 @@ MonoBehaviour:
   lifetime: 0
   isRanged: 0
   playerProximity: 0
+  sightRange: 20
   enemyRange: 0
   enemyCooldown: 0
   enemyRof: 0
