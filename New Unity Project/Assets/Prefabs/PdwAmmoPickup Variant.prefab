@@ -22,6 +22,11 @@ PrefabInstance:
       propertyPath: ammoToAdd
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 7818622141614547252, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
+        type: 3}
+      propertyPath: ammoType
+      value: PDW
+      objectReference: {fileID: 0}
     - target: {fileID: 7818622141614547253, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,6 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotgunAmmoPickup Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7818622141614547252, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
+        type: 3}
+      propertyPath: weaponName
+      value: Shotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818622141614547252, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
+        type: 3}
+      propertyPath: ammoToAdd
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818622141614547252, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
+        type: 3}
+      propertyPath: ammoType
+      value: Shotgun
+      objectReference: {fileID: 0}
     - target: {fileID: 7818622141614547253, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -92,15 +107,5 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: addfc8c10ce53bc468ae246e346e0cae, type: 2}
-    - target: {fileID: 7818622141614547252, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
-        type: 3}
-      propertyPath: weaponName
-      value: Shotgun
-      objectReference: {fileID: 0}
-    - target: {fileID: 7818622141614547252, guid: 419c17d9ce59a1441b8d4ebbe73b7337,
-        type: 3}
-      propertyPath: ammoToAdd
-      value: 12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 419c17d9ce59a1441b8d4ebbe73b7337, type: 3}

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoToAdd: 32
-  weaponName: Energy Rifle
+  ammoType: Energy Rifle
   weapon: {fileID: 0}
 --- !u!64 &6152581842946614375
 MeshCollider:

@@ -6,7 +6,7 @@ public class AmmoPickup : MonoBehaviour
 {
 
     public int ammoToAdd;
-    public string weaponName;
+    public string ammoType;
     public GameObject weapon;
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,13 @@ public class AmmoPickup : MonoBehaviour
             var weapons = GameObject.FindGameObjectsWithTag("Weapon");
             foreach (GameObject weapon in weapons)
             {
+                var weaponloc = weapon.transform;
+                var proximity = Vector3.Distance(weaponloc.position, transform.position);
                 var weaponString = weapon.name;
                 WeaponManager wm = weapon.GetComponent<WeaponManager>();
                 //var weaponString = wm.weaponName;
 
-                if (weaponName == weaponString)
+                if (ammoType == weaponString && proximity < 3)
                 {
                     wm.AmmoPickup(ammoToAdd);
                     Destroy(gameObject);
