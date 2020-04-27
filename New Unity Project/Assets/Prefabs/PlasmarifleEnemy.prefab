@@ -181,7 +181,7 @@ MonoBehaviour:
   spawnHealth: 50
   aiHealth: 0
   aiShields: 0
-  pointsToAdd: 50
+  pointsToAdd: 200
   armor: 1
   shieldArmor: 1
   regeneratingHealth: 0
