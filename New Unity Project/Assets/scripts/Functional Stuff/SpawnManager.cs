@@ -23,7 +23,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        autospawner = 16;
+        autospawner = 10;
         if (spawnTerrain)
         {
             terrainGenerator = 0;

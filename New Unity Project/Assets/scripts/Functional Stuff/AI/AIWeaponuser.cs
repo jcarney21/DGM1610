@@ -629,10 +629,10 @@ public class AIWeaponuser : MonoBehaviour
             weaponProximity = Vector3.Distance(wepLocation.position, transform.position);
             WeaponManager wm = weapon.GetComponent<WeaponManager>();
             //bool heldByEnemy = wm;
-            if (weaponProximity < 2 && firingCooldown >= firingFrequency && firing)
+            if (weaponProximity < 4 && firingCooldown >= firingFrequency && firing)
             {
                 wm.Fire();
-
+                firingCooldown += Time.deltaTime;
             }
 
             else if (firingCooldown >= firingFrequency + firingDuration)

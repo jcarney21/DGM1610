@@ -438,6 +438,13 @@ public class WeaponManager : MonoBehaviour
             
         }
 
+        else if (heldByEnemy)
+        {
+            weaponRB.constraints = RigidbodyConstraints.FreezeAll;
+
+
+        }
+
         if (fireSwitch && Input.GetKeyDown(KeyCode.Alpha2))
         {
             autoFire = !autoFire;

@@ -67,8 +67,8 @@ MonoBehaviour:
   weaponName: Plasma Rifle
   autoFire: 1
   fireSwitch: 0
-  isActiveWeapon: 1
-  isHoldingWeapon: 1
+  isActiveWeapon: 0
+  isHoldingWeapon: 0
   isReloading: 0
   heldByEnemy: 0
   energyWeapon: 1
@@ -95,7 +95,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!1 &6424096091893292601
 GameObject:
