@@ -358,8 +358,8 @@ public class AIWeaponuser : MonoBehaviour
 
                     if (distanceFromPlayer > 1)
                     {
-                        transform.LookAt(playersLastLocation);
-                        transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
+                        //transform.LookAt(playersLastLocation);
+                        //transform.Translate(Vector3.forward * walkSpeed * 1.5f * Time.deltaTime);
 
 
                     }
