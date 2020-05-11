@@ -24,12 +24,17 @@ public class Orbits : MonoBehaviour
 
     Rigidbody rb;
     public Vector3 previousPosition;
+    public Vector3 planetaryPrevious;
+    public Vector3 correction;
 
     // Start is called before the first frame update
     void Start()
     {
+        
          rb = gameObject.GetComponent<Rigidbody>();
-        rb.AddForce(Vector3.right * initialVelocity);
+        rb.AddForce(Vector3.left * initialVelocity);
+
+
         distance = Vector3.Distance(planet.transform.position, transform.position);
         pariapsis = distance;
     }
@@ -55,10 +60,16 @@ public class Orbits : MonoBehaviour
 
 
         }
+
     }
 
     void FixedUpdate()
     {
+        // Corrects for Planetary Orbit
+        correction = planet.transform.position - planetaryPrevious;
+        planetaryPrevious = planet.transform.position;
+        transform.position += correction;
+
         //Calculates Gravity
         distance = Vector3.Distance(planet.transform.position, transform.position);
         gravity = (mass * mass2) / (distance * distance);
