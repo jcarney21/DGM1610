@@ -23,9 +23,9 @@ public class Orbits : MonoBehaviour
     
 
     Rigidbody rb;
-    public Vector3 previousPosition;
-    public Vector3 planetaryPrevious;
-    public Vector3 correction;
+    private Vector3 previousPosition;
+    private Vector3 planetaryPrevious;
+    private Vector3 correction;
 
     // Start is called before the first frame update
     void Start()
@@ -42,8 +42,22 @@ public class Orbits : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var pp = planet.GetComponent<PlanetaryPhysics>();
-        mass2 = pp.mass;
+        
+        if (planet.tag == "Planet")
+        {
+            
+            var pp = planet.GetComponent<PlanetaryPhysics>();
+            mass2 = pp.mass;
+
+        }
+        
+        else if (planet.tag == "Moon")
+        {
+            var pp = planet.GetComponent<Orbits>();
+            mass2 = pp.mass;
+
+        }
+        
 
         
 
