@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 154403093}
   - component: {fileID: 154403092}
   - component: {fileID: 154403091}
+  - component: {fileID: 154403097}
   m_Layer: 0
   m_Name: Spaceship
   m_TagString: Untagged
@@ -374,6 +375,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154403097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154403090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b36694b53da7042b94d67750809233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 0
+  exhaustGas: 300
+  massFlowRoe: 2
+  acceleration: 0
+  throttle: 0
+  deltaV: 0
+  specificImpulse: 350
+  standardGravity: 9.8
+  wetMass: 1000
+  dryMass: 100
+  rb: {fileID: 0}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
