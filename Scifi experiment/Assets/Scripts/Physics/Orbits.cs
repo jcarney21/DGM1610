@@ -26,6 +26,7 @@ public class Orbits : MonoBehaviour
     private Vector3 previousPosition;
     private Vector3 planetaryPrevious;
     private Vector3 correction;
+    private float velocityCorrection;
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +49,14 @@ public class Orbits : MonoBehaviour
             
             var pp = planet.GetComponent<PlanetaryPhysics>();
             mass2 = pp.mass;
-
+            velocityCorrection = pp.velocity;
         }
         
         else if (planet.tag == "Moon")
         {
             var pp = planet.GetComponent<Orbits>();
             mass2 = pp.mass;
-
+            velocityCorrection = pp.velocity;
         }
         
 
@@ -90,7 +91,7 @@ public class Orbits : MonoBehaviour
         rb.AddForce((planet.transform.position - transform.position).normalized * gravity);
 
         //Calculates Current Velocity
-        velocity = (transform.position - previousPosition).magnitude;
+        velocity = (transform.position - previousPosition).magnitude - velocityCorrection;
         previousPosition = transform.position;
     }
 }

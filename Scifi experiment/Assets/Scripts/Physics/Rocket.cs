@@ -18,6 +18,9 @@ public class Rocket : MonoBehaviour
     public float deltaV; // m/s^2
 
     public float specificImpulse;
+
+    public float specificFuelConsumption;
+
     public float standardGravity = 9.80665f;
 
     public float wetMass;
@@ -46,6 +49,9 @@ public class Rocket : MonoBehaviour
         acceleration = thrust / wetMass;
 
         rb.AddRelativeForce(Vector3.forward * acceleration * throttle);
+
+        //Specific Impulse
+        specificImpulse = 3600 / specificFuelConsumption;
 
         // Rocket Equation
         deltaV = specificImpulse * standardGravity * Mathf.Log(wetMass / dryMass);
