@@ -27,10 +27,13 @@ public class Rocket : MonoBehaviour
     public float dryMass;
 
     public Rigidbody rb;
+    private Fuel fe;
     // Start is called before the first frame update
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        fe = gameObject.GetComponent<Fuel>();
+
     }
 
     // Update is called once per frame
@@ -41,22 +44,28 @@ public class Rocket : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        // Communication with other scripts
+        //specificFuelConsumption = fe.specificFuelConsumption;
+        massFlowRoe = fe.lfUsageRate;
+        wetMass = dryMass + fe.lf + fe.oxydizer;
 
         // thrust and acceleration
-        thrust = exhaustGas * massFlowRoe;
+        //thrust = exhaustGas * massFlowRoe; (If I want thrust to be calculated)
 
+            //specificFuelConsumption = massFlowRoe / thrust;
         acceleration = thrust / wetMass;
 
         rb.AddRelativeForce(Vector3.forward * acceleration * throttle);
 
         //Specific Impulse
-        specificImpulse = 3600 / specificFuelConsumption;
+            //specificImpulse = 3600 / specificFuelConsumption;
+             //specificImpulse = thrust / massFlowRoe;
+        exhaustGas = specificImpulse;
 
         // Rocket Equation
         deltaV = specificImpulse * standardGravity * Mathf.Log(wetMass / dryMass);
 
-
+        // Throttle
         if (Input.GetKeyDown(KeyCode.Z))
         {
             throttle = 1;
