@@ -215,6 +215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoom: 0
   scrollwheel: 0
+  horizontalAxis: 0
+  verticalAxis: 0
+  sensitivity: 5
 --- !u!65 &240831557
 BoxCollider:
   m_ObjectHideFlags: 0

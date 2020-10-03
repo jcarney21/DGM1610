@@ -10,6 +10,11 @@ public class Camera : MonoBehaviour
     public float zoom;
 
     public float scrollwheel;
+
+    public float horizontalAxis;
+    public float verticalAxis;
+
+    public int sensitivity;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +25,13 @@ public class Camera : MonoBehaviour
     void Update()
     {
         scrollwheel = Input.GetAxis("Mouse ScrollWheel");
+        horizontalAxis = Input.GetAxis("Horizontal");
+        verticalAxis = Input.GetAxis("Vertical");
+
+        transform.Translate(Vector3.right * horizontalAxis * 1/(10-sensitivity), Space.World);
+
+        transform.Translate(Vector3.forward * verticalAxis * 1/(10-sensitivity), Space.World);
+
         if (zoom >= maxZoom && scrollwheel > 0)
         {
             transform.Translate (0, 0, 1 * scrollwheel);
