@@ -20,7 +20,8 @@ public class UnitData : MonoBehaviour
     // Stats
     public string unitName;//
     public string unitTags;//
-    public float health;//
+    public float maxhealth;//
+    public float health;
 
     public int supply;//
     public int resource1;//
@@ -49,7 +50,7 @@ public class UnitData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = health1 + health2 + health3 + health4 + health5 + health6;
+        maxhealth = health1 + health2 + health3 + health4 + health5 + health6;
 
         if (faction == playerFaction)
         {
@@ -61,6 +62,15 @@ public class UnitData : MonoBehaviour
         else
         {
             isSelectable = false;
+
+        }
+
+
+        
+        if (faction == 1)
+        {
+            GameManager.AddSupply1 (supply);
+
 
         }
     }
