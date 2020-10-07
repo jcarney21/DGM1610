@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     // Player 1
     public static int p1Supply;
     public static int p1MaxSupply;
+    public int displaySupply;
 
     public static int fac1Resource1;
     public static int fac1Resource2;
@@ -79,12 +80,144 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        displaySupply = p1Supply;
     }
 
-    public static void AddSupply1 (supply)
+
+    // Supply Manager System
+
+    // Player1 Supply
+
+    public static void AddSupply1 (int supply)
     {
         p1Supply += supply;
+
+
+    }
+
+    public static void Subtract1 (int supply)
+    {
+        p1Supply -= supply;
+
+
+
+    }
+
+    // Player2 Supply
+
+    public static void AddSupply2(int supply)
+    {
+        p2Supply += supply;
+
+
+    }
+
+    public static void Subtract2(int supply)
+    {
+        p2Supply -= supply;
+
+
+
+    }
+
+    // Player3 Supply
+
+    public static void AddSupply3(int supply)
+    {
+        p3Supply += supply;
+
+
+    }
+
+    public static void Subtract3(int supply)
+    {
+        p3Supply -= supply;
+
+
+
+    }
+
+    // Player4 Supply
+
+    public static void AddSupply4(int supply)
+    {
+        p4Supply += supply;
+
+
+    }
+
+    public static void Subtract4(int supply)
+    {
+        p4Supply -= supply;
+
+
+
+    }
+
+    // Player5 Supply
+
+    public static void AddSupply5(int supply)
+    {
+        p5Supply += supply;
+
+
+    }
+
+    public static void Subtract5(int supply)
+    {
+        p5Supply -= supply;
+
+
+
+    }
+
+    // Player6 Supply
+
+    public static void AddSupply6(int supply)
+    {
+        p6Supply += supply;
+
+
+    }
+
+    public static void Subtract6(int supply)
+    {
+        p6Supply -= supply;
+
+
+
+    }
+
+    // Player7 Supply
+
+    public static void AddSupply7(int supply)
+    {
+        p7Supply += supply;
+
+
+    }
+
+    public static void Subtract7(int supply)
+    {
+        p7Supply -= supply;
+
+
+
+    }
+
+    // Player8 Supply
+
+    public static void AddSupply8(int supply)
+    {
+        p8Supply += supply;
+
+
+    }
+
+    public static void Subtract8(int supply)
+    {
+        p8Supply -= supply;
+
 
 
     }

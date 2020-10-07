@@ -20,10 +20,10 @@ public class UnitData : MonoBehaviour
     // Stats
     public string unitName;//
     public string unitTags;//
-    public float maxhealth;//
+    public float maxhealth;
     public float health;
 
-    public int supply;//
+    public int supply;
     public int resource1;//
     public int resource2;//
     public int resource3;//
@@ -66,18 +66,138 @@ public class UnitData : MonoBehaviour
         }
 
 
-        
+        // Supplies on Spawn
         if (faction == 1)
         {
             GameManager.AddSupply1 (supply);
 
 
         }
+        else if (faction == 2)
+        {
+            GameManager.AddSupply2(supply);
+
+
+        }
+        else if (faction == 3)
+        {
+            GameManager.AddSupply3(supply);
+
+
+        }
+        else if (faction == 4)
+        {
+            GameManager.AddSupply4(supply);
+
+
+        }
+        else if (faction == 5)
+        {
+            GameManager.AddSupply5(supply);
+
+
+        }
+        else if (faction == 6)
+        {
+            GameManager.AddSupply6(supply);
+
+
+        }
+        else if (faction == 7)
+        {
+            GameManager.AddSupply7(supply);
+
+
+        }
+        else if (faction == 8)
+        {
+            GameManager.AddSupply8(supply);
+
+
+        }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //health manager
+
         health = health1 + health2 + health3 + health4 + health5 + health6;
+
+
+            // Death Manager
+        if (health <= 0)
+        {
+            if (faction == 1)
+            {
+                GameManager.Subtract1(supply);
+
+
+
+            }
+            else if (faction == 2)
+            {
+                GameManager.Subtract2(supply);
+
+
+
+            }
+            else if (faction == 3)
+            {
+                GameManager.Subtract3(supply);
+
+
+
+            }
+            else if (faction == 4)
+            {
+                GameManager.Subtract4(supply);
+
+
+
+            }
+            else if (faction == 5)
+            {
+                GameManager.Subtract5(supply);
+
+
+
+            }
+            else if (faction == 6)
+            {
+                GameManager.Subtract6(supply);
+
+
+
+            }
+            else if (faction == 7)
+            {
+                GameManager.Subtract7(supply);
+
+
+
+            }
+            else if (faction == 8)
+            {
+                GameManager.Subtract8(supply);
+
+
+
+            }
+            else
+            {
+
+            }
+
+
+            Destroy(gameObject);
+
+
+
+
+        }
     }
 }
