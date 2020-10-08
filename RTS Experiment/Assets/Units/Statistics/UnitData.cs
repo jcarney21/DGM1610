@@ -33,12 +33,12 @@ public class UnitData : MonoBehaviour
     // Unit Components
     public float unitRadius;//
 
-    public object soldier1;//
-    public object soldier2;//
-    public object soldier3;//
-    public object soldier4;//
-    public object soldier5;//
-    public object soldier6;//
+    public GameObject soldier1;//
+    public GameObject soldier2;//
+    public GameObject soldier3;//
+    public GameObject soldier4;//
+    public GameObject soldier5;//
+    public GameObject soldier6;//
 
     public float health1;//
     public float health2;//
@@ -50,6 +50,22 @@ public class UnitData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Health Monitoring
+        var h1 = soldier1.GetComponent <Health> ();
+        health1 = h1.health;
+        var h2 = soldier2.GetComponent<Health>();
+        health2 = h2.health;
+        var h3 = soldier3.GetComponent<Health>();
+        health3 = h3.health;
+        var h4 = soldier4.GetComponent<Health>();
+        health4 = h4.health;
+        var h5 = soldier5.GetComponent<Health>();
+        health5 = h5.health;
+        var h6 = soldier6.GetComponent<Health>();
+        health6 = h6.health;
+
+
+
         maxhealth = health1 + health2 + health3 + health4 + health5 + health6;
 
         if (faction == playerFaction)
@@ -124,8 +140,40 @@ public class UnitData : MonoBehaviour
     {
 
         //health manager
+        health = 0;
+        if (soldier1)
+        {
+            health += soldier1.GetComponent<Health>().health;
+        }
+        if (soldier2)
+        {
+            health += soldier2.GetComponent<Health>().health;
+        }
+        if (soldier3)
+        {
+            health += soldier3.GetComponent<Health>().health;
+        }
+        if (soldier4)
+        {
+            health += soldier4.GetComponent<Health>().health;
+        }
+        if (soldier5)
+        {
+            health += soldier5.GetComponent<Health>().health;
+        }
+        //var h2 = soldier2.GetComponent<Health>();
+        //health += h2.health;
+        if (soldier6)
+        {
+            var h6 = soldier6.GetComponent<Health>();
+            health += h6.health;
+        }
 
-        health = health1 + health2 + health3 + health4 + health5 + health6;
+
+        //health = health1 + health2 + health3 + health4 + health5 + health6;
+        print(health);
+
+
 
 
             // Death Manager

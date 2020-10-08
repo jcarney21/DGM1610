@@ -151,7 +151,7 @@ MonoBehaviour:
   selectingFaction: 0
   Waypoint: {x: 0, y: 0, z: 0}
   order: 0
-  unitName: 
+  unitName: Marine
   unitTags: 
   maxhealth: 0
   health: 0
@@ -161,6 +161,12 @@ MonoBehaviour:
   resource3: 0
   ammunition: 0
   unitRadius: 0
+  soldier1: {fileID: 248372248}
+  soldier2: {fileID: 1729886673}
+  soldier3: {fileID: 582874213}
+  soldier4: {fileID: 149740742}
+  soldier5: {fileID: 601156538}
+  soldier6: {fileID: 0}
   health1: 10
   health2: 0
   health3: 0
@@ -236,7 +242,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.23, y: -0.1, z: -1.0292999}
   m_LocalScale: {x: 1, y: 0.002717201, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 248372252}
+  - {fileID: 1729886677}
+  - {fileID: 582874217}
+  - {fileID: 149740746}
+  - {fileID: 601156542}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -252,6 +263,7 @@ GameObject:
   - component: {fileID: 149740745}
   - component: {fileID: 149740744}
   - component: {fileID: 149740743}
+  - component: {fileID: 149740747}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Untagged
@@ -324,13 +336,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149740742}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.054, y: -0.062, z: -1.131}
-  m_LocalScale: {x: 0.0843052, y: 0.0843052, z: 0.0843052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.176, y: 13.984981, z: -0.10170019}
+  m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 136974693}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149740747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149740742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f070a00a7272714a94e569f0d4a4cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  armor: 0
+  shields: 0
+  shieldArmor: 0
+  damageType: 0
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +441,7 @@ GameObject:
   - component: {fileID: 201845071}
   - component: {fileID: 201845070}
   - component: {fileID: 201845069}
+  - component: {fileID: 201845073}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -484,13 +514,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201845068}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.832, y: -0.032, z: -0.972}
-  m_LocalScale: {x: 0.1360433, y: 0.1360433, z: 0.1360433}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.008000016, y: 25.025755, z: 0.057299852}
+  m_LocalScale: {x: 0.1360433, y: 50.06744, z: 0.1360433}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1832250424}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &201845073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201845068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f070a00a7272714a94e569f0d4a4cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
+  armor: 0
+  shields: 0
+  shieldArmor: 0
+  damageType: 0
 --- !u!1 &240831555
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,7 +595,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240831555}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -613,6 +660,7 @@ GameObject:
   - component: {fileID: 248372251}
   - component: {fileID: 248372250}
   - component: {fileID: 248372249}
+  - component: {fileID: 248372253}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Untagged
@@ -685,13 +733,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248372248}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.524, y: -0.062, z: -1.27}
-  m_LocalScale: {x: 0.0843052, y: 0.0843052, z: 0.0843052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29399997, y: 13.984981, z: -0.24070013}
+  m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 136974693}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &248372253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248372248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f070a00a7272714a94e569f0d4a4cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  armor: 0
+  shields: 0
+  shieldArmor: 0
+  damageType: 0
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +851,7 @@ GameObject:
   - component: {fileID: 582874216}
   - component: {fileID: 582874215}
   - component: {fileID: 582874214}
+  - component: {fileID: 582874218}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Untagged
@@ -858,13 +924,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582874213}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.093, y: -0.062, z: -0.751}
-  m_LocalScale: {x: 0.0843052, y: 0.0843052, z: 0.0843052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.137, y: 13.984981, z: 0.27829987}
+  m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 136974693}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582874218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582874213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f070a00a7272714a94e569f0d4a4cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  armor: 0
+  shields: 0
+  shieldArmor: 0
+  damageType: 0
 --- !u!1 &601156538
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +960,7 @@ GameObject:
   - component: {fileID: 601156541}
   - component: {fileID: 601156540}
   - component: {fileID: 601156539}
+  - component: {fileID: 601156543}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Untagged
@@ -949,13 +1033,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601156538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.259, y: -0.062, z: -0.949}
-  m_LocalScale: {x: 0.0843052, y: 0.0843052, z: 0.0843052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.029, y: 13.984981, z: 0.080299854}
+  m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 136974693}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &601156543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601156538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f070a00a7272714a94e569f0d4a4cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  armor: 0
+  shields: 0
+  shieldArmor: 0
+  damageType: 0
 --- !u!1 &915945720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1113,7 @@ GameObject:
   - component: {fileID: 1729886676}
   - component: {fileID: 1729886675}
   - component: {fileID: 1729886674}
+  - component: {fileID: 1729886678}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Untagged
@@ -1084,13 +1186,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1729886673}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.399, y: -0.062, z: -0.852}
-  m_LocalScale: {x: 0.0843052, y: 0.0843052, z: 0.0843052}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.16899998, y: 13.984981, z: 0.17729986}
+  m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 136974693}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1729886678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729886673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f070a00a7272714a94e569f0d4a4cab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  armor: 0
+  shields: 0
+  shieldArmor: 0
+  damageType: 0
 --- !u!1 &1832250419
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,7 +1224,7 @@ GameObject:
   - component: {fileID: 1832250421}
   - component: {fileID: 1832250420}
   m_Layer: 0
-  m_Name: Unit Controller (1)
+  m_Name: Unit Controller Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,6 +1259,12 @@ MonoBehaviour:
   resource3: 0
   ammunition: 0
   unitRadius: 0
+  soldier1: {fileID: 201845068}
+  soldier2: {fileID: 0}
+  soldier3: {fileID: 0}
+  soldier4: {fileID: 0}
+  soldier5: {fileID: 0}
+  soldier6: {fileID: 0}
   health1: 10
   health2: 0
   health3: 0
@@ -1215,7 +1340,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.84, y: -0.1, z: -1.0292999}
   m_LocalScale: {x: 1, y: 0.002717201, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 201845072}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
