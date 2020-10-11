@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     public int shieldWeak;
 
     public float damageMod;
+    public float shieldMod;
 
     //public int damageType;//
 
@@ -32,15 +33,16 @@ public class Health : MonoBehaviour
 
     public void DealDamage(float damage, float shieldDamage, int damageType, float resistFactor, float weakFactor)
     {
+        // Determines if the unit armor is resistant or weak to weapon
         if (damageType == resistance)
         {
-            damageMod = 0 - resistFactor;
+            damageMod = -resistFactor;
 
 
         }
         else if (damageType == weakness)
         {
-            damageMod += weakFactor;
+            damageMod = weakFactor;
 
         }
         else
@@ -49,16 +51,34 @@ public class Health : MonoBehaviour
 
         }
 
+        // Determines if unit shields are resistant or weak to weapon
+        if (damageType == shieldResist)
+        {
+            shieldMod = -resistFactor;
 
+
+        }
+        else if (damageType == shieldWeak)
+        {
+            shieldMod = weakFactor;
+
+
+        }
+        else
+        {
+            shieldMod = 0;
+        }
+
+        //Actual Damage-dealing
         if (shields > 0)
         {
-            if ((shieldDamage + damageMod) -shieldArmor > 0)
+            if ((shieldDamage + shieldMod) -shieldArmor > 0)
             {
-                shields -= ((shieldDamage + damageMod) - shieldArmor);
+                shields -= ((shieldDamage + shieldMod) - shieldArmor);
 
 
             }
-            else if ((shieldDamage + damageMod) - shieldArmor <= 0)
+            else if ((shieldDamage + shieldMod) - shieldArmor <= 0)
             {
                 shields -= 1;
 

@@ -77,6 +77,6 @@ public class Projectile : MonoBehaviour
         
         other.gameObject.GetComponent<Health>().DealDamage(damage, shieldDamage, damageType, resistFactor, weakFactor);
 
-
+        Destroy(gameObject);
     }
 }
