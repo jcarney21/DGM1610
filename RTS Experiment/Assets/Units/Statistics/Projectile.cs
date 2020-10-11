@@ -28,7 +28,8 @@ public class Projectile : MonoBehaviour
 
     // What if I did a dynamic damage model based on caliber and velocity. That could be cool, but...
 
-    public float damageMultiplier;
+    public float resistFactor;
+    public float weakFactor;
 
     public bool splash;
     public float splashRadius;
@@ -69,5 +70,13 @@ public class Projectile : MonoBehaviour
 
         }
         
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        
+        other.gameObject.GetComponent<Health>().DealDamage(damage, shieldDamage, damageType, resistFactor, weakFactor);
+
+
     }
 }

@@ -14,6 +14,8 @@ public class Health : MonoBehaviour
     public int shieldResist;
     public int shieldWeak;
 
+    public float damageMod;
+
     //public int damageType;//
 
     // Start is called before the first frame update
@@ -28,11 +30,66 @@ public class Health : MonoBehaviour
         
     }
 
-    public void DealDamage(float damage, float shieldDamage, int damageType)
+    public void DealDamage(float damage, float shieldDamage, int damageType, float resistFactor, float weakFactor)
     {
+        if (damageType == resistance)
+        {
+            damageMod = 0 - resistFactor;
+
+
+        }
+        else if (damageType == weakness)
+        {
+            damageMod += weakFactor;
+
+        }
+        else
+        {
+            damageMod = 0;
+
+        }
+
+
         if (shields > 0)
         {
-            shields -= (shieldDamage - shieldArmor);
+            if ((shieldDamage + damageMod) -shieldArmor > 0)
+            {
+                shields -= ((shieldDamage + damageMod) - shieldArmor);
+
+
+            }
+            else if ((shieldDamage + damageMod) - shieldArmor <= 0)
+            {
+                shields -= 1;
+
+
+            }
+            
+            if (shields < 0)
+            {
+                shields = 0;
+
+
+            }
+
+
+        }
+        else if (shields <= 0)
+        {
+            if ((damage + damageMod) - armor > 0)
+            {
+                health -= ((damage + damageMod) - armor);
+
+
+
+            }
+            else if ((damage + damageMod) - armor <= 0)
+            {
+                health -= 1;
+
+
+            }
+
 
 
 
