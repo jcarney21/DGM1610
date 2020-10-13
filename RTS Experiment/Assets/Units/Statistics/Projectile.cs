@@ -28,11 +28,8 @@ public class Projectile : MonoBehaviour
 
     // What if I did a dynamic damage model based on caliber and velocity. That could be cool, but...
 
-    public float resistFactor;
-    public float weakFactor;
-
     public bool splash;
-    public float splashRadius;
+    public float splashRadius; // Note: anything beyond 2 or 3 is probably unreasonably large
     public float splashDamage;
     public float splashShields;
 
@@ -48,6 +45,8 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         Destroy(gameObject, spawnTime);
         rb = gameObject.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * velocity);
@@ -74,9 +73,50 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        
-        other.gameObject.GetComponent<Health>().DealDamage(damage, shieldDamage, damageType, resistFactor, weakFactor);
+        if (other.gameObject.GetComponent<Health>())
+        {
+            other.gameObject.GetComponent<Health>().DealDamage(damage, shieldDamage, damageType);
 
-        Destroy(gameObject);
+
+        }
+        
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+
+
+        }
+        else
+        {
+            Destroy(gameObject);
+
+
+        }
+        
+
+        // splashDamage
+
+        if (splash)
+        {
+            var st = GameObject.FindGameObjectsWithTag("Subunit");
+
+            foreach (var target in st)
+            {
+                var proximity = Vector3.Distance(target.transform.position, transform.position);
+
+                if (proximity <= splashRadius)
+                {
+                    target.gameObject.GetComponent<Health>().SplashDamage(splashDamage, splashShields, damageType);
+
+
+
+                }
+
+
+            }
+
+
+
+        }
+
     }
 }
