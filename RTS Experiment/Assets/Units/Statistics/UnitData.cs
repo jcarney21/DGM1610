@@ -28,7 +28,7 @@ public class UnitData : MonoBehaviour
     public int resource2;//
     public int resource3;//
 
-    public int ammunition; // Maybe
+    public int ammunition; // Maybe? No, it has been incorporated into Weapon script
 
     // Unit Components
     public float unitRadius;//
