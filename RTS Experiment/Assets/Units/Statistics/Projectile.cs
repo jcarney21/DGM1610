@@ -41,11 +41,18 @@ public class Projectile : MonoBehaviour
 
     public float spawnTime;
 
+    public float clearance;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(clearance >= 0)
+        {
+            clearance = .1f;
+
+
+        }
+        transform.Translate (Vector3.forward * clearance);
 
         Destroy(gameObject, spawnTime);
         rb = gameObject.GetComponent<Rigidbody>();
@@ -82,7 +89,7 @@ public class Projectile : MonoBehaviour
         
         if (other.gameObject.CompareTag("Projectile"))
         {
-
+            
 
         }
         else

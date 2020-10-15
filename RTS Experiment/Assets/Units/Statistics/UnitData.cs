@@ -64,7 +64,8 @@ public class UnitData : MonoBehaviour
         var h6 = soldier6.GetComponent<Health>();
         health6 = h6.health;
 
-
+        //var controller = gameObject;
+        //soldier1.GetComponent<Movement>().SetUnitController(controller);
 
         maxhealth = health1 + health2 + health3 + health4 + health5 + health6;
 

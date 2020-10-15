@@ -16,17 +16,22 @@ public class Weapon : MonoBehaviour
     public int ammo;
     public int maxAmmo;
     public int reloadTime;
+    public float accuracy;
 
     public float reloadTimer;
 
     public bool fireOrders;
 
-    public float clearance;
+    //public float clearance;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //if (clearance <= 0)
+        //{
+            //clearance =  .1f;
+
+        //}
     }
 
     // Update is called once per frame
@@ -45,7 +50,7 @@ public class Weapon : MonoBehaviour
         
         if(durationTimer > firingFrequency && fireTimer > rateOfFire && fireOrders && ammo > 0)
         {
-            Instantiate(projectile, transform.position + Vector3.forward * clearance, transform.rotation);
+            Instantiate(projectile, transform.position, transform.rotation * Quaternion.Euler(Random.Range(0 - accuracy, 0 + accuracy), Random.Range(0 - accuracy, 0 + accuracy), 0));
             fireTimer = 0;
             ammo -= 1;
 
