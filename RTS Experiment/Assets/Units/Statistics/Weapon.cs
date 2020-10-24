@@ -84,7 +84,7 @@ public class Weapon : MonoBehaviour
 
     }
 
-    void OrdersToFire (bool fire)
+    public void OrdersToFire (bool fire)
     {
         fireOrders = fire;
 

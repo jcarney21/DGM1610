@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     public float movementRotation;
     public int orders;
 
+    public float acceptableTargetDeviation;
+
 
     private bool moving;
     public bool targeting;
@@ -48,17 +50,38 @@ public class Movement : MonoBehaviour
 
         if (targeting)
         {
+            var unitPos = transform.position;
             targetLoc = target.transform;
+            var difference = targetLoc.position - unitPos;
 
-            if (!target)
+            if ((Vector3.Angle(difference, transform.forward) < acceptableTargetDeviation))
             {
-
-                unitController.GetComponent<Targeting>().Unit1LostTarget();
+                var fire = true;
+                gameObject.GetComponent<Weapon>().OrdersToFire(fire);
 
             }
+            else
+            {
+                var fire = false;
+                gameObject.GetComponent<Weapon>().OrdersToFire(fire);
+            }
 
-            transform.LookAt(targetLoc);
-            transform.Rotate(Vector3.up * movementRotation);
+            var step = movementRotation * Time.deltaTime;
+
+            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, difference, step, 0.0f));
+
+            /*if ((Vector3.Angle(difference, transform.forward)) > 1 && (Vector3.Angle(difference, transform.forward)) < 180)
+            {
+                transform.Rotate(Vector3.up * movementRotation);
+
+            }
+            else if ((Vector3.Angle(difference, transform.forward)) > 180)
+            {
+                transform.Rotate(Vector3.down * movementRotation);
+
+            }*/
+            //transform.LookAt(target.transform.position);
+            //transform.Rotate(Vector3.up * movementRotation);
 
 
         }

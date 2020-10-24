@@ -408,11 +408,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 356997969}
   soldier1: {fileID: 0}
+  target1: {fileID: 0}
   soldier2: {fileID: 0}
+  target2: {fileID: 0}
   soldier3: {fileID: 0}
+  target3: {fileID: 0}
   soldier4: {fileID: 0}
+  target4: {fileID: 0}
   soldier5: {fileID: 0}
+  target5: {fileID: 0}
   soldier6: {fileID: 0}
+  target6: {fileID: 0}
   hostileSoldier1: {fileID: 0}
   hostileSoldier2: {fileID: 0}
   hostileSoldier3: {fileID: 0}
@@ -944,7 +950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248372248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.348, y: 13.984981, z: 0.07}
+  m_LocalPosition: {x: -2.809, y: 13.984981, z: 0.07}
   m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
   m_Father: {fileID: 136974693}
@@ -1016,8 +1022,9 @@ MonoBehaviour:
   targetLoc: {fileID: 0}
   movementSpeed: 0
   accelerates: 0
-  movementRotation: 30
-  orders: 0
+  movementRotation: 0.1
+  orders: 30
+  acceptableTargetDeviation: 1
   targeting: 1
 --- !u!1 &278046068
 GameObject:
