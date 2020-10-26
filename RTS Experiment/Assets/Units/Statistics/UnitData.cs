@@ -172,7 +172,7 @@ public class UnitData : MonoBehaviour
 
 
         //health = health1 + health2 + health3 + health4 + health5 + health6;
-        print(health);
+        //print(health);
 
 
 

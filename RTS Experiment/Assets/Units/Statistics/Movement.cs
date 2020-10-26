@@ -30,6 +30,13 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!target)
+        {
+            target = null;
+
+
+        }
+
         if (moving)
         {
             if (accelerates)
@@ -51,10 +58,31 @@ public class Movement : MonoBehaviour
         if (targeting)
         {
             var unitPos = transform.position;
-            targetLoc = target.transform;
-            var difference = targetLoc.position - unitPos;
+            if (target)
+            {
+                targetLoc = target.transform;
+                var difference = targetLoc.position - unitPos;
 
-            if ((Vector3.Angle(difference, transform.forward) < acceptableTargetDeviation))
+                if ((Vector3.Angle(difference, transform.forward) < acceptableTargetDeviation))
+                {
+                    var fire = true;
+                    gameObject.GetComponent<Weapon>().OrdersToFire(fire);
+
+                }
+                else
+                {
+                    var fire = false;
+                    gameObject.GetComponent<Weapon>().OrdersToFire(fire);
+                }
+
+                var step = movementRotation * Time.deltaTime;
+
+                transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, difference, step, 0.0f));
+            }
+            //targetLoc = target.transform;
+            //var difference = targetLoc.position - unitPos;
+
+            /*if ((Vector3.Angle(difference, transform.forward) < acceptableTargetDeviation))
             {
                 var fire = true;
                 gameObject.GetComponent<Weapon>().OrdersToFire(fire);
@@ -68,7 +96,7 @@ public class Movement : MonoBehaviour
 
             var step = movementRotation * Time.deltaTime;
 
-            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, difference, step, 0.0f));
+            transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, difference, step, 0.0f));*/
 
             /*if ((Vector3.Angle(difference, transform.forward)) > 1 && (Vector3.Angle(difference, transform.forward)) < 180)
             {

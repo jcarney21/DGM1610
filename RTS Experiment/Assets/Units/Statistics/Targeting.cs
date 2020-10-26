@@ -34,33 +34,118 @@ public class Targeting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        soldier1 = gameObject.GetComponent<UnitData>().soldier1;
-        soldier2 = gameObject.GetComponent<UnitData>().soldier2;
+        if (gameObject.GetComponent<UnitData>().soldier1)
+        {
+            soldier1 = gameObject.GetComponent<UnitData>().soldier1;
+
+        }
+        if (soldier2 = gameObject.GetComponent<UnitData>().soldier2)
+        {
+            soldier2 = gameObject.GetComponent<UnitData>().soldier2;
+
+        }
+        if (gameObject.GetComponent<UnitData>().soldier3)
+        {
+            soldier3 = gameObject.GetComponent<UnitData>().soldier3;
+
+        }
+        if (soldier4 = gameObject.GetComponent<UnitData>().soldier4)
+        {
+            soldier4 = gameObject.GetComponent<UnitData>().soldier4;
+
+        }
+        if (gameObject.GetComponent<UnitData>().soldier5)
+        {
+            soldier5 = gameObject.GetComponent<UnitData>().soldier5;
+
+        }
+        if (soldier6 = gameObject.GetComponent<UnitData>().soldier6)
+        {
+            soldier6 = gameObject.GetComponent<UnitData>().soldier6;
+
+        }
+
+        /*soldier2 = gameObject.GetComponent<UnitData>().soldier2;
         soldier3 = gameObject.GetComponent<UnitData>().soldier3;
         soldier4 = gameObject.GetComponent<UnitData>().soldier4;
         soldier5 = gameObject.GetComponent<UnitData>().soldier5;
-        soldier6 = gameObject.GetComponent<UnitData>().soldier6;
+        soldier6 = gameObject.GetComponent<UnitData>().soldier6;*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        target1 = soldier1.GetComponent<Movement>().target;
-        target2 = soldier1.GetComponent<Movement>().target;
-        target3 = soldier1.GetComponent<Movement>().target;
-        target4 = soldier1.GetComponent<Movement>().target;
-        target5 = soldier1.GetComponent<Movement>().target;
-        target6 = soldier1.GetComponent<Movement>().target;
+        // Monitors target Acquisition
+        if (soldier1)
+        {
+            target1 = soldier1.GetComponent<Movement>().target;
+        }
+        if (soldier2)
+        {
+            target2 = soldier2.GetComponent<Movement>().target;
+        }
+        if (soldier3)
+        {
+            target3 = soldier3.GetComponent<Movement>().target;
+        }
+        if (soldier4)
+        {
+            target4 = soldier4.GetComponent<Movement>().target;
+        }
+        if (soldier5)
+        {
+            target5 = soldier5.GetComponent<Movement>().target;
+        }
+        if (soldier6)
+        {
+            target6 = soldier6.GetComponent<Movement>().target;
+        }
+        //target1 = soldier1.GetComponent<Movement>().target;
+        //target2 = soldier1.GetComponent<Movement>().target;
+        //target3 = soldier1.GetComponent<Movement>().target;
+        //target4 = soldier1.GetComponent<Movement>().target;
+        //target5 = soldier1.GetComponent<Movement>().target;
+        //target6 = soldier1.GetComponent<Movement>().target;
 
+        //Detects hostile subunits
+        if (target && target.GetComponent<UnitData>().soldier1)
+        {
+            hostileSoldier1 = target.GetComponent<UnitData>().soldier1;
 
-        hostileSoldier1 = target.GetComponent<UnitData>().soldier1;
-        hostileSoldier2 = target.GetComponent<UnitData>().soldier2;
+        }
+        if (target && target.GetComponent<UnitData>().soldier2)
+        {
+            hostileSoldier2 = target.GetComponent<UnitData>().soldier2;
+
+        }
+        if (target && target.GetComponent<UnitData>().soldier3)
+        {
+            hostileSoldier3 = target.GetComponent<UnitData>().soldier3;
+
+        }
+        if (target && target.GetComponent<UnitData>().soldier4)
+        {
+            hostileSoldier4 = target.GetComponent<UnitData>().soldier4;
+
+        }
+        if (target && target.GetComponent<UnitData>().soldier5)
+        {
+            hostileSoldier5 = target.GetComponent<UnitData>().soldier5;
+
+        }
+        if (target && target.GetComponent<UnitData>().soldier6)
+        {
+            hostileSoldier6 = target.GetComponent<UnitData>().soldier6;
+
+        }
+        /*hostileSoldier2 = target.GetComponent<UnitData>().soldier2;
         hostileSoldier3 = target.GetComponent<UnitData>().soldier3;
         hostileSoldier4 = target.GetComponent<UnitData>().soldier4;
         hostileSoldier5 = target.GetComponent<UnitData>().soldier5;
-        hostileSoldier6 = target.GetComponent<UnitData>().soldier6;
+        hostileSoldier6 = target.GetComponent<UnitData>().soldier6;*/
 
-        if (soldier1 && !target1)
+        //Actual target assignment
+        if (soldier1 && target1 == null)
         {
             var random = Random.Range(1, 6);
             if(random == 1 && hostileSoldier1)
@@ -93,9 +178,14 @@ public class Targeting : MonoBehaviour
                 var threat = hostileSoldier6;
                 soldier1.GetComponent<Movement>().SetTarget(threat);
             }
+            else
+            {
+                GameObject threat = null;
+                soldier1.GetComponent<Movement>().SetTarget(threat);
+            }
         }
 
-        if (soldier2 && !target2)
+        if (soldier2 && target2 == null)
         {
             var random = Random.Range(1, 6);
             if (random == 1 && hostileSoldier1)
@@ -128,9 +218,14 @@ public class Targeting : MonoBehaviour
                 var threat = hostileSoldier6;
                 soldier2.GetComponent<Movement>().SetTarget(threat);
             }
+            else
+            {
+                GameObject threat = null;
+                soldier2.GetComponent<Movement>().SetTarget(threat);
+            }
         }
 
-        if (soldier3 && !target3)
+        if (soldier3 && target3 == null)
         {
             var random = Random.Range(1, 6);
             if (random == 1 && hostileSoldier1)
@@ -163,9 +258,14 @@ public class Targeting : MonoBehaviour
                 var threat = hostileSoldier6;
                 soldier3.GetComponent<Movement>().SetTarget(threat);
             }
+            else
+            {
+                GameObject threat = null;
+                soldier3.GetComponent<Movement>().SetTarget(threat);
+            }
         }
 
-        if (soldier4 && !target4)
+        if (soldier4 && target4 == null)
         {
             var random = Random.Range(1, 6);
             if (random == 1 && hostileSoldier1)
@@ -198,9 +298,14 @@ public class Targeting : MonoBehaviour
                 var threat = hostileSoldier6;
                 soldier4.GetComponent<Movement>().SetTarget(threat);
             }
+            else
+            {
+                GameObject threat = null;
+                soldier4.GetComponent<Movement>().SetTarget(threat);
+            }
         }
 
-        if (soldier5 && !target5)
+        if (soldier5 && target5 == null)
         {
             var random = Random.Range(1, 6);
             if (random == 1 && hostileSoldier1)
@@ -233,9 +338,14 @@ public class Targeting : MonoBehaviour
                 var threat = hostileSoldier6;
                 soldier5.GetComponent<Movement>().SetTarget(threat);
             }
+            else
+            {
+                GameObject threat = null;
+                soldier5.GetComponent<Movement>().SetTarget(threat);
+            }
         }
 
-        if (soldier6 && !target6)
+        if (soldier6 && target6 == null)
         {
             var random = Random.Range(1, 6);
             if (random == 1 && hostileSoldier1)
@@ -266,6 +376,11 @@ public class Targeting : MonoBehaviour
             else if (random == 6 && hostileSoldier6)
             {
                 var threat = hostileSoldier6;
+                soldier6.GetComponent<Movement>().SetTarget(threat);
+            }
+            else
+            {
+                GameObject threat = null;
                 soldier6.GetComponent<Movement>().SetTarget(threat);
             }
         }

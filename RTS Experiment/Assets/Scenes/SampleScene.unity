@@ -439,6 +439,7 @@ GameObject:
   - component: {fileID: 149740743}
   - component: {fileID: 149740747}
   - component: {fileID: 149740748}
+  - component: {fileID: 149740749}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Subunit
@@ -567,6 +568,27 @@ MonoBehaviour:
   accuracy: 2
   reloadTimer: 0
   fireOrders: 1
+--- !u!114 &149740749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149740742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  targetLoc: {fileID: 0}
+  movementSpeed: 0
+  accelerates: 0
+  movementRotation: 1
+  orders: 0
+  acceptableTargetDeviation: 1
+  targeting: 1
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248372248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.809, y: 13.984981, z: 0.07}
+  m_LocalPosition: {x: -0.311, y: 13.984981, z: 0.07}
   m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
   m_Father: {fileID: 136974693}
@@ -1023,7 +1045,7 @@ MonoBehaviour:
   movementSpeed: 0
   accelerates: 0
   movementRotation: 0.1
-  orders: 30
+  orders: 0
   acceptableTargetDeviation: 1
   targeting: 1
 --- !u!1 &278046068
@@ -1296,7 +1318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356997969}
   m_LocalRotation: {x: -0, y: -0.9994476, z: -0, w: 0.033236083}
-  m_LocalPosition: {x: -0.23, y: -0.1, z: 3.98}
+  m_LocalPosition: {x: -4.95, y: -0.1, z: 4.3}
   m_LocalScale: {x: 1, y: 0.002717201, z: 1}
   m_Children:
   - {fileID: 2105120168}
@@ -1545,6 +1567,7 @@ GameObject:
   - component: {fileID: 582874214}
   - component: {fileID: 582874218}
   - component: {fileID: 582874219}
+  - component: {fileID: 582874220}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Subunit
@@ -1673,6 +1696,27 @@ MonoBehaviour:
   accuracy: 5
   reloadTimer: 0
   fireOrders: 1
+--- !u!114 &582874220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582874213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  targetLoc: {fileID: 0}
+  movementSpeed: 0
+  accelerates: 0
+  movementRotation: 0.4
+  orders: 0
+  acceptableTargetDeviation: 1
+  targeting: 1
 --- !u!1 &601156538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,6 +1731,7 @@ GameObject:
   - component: {fileID: 601156539}
   - component: {fileID: 601156543}
   - component: {fileID: 601156544}
+  - component: {fileID: 601156545}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Subunit
@@ -1815,6 +1860,27 @@ MonoBehaviour:
   accuracy: 1
   reloadTimer: 0
   fireOrders: 1
+--- !u!114 &601156545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601156538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  targetLoc: {fileID: 0}
+  movementSpeed: 0
+  accelerates: 0
+  movementRotation: 1
+  orders: 0
+  acceptableTargetDeviation: 1
+  targeting: 1
 --- !u!1 &760745090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2015,6 +2081,7 @@ GameObject:
   - component: {fileID: 1729886674}
   - component: {fileID: 1729886678}
   - component: {fileID: 1729886679}
+  - component: {fileID: 1729886680}
   m_Layer: 0
   m_Name: Marine
   m_TagString: Subunit
@@ -2143,6 +2210,27 @@ MonoBehaviour:
   accuracy: 5
   reloadTimer: 0
   fireOrders: 1
+--- !u!114 &1729886680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729886673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {x: 0, y: 0, z: 0}
+  target: {fileID: 0}
+  targetLoc: {fileID: 0}
+  movementSpeed: 1
+  accelerates: 0
+  movementRotation: 0.5
+  orders: 0
+  acceptableTargetDeviation: 1
+  targeting: 1
 --- !u!1 &1832250419
 GameObject:
   m_ObjectHideFlags: 0
