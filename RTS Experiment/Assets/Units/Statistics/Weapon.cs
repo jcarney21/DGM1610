@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     public int maxAmmo;
     public int reloadTime;
     public float accuracy;
+    public float localelevation;
 
     public float reloadTimer;
 
@@ -50,7 +51,7 @@ public class Weapon : MonoBehaviour
         
         if(durationTimer > firingFrequency && fireTimer > rateOfFire && fireOrders && ammo > 0)
         {
-            Instantiate(projectile, transform.position, transform.rotation * Quaternion.Euler(Random.Range(0 - accuracy, 0 + accuracy), Random.Range(0 - accuracy, 0 + accuracy), 0));
+            Instantiate(projectile, transform.position, transform.rotation * Quaternion.Euler(Random.Range(0 - accuracy, 0 + accuracy) - localelevation, Random.Range(0 - accuracy, 0 + accuracy), 0));
             fireTimer = 0;
             ammo -= 1;
 
@@ -89,6 +90,11 @@ public class Weapon : MonoBehaviour
         fireOrders = fire;
 
 
+
+    }
+    public void RangeFinder (float elevation)
+    {
+        localelevation = elevation;
 
     }
 }

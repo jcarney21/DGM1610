@@ -36,6 +36,7 @@ public class Projectile : MonoBehaviour
     public float velocity;
     public float arcVelocity;
     public float acceleration;
+    public float gravity;
 
     Rigidbody rb;
 
@@ -73,6 +74,12 @@ public class Projectile : MonoBehaviour
         {
             rb.AddForce(transform.forward * acceleration);
 
+
+        }
+
+        if (gravity != 0)
+        {
+            rb.AddForce(transform.up * -1 * gravity);
 
         }
         

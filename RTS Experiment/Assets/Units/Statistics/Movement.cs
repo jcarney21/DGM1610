@@ -15,6 +15,12 @@ public class Movement : MonoBehaviour
 
     public float acceptableTargetDeviation;
 
+    public bool arcWeapon;
+    public float bulletDrop;
+    public float projVelocity;
+    public float elevation;
+    public float firingHeight;
+
 
     private bool moving;
     public bool targeting;
@@ -33,7 +39,8 @@ public class Movement : MonoBehaviour
         if (!target)
         {
             target = null;
-
+            var fire = false;
+            gameObject.GetComponent<Weapon>().OrdersToFire(fire);
 
         }
 
@@ -49,6 +56,32 @@ public class Movement : MonoBehaviour
                 transform.Translate (Vector3.forward * movementSpeed * Time.deltaTime);
 
 
+            }
+            
+
+
+        }
+
+        if (target && arcWeapon)
+        {
+            targetLoc = target.transform;
+            var rangefinder = Vector3.Distance(targetLoc.position, transform.position);
+            var hitTime = rangefinder / projVelocity;
+            var fallTime = firingHeight / bulletDrop;
+            print(rangefinder);
+
+            if (hitTime >= fallTime)
+            {
+                
+                elevation =  Mathf.Asin((bulletDrop * rangefinder) / (projVelocity * projVelocity)) * 1/2 * Mathf.Rad2Deg;
+                gameObject.GetComponent<Weapon>().RangeFinder(elevation);
+                if (float.IsNaN(elevation))
+                {
+                    
+                    var fire = false;
+                    gameObject.GetComponent<Weapon>().OrdersToFire(fire);
+                    print("out of range");
+                }
             }
             
 
