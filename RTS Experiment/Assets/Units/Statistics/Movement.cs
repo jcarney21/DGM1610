@@ -36,6 +36,8 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (!target)
         {
             target = null;
@@ -64,7 +66,10 @@ public class Movement : MonoBehaviour
 
         if (target && arcWeapon)
         {
+            //var targetParent = target.transform.parent.gameObject;
             targetLoc = target.transform;
+            
+            projVelocity = gameObject.GetComponent<Weapon>().velocityms;
             var rangefinder = Vector3.Distance(targetLoc.position, transform.position);
             var hitTime = rangefinder / projVelocity;
             var fallTime = firingHeight / bulletDrop;

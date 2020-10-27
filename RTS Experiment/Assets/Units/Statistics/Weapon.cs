@@ -23,6 +23,11 @@ public class Weapon : MonoBehaviour
 
     public bool fireOrders;
 
+    public float velocityms;
+
+    public float pMass;
+    public float velocity;
+
     //public float clearance;
 
     // Start is called before the first frame update
@@ -38,6 +43,7 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        velocityms = Mathf.Sqrt(velocity * 2 / pMass);
 
         //Determines when the unit's fire cycle starts
         if (fireOrders)

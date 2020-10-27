@@ -427,6 +427,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &149740749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,6 +779,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &248372255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1028,6 +1034,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &582874220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,6 +1207,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &601156545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,6 +1354,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &1021227906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,6 +1527,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &1255265972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1682,6 +1700,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &1275288240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1852,6 +1873,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &1560671407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2189,6 +2213,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &1708445629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2429,6 +2456,9 @@ MonoBehaviour:
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 0
+  velocity: 0
 --- !u!114 &1729886680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2615,7 +2645,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849840286}
   m_LocalRotation: {x: -0, y: -0.9970041, z: -0, w: 0.077348836}
-  m_LocalPosition: {x: 0.01, y: -0.1, z: 3.01}
+  m_LocalPosition: {x: 0.03, y: -0.1, z: 3.13}
   m_LocalScale: {x: 1, y: 0.002717201, z: 1}
   m_Children:
   - {fileID: 1275288244}
@@ -2669,8 +2699,8 @@ MonoBehaviour:
   orders: 0
   acceptableTargetDeviation: 1
   arcWeapon: 1
-  bulletDrop: 2
-  projVelocity: 100
+  bulletDrop: 3
+  projVelocity: 0
   elevation: 0
   firingHeight: 0
   targeting: 1
@@ -2696,10 +2726,13 @@ MonoBehaviour:
   ammo: 15
   maxAmmo: 15
   reloadTime: 3
-  accuracy: 0
+  accuracy: 3
   localelevation: 0
   reloadTimer: 0
   fireOrders: 1
+  velocityms: 0
+  pMass: 1
+  velocity: 50
 --- !u!114 &2025322580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,7 +2823,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025322577}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.042, y: 13.984981, z: 0.137}
+  m_LocalPosition: {x: 0.339, y: 13.984981, z: 0.22}
   m_LocalScale: {x: 0.0843052, y: 31.026487, z: 0.0843052}
   m_Children: []
   m_Father: {fileID: 1635536620}

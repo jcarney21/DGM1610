@@ -112,10 +112,10 @@ MonoBehaviour:
   splashRadius: 1.8
   splashDamage: 5
   splashShields: 0
-  velocity: 100
+  velocity: 50
   arcVelocity: 0
   acceleration: 0
-  gravity: 2
+  gravity: 3
   spawnTime: 10
   clearance: 0
 --- !u!54 &1865348867239052942

@@ -38,6 +38,9 @@ public class Projectile : MonoBehaviour
     public float acceleration;
     public float gravity;
 
+    //public float velocityms;
+    
+
     Rigidbody rb;
 
     public float spawnTime;
@@ -59,6 +62,8 @@ public class Projectile : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * velocity);
         rb.AddForce(transform.up * arcVelocity);
+
+        
     }
 
     // Update is called once per frame
@@ -79,7 +84,7 @@ public class Projectile : MonoBehaviour
 
         if (gravity != 0)
         {
-            rb.AddForce(transform.up * -1 * gravity);
+            rb.AddForce(transform.up * -1 * (gravity * Time.fixedDeltaTime));
 
         }
         
