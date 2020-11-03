@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
 
         }
 
-        if (moving)
+        /*if (moving)
         {
             if (accelerates)
             {
@@ -62,7 +62,7 @@ public class Movement : MonoBehaviour
             
 
 
-        }
+        }*/
 
         if (target && arcWeapon)
         {
@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
             if (hitTime >= fallTime)
             {
                 
-                elevation =  Mathf.Asin((bulletDrop * rangefinder) / (projVelocity * projVelocity)) * 1/2 * Mathf.Rad2Deg;
+                elevation =  Mathf.Asin((bulletDrop * rangefinder) / (projVelocity * projVelocity)) * Mathf.Rad2Deg;
                 gameObject.GetComponent<Weapon>().RangeFinder(elevation);
                 if (float.IsNaN(elevation))
                 {

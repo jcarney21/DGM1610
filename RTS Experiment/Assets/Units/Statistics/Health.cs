@@ -84,8 +84,16 @@ public class Health : MonoBehaviour
         }
 
         //Actual Damage-dealing
+        float overdamage = 0;
+
         if (shields > 0)
         {
+            if (shields < shieldDamage && shields > 0)
+            {
+                overdamage = shieldDamage - shields;
+
+            }
+
             if ((shieldDamage + shieldMod) -shieldArmor > 0)
             {
                 shields -= ((shieldDamage + shieldMod) - shieldArmor);
@@ -112,7 +120,7 @@ public class Health : MonoBehaviour
         {
             if ((damage + damageMod) - armor > 0)
             {
-                health -= ((damage + damageMod) - armor);
+                health -= ((damage + damageMod) - armor + overdamage);
 
 
 
