@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public Vector3 waypoint;
+    //public Vector3 waypoint;
     public GameObject target;
     public Transform targetLoc;
 
-    public float movementSpeed;
-    public bool accelerates;
+    //public float movementSpeed;
+    //public bool accelerates;
     public float movementRotation;
     public int orders;
 

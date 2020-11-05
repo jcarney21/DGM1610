@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 136974690}
   - component: {fileID: 136974689}
   - component: {fileID: 136974694}
+  - component: {fileID: 136974695}
   m_Layer: 0
   m_Name: Unit Controller
   m_TagString: Untagged
@@ -241,7 +242,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136974688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.23, y: -0.1, z: -1.0292999}
+  m_LocalPosition: {x: -2.33, y: -0.1, z: -1.837}
   m_LocalScale: {x: 1, y: 0.002717201, z: 1}
   m_Children:
   - {fileID: 248372252}
@@ -283,6 +284,23 @@ MonoBehaviour:
   hostileSoldier4: {fileID: 0}
   hostileSoldier5: {fileID: 0}
   hostileSoldier6: {fileID: 0}
+--- !u!114 &136974695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136974688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e77ab0fa725a4fa859a577549fd37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoint: {x: 15, y: 0, z: 0}
+  waypointStandin: {fileID: 712687499}
+  movement: 2
+  accelerates: 0
+  acceleration: 0
 --- !u!1 &149740742
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,11 +460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 1
   orders: 0
   acceptableTargetDeviation: 1
@@ -794,11 +809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 0.1
   orders: 0
   acceptableTargetDeviation: 1
@@ -1049,11 +1061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 0.4
   orders: 0
   acceptableTargetDeviation: 1
@@ -1222,11 +1231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 1
   orders: 0
   acceptableTargetDeviation: 1
@@ -1236,6 +1242,36 @@ MonoBehaviour:
   elevation: 0
   firingHeight: 0
   targeting: 1
+--- !u!1 &712687499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712687500}
+  m_Layer: 0
+  m_Name: Waypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712687500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712687499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.127, y: -0.1, z: 1.712}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915945720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,11 +1350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 1
   orders: 0
   acceptableTargetDeviation: 1
@@ -1487,11 +1520,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 0.4
   orders: 0
   acceptableTargetDeviation: 1
@@ -1660,11 +1690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 0.1
   orders: 0
   acceptableTargetDeviation: 1
@@ -1833,11 +1860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 1
   orders: 0
   acceptableTargetDeviation: 1
@@ -2173,11 +2197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 1
-  accelerates: 0
   movementRotation: 0.5
   orders: 0
   acceptableTargetDeviation: 1
@@ -2471,11 +2492,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 1
-  accelerates: 0
   movementRotation: 0.5
   orders: 0
   acceptableTargetDeviation: 1
@@ -2690,11 +2708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54bc5dc878d847441bed1b2abfa89361, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
   targetLoc: {fileID: 0}
-  movementSpeed: 0
-  accelerates: 0
   movementRotation: 0.1
   orders: 0
   acceptableTargetDeviation: 1
